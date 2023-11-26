@@ -1,0 +1,1213 @@
+(FILECREATED "25-MAR-76 02:17:51" <LENAT>UTIL6.;29 30949  
+
+     changes to:  FORGOT-ANY LISTF
+
+     previous date: " 5-MAR-76 19:47:38" <LENAT>UTIL6.;28)
+
+
+  (LISPXPRINT (QUOTE UTIL6COMS)
+	      T T)
+  [RPAQQ UTIL6COMS
+	 ((FNS ACCEPT-B AM-BT ARGS-OF CARC CHANGE-B CHK-SPARE CLEAN-ALL CLEAN-D-R CLEAN1 CLEAN1ALL CONDENSEB DEFP ED-1F 
+	       ED-1P ED-1V ED-ALL ED-ALLF ED-ALLP ED-ALLV FIXCPS FIXPRIN FIXPRIN1 FORGOT-ANY GET-SWORD GLOB ILEX 
+	       INIT-MAC INIT2 KILL-USED KILLB LISTF LISTFILES1 MAKE-ATOMS MAKE-FUNC MAKE1 MAKE1ATOM MAKE1PUNC MAPB MAPP 
+	       MCON MFIX MTOP NEW-VERSION NFACET NFUN NVERSION ONLY-CON PCANDS RESET1 RESET2 RESET3 RESET3B RESET4 
+	       RESTORE-EXPR SAVE SELF-ATOMS SHOWP SIN5 SUPERTRACE SWORD TRANFUN UNARY UPCASE)
+	  BB FIXCOMS FIXEDCONS GLO1 MAXLEVEL NOSWAPF PRIVBS PUNC1 REPR-FNS SAVECOMS SPARE-FNS STICKY-B STICKY-P 
+	  SYS-FORGET-LIST UCASELST VERSION (USERMACROS C COPY)
+	  (P (INIT-MAC)
+	     (SETQ FIXEDCONS NIL)
+	     (SETQ FIXVARS NIL)
+	     (SETQ FIXFNS NIL)
+	     [ADVISE (QUOTE EDITV)
+		     (QUOTE (SETQ FIXVARS (UNION EDITVX FIXVARS]
+	     [ADVISE (QUOTE EDITF)
+		     (QUOTE (SETQ FIXFNS (UNION EDITFX FIXFNS]
+	     [ADVISE (QUOTE DEFINEQ)
+		     (QUOTE (SETQ FIXFNS (UNION (LIST (CAAR X))
+						FIXFNS]
+	     (SETQ GLOBALVARS (NCONC GLOBALVARS GLO1)))
+	  (DECLARE: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS (ADDVARS (NLAMA)
+										(NLAML MTOP MAPP MAPB]
+(DEFINEQ
+
+(ACCEPT-B
+  [LAMBDA (B SIM)
+    (CREATEB B T)
+    (TERPRI)
+    [COND
+      ((FMEMB SIM CONCEPTS))
+      ((PRIN1 "NAME OF SIMILAR BEING... ")
+	(SETQ SIM (RATOM]
+    (TERPRI)
+    (SET B (COPY (GETTOPVAL SIM)))
+    (SETPROPLIST B (COPY (GETPROPLIST SIM)))
+    (ERRORSET (LIST (QUOTE EDITV)
+		    B
+		    (LIST (QUOTE RC)
+			  SIM B)))
+    (ERRORSET (LIST (QUOTE EDITV)
+		    B))
+    (ERRORSET (LIST (QUOTE EDITP)
+		    B
+		    (LIST (QUOTE RC)
+			  SIM B)))
+    (ERRORSET (LIST (QUOTE EDITP)
+		    B))
+    (DEFB B)
+    (PRIN1 "THE NUMBER OF CONCEPTS IS NOW ")
+    (PRINT (LENGTH CONCEPTS))
+    B])
+
+(AM-BT
+  [LAMBDA (V1)
+    (MAPDL (FUNCTION (LAMBDA (DX)
+	       (COND
+		 ((OR (FMEMB DX (CAR TOP6COMS))
+		      (FMEMB DX (CAR UTIL6COMS))
+		      (FMEMB DX CONCEPTS))
+		   (PRIN1 DX)
+		   (COND
+		     ((SETQ V1 (VARIABLES MAPDLPOS))
+		       (TERPRI)
+		       (PRIN1 "   ")
+		       (PRINT V1)
+		       (PRIN1 "   ")
+		       (PRINT (STKARGS MAPDLPOS)))
+		     ((PRIN1 "  ---NO ARGS")
+		       (TERPRI])
+
+(ARGS-OF
+  [LAMBDA (F L)
+    (COND
+      ((NLISTP L)
+	NIL)
+      ((EQ (CAR L)
+	   F)
+	(APPEND (CDR L)))
+      (T (MAPCONC L (FUNCTION (LAMBDA (L1)
+		      (ARGS-OF F L1])
+
+(CARC
+  [LAMBDA (V)
+    [MAPC (COND
+	    ((LISTP V)
+	      (PROG1 V (SETQ V NIL)))
+	    (T CANDS))
+	  (FUNCTION (LAMBDA (X)
+	      (COND
+		(V (PRIN1 (CADR X))
+		   (PRIN1 SPACE)))
+	      (PRINT (CAR X]
+    (LENGTH CANDS])
+
+(CHANGE-B
+  [LAMBDA (B P CP)
+    [COND
+      ((OR (FMEMB B FACETS)
+	   (FMEMB B AUX-FACETS))
+	(SETQ P B)
+	(PRINT (SETQ B STICKY-B)))
+      [(GETHASH B HCON)
+	(OR (FMEMB P FACETS)
+	    (FMEMB P AUX-FACETS)
+	    (PRINT (SETQ P STICKY-P]
+      (B (TERPRI)
+	 (PRIN1 "***** CANT UNDERSTAND THIS *****")
+	 (HELP))
+      (T (PRINT (SETQ B STICKY-B))
+	 (PRINT (SETQ P STICKY-P]
+    (SETQ STICKY-B B)
+    (SETQ STICKY-P P)
+    (OR (GETB B P)
+	(PUT B P))                                                              (* Notice the use of "PUT" in this fn)
+    (COND
+      ((ERRORSET (LIST (QUOTE EDITP)
+		       B
+		       (QUOTE F)
+		       P
+		       (QUOTE P)
+		       (QUOTE TTY:)))
+	(DEFB B)
+	(TERPRI)
+	(PRIN1 B)
+	(PRIN1 COMMA)
+	(PRINT P)
+	(CPRIN1 0 CRLF (LENGTH (SETQ FIXEDCONS (UNION (LIST B)
+						      FIXEDCONS)))
+		" fixed con's" DCR))
+      (T (CPRIN1 0 CRLF " Aborting safely" DCR)
+	 (LIST B P])
+
+(CHK-SPARE
+  [LAMBDA NIL
+    (MAPC SPARE-FNS (QUOTE BREAK])
+
+(CLEAN-ALL
+  [LAMBDA NIL
+    (MAPC CONCEPTS (QUOTE CLEAN1ALL])
+
+(CLEAN-D-R
+  [LAMBDA (M)
+    (MAPC (EXS ACTIVE)
+	  (FUNCTION (LAMBDA (A)
+	      (COND
+		((IS-CON A)
+		  [MAPC [ALL-BUT-LAST (ANY1OFE (GETB A (QUOTE D-R]
+			(FUNCTION (LAMBDA (D)
+			    (AND (INCRB D (QUOTE IN-DOM-OF)
+					A)
+				 M
+				 (CPRIN1S 0 A into dom
+				    of D DCR]
+		  (AND (INCRB [LASTELE (ANY1OFE (GETB A (QUOTE D-R]
+			      (QUOTE IN-RAN-OF)
+			      A)
+		       M
+		       (CPRIN1S 0 A into ran
+			  of [LASTELE (ANY1OFE (GETB A (QUOTE D-R]
+			     DCR)))
+		(M (CPRIN1S 0 WARNING: NOT KNOWN BEING: A DCR])
+
+(CLEAN1
+  [LAMBDA (B P1 P2)
+    (MAPC (GETB B P1)
+	  (FUNCTION (LAMBDA (Z)
+	      (AND (IS-CON Z)
+		   (INCRB Z P2 B])
+
+(CLEAN1ALL
+  [LAMBDA (B)
+    (CLEAN1 B (QUOTE EXS)
+	    (QUOTE UP))
+    (CLEAN1 B (QUOTE UP)
+	    (QUOTE EXS))
+    (CLEAN1 B (QUOTE GENL)
+	    (QUOTE SPEC))
+    (CLEAN1 B (QUOTE SPEC)
+	    (QUOTE GENL])
+
+(CONDENSEB
+  [LAMBDA (CONFILE)
+    (SETQ DFNFLG NIL)
+    (MAPC NEW-PARTS (QUOTE RESTORE-EXPR))
+    (SETQ VERSION (ADD1 VERSION))
+    (SETQ CONFILE (PACK (LIST (QUOTE CON)
+			      VERSION)))
+    (SET (PACK (LIST CONFILE (QUOTE COMS)))
+	 (CONS (CONS (QUOTE FNS)
+		     NEW-PARTS)
+	       NEW-CONCEPTS))
+    (MAKEFILE CONFILE (QUOTE C))
+    (NCONC (DREMOVE (QUOTE DUMMY)
+		    NEW-CONCEPTS)
+	   CONCEPTS)
+    (SETQ NEW-CONCEPTS (LIST (QUOTE DUMMY)))
+    (SETQ NEW-PARTS NIL)
+    (SETQ NEW-C-PARTS NIL])
+
+(DEFP
+  [LAMBDA (F)
+    (PUTD F (LIST (QUOTE NLAMBDA)
+		  (CONS (QUOTE B)
+			(AND (FMEMB F XEQ-PARTS)
+			     (GETARGS F)))
+		  (COND
+		    [(FMEMB F SUF-PARTS)
+		      (PUT F (QUOTE INFO)
+			   (QUOTE EVAL))
+		      (CONS (QUOTE PSUF)
+			    (CONS (KWOTE F)
+				  (CONS (QUOTE B)
+					(GETARGS F]
+		    [(FMEMB F OR-PARTS)
+		      (CONS (QUOTE POR)
+			    (CONS (KWOTE F)
+				  (CONS (QUOTE B)
+					(GETARGS F]
+		    [(FMEMB F XEQ-PARTS)
+		      (PUT F (QUOTE INFO)
+			   (QUOTE EVAL))
+		      (CONS (QUOTE PXEQ)
+			    (CONS (KWOTE F)
+				  (CONS (QUOTE B)
+					(GETARGS F]
+		    (T (LIST (QUOTE PGET)
+			     (KWOTE F)
+			     (QUOTE B])
+
+(ED-1F
+  [LAMBDA (F1)
+    (AND (ERRORSET (CONS (QUOTE EDITF)
+			 (CONS F1 ECMS)))
+	 (PRIN1 F1)
+	 (PRIN1 "  "])
+
+(ED-1P
+  [LAMBDA (P1)
+    (AND (CDR P1)
+	 (ERRORSET (CONS (QUOTE EDITP)
+			 (CONS P1 ECMS)))
+	 (PRIN1 P1)
+	 (PRIN1 "  "])
+
+(ED-1V
+  [LAMBDA (V1)
+    (AND (LITATOM V1)
+	 (OR (NEQ (QUOTE NOBIND)
+		  (GETTOPVAL V1))
+	     (CPRIN1 2 " WARNING: THE VARIABLE " V1 " IS UNBOUND. " CRLF))
+	 (LISTP (GETTOPVAL V1))
+	 (ERRORSET (CONS (QUOTE EDITV)
+			 (CONS V1 ECMS)))
+	 (PRIN1 V1)
+	 (PRIN1 "  "])
+
+(ED-ALL
+  [LAMBDA (EECMS)
+    (SETQ ECMS EECMS)
+    (ED-ALLF)
+    (ED-ALLV)
+    (ED-ALLP])
+
+(ED-ALLF
+  [LAMBDA NIL
+    (MAPC (CDAR TOP6COMS)
+	  (QUOTE ED-1F))
+    (MAPC FACETS (QUOTE ED-1F))
+    (MAPC (CDADR TOP6COMS)
+	  (QUOTE ED-1F))
+    (MAPC (CDAR UTIL6COMS)
+	  (QUOTE ED-1F])
+
+(ED-ALLP
+  [LAMBDA NIL
+    (MAPC CONCEPTS (QUOTE ED-1P])
+
+(ED-ALLV
+  [LAMBDA NIL
+    (MAPC TOP6COMS (QUOTE ED-1V))
+    (MAPC CON6COMS (QUOTE ED-1V))
+    (MAPC UTIL6COMS (QUOTE ED-1V))
+    (MAPC CONCEPTS (QUOTE ED-1V))
+    (MAPC FACETS (QUOTE ED-1V])
+
+(FIXCPS
+  [LAMBDA (L)
+    (COND
+      ((NOT (STRINGP L))
+	(LIST L))
+      (T (MAKE-ATOMS L])
+
+(FIXPRIN
+  [LAMBDA (F)
+    (PUTD F (MAPCAR (GETD F)
+		    (QUOTE FIXPRIN1)))
+    (APPLY* (QUOTE EDITF)
+	    F
+	    (QUOTE OK])
+
+(FIXPRIN1
+  [LAMBDA (L)
+    (COND
+      ((NLISTP L)
+	L)
+      ((SELECTQ (CAR L)
+		[CPRIN1 (CONS (QUOTE CPRIN1S)
+			      (REMOVE (QUOTE SPACE)
+				      (MAPCONC (APPEND (CDR L))
+					       (QUOTE FIXCPS]
+		[CPRIN1S (CONS (QUOTE CPRIN1S)
+			       (MAPCONC (APPEND (CDR L))
+					(QUOTE FIXCPS]
+		(MAPCAR L (QUOTE FIXPRIN1])
+
+(FORGOT-ANY
+  [LAMBDA (FF)
+    (TERPRI)
+    (COND
+      ((EQ (QUOTE NOBIND)
+	   (GETTOPVAL (QUOTE SPARECOMS)))
+	(SETQ SPARECOMS NIL)))
+    (PRIN1 "MAYBE YOU FORGOT SOME OF THESE: ")
+    [MAPATOMS (FUNCTION (LAMBDA (X)
+		  (AND (EXPRP X)
+		       (NOT (MEMB X (CAR TACOMS)))
+		       (NOT (MEMB X (CAR TBCOMS)))
+		       (NOT (MEMB X (CDADR TBCOMS)))
+		       (NOT (MEMB X (CAR UTIL6COMS)))
+		       (NOT (MEMB X (CAR SPARECOMS)))
+		       (NOT (MEMB X CONCEPTS))
+		       (NOT (MEMB X SYS-FORGET-LIST))
+		       (NOT (MEMB X FACETS))
+		       [NOT (MATCH (UNPACK X) WITH (X1←--@[LAMBDA (Z)
+						       (GETHASH Z HCON]
+						     '- X2←--@(LAMBDA (Z)
+						       (MEMB Z FACETS]
+		       (NOT (MATCH (UNPACK X) WITH (-- '- 'E '- --)))
+		       (NOT (MATCH (UNPACK X) WITH (-- 'B &@NUMBERP &@NUMBERP &@NUMBERP &@NUMBERP)))
+		       (PRIN1 X)
+		       (PRIN1 (QUOTE % % ))
+		       (SETQ FF T]
+    (COND
+      (FF (TERPRI)
+	  (PRINT (QUOTE THINK!!!)))
+      (T (PRIN1 "  NEVER MIND. ")))
+    (TERPRI)
+    FF])
+
+(GET-SWORD
+  [LAMBDA (F SW)
+    [COND
+      ([SETQ SW (SUBSET (SELF-INT (ARGS-OF (QUOTE CPRIN1S)
+					   (GETD F)))
+			(FUNCTION (LAMBDA (Z)
+			    (AND (ATOM Z)
+				 (NOT (NUMBERP Z))
+				 (NEQ (GETTOPVAL Z)
+				      Z)
+				 (NOT (FMEMB Z GLOBALVARS))
+				 (NOT (MEMB Z (CADR (GETD F]
+	(CPRIN1 0 CRLF "The potential new Swords: " CRLF TAB SW CRLF CRLF OK QUES SPACE)
+	(COND
+	  ((FMEMB (RATOM)
+		  (QUOTE (N n no NO)))
+	    (CPRIN1 0 "Eliminate: ")
+	    (SETQ SW (DSET-DIFF SW (READ]
+    (COND
+      (SW (SWORD SW])
+
+(GLOB
+  [LAMBDA (GV NGV1)
+    [COND
+      ((AND GV (NLISTP GV))
+	(SETQ GV (LIST GV]
+    (SETQ NGV1 (SELF-INT (DSET-DIFF (APPEND GV)
+				    GLOBALVARS)))
+    (CPRIN1 10 " Just added " (LENGTH NGV1)
+	    " new gvars. ")
+    (CPRIN1 39 CRLF TAB NGV1 CRLF)
+    (MERGE (SORT (APPEND NGV1))
+	   GLOBALVARS)
+    (CPRIN1 0 " Now " (LENGTH GLOBALVARS)
+	    " global vars. ")
+    NGV1])
+
+(ILEX
+  [LAMBDA NIL                                                                   (* Initialize the exs part of 
+										List-struc)
+    (SETB (QUOTE LIST-STRUC)
+	  (QUOTE EXS)
+	  (RAND-PERMUTE (NCONC1 [NCONC [MAPCONC (LIST (QUOTE A)
+						      (QUOTE B))
+						(FUNCTION (LAMBDA (L1)
+						    (NCONC1 [MAPCONC (LIST (QUOTE A)
+									   (QUOTE B))
+								     (FUNCTION (LAMBDA (L2)
+									 (LIST (LIST (QUOTE VECTOR)
+										     L1 L2)
+									       (LIST (QUOTE VECTOR)
+										     L1 L2 L1]
+							    (LIST (QUOTE VECTOR)
+								  L1]
+				       (FOR I FROM 4 TO 20 COLLECT (CONS (QUOTE VECTOR)
+									 (FOR J FROM 1 TO I COLLECT (RAND-MEMB LEXL]
+				(VECTOR A C B])
+
+(INIT-MAC
+  [LAMBDA NIL
+
+          (* We must sometime go over the other files and MACRO-ize all possible inner functions.
+	  See, e.g., the latest version of INIT-C. Never forget that changing a macro'ed function means we 
+	  must also change he macro version here, since when we "use" it, it will be self-compiled)
+
+
+    (SETQ NOSWAPFNS (APPEND NOSWAPFNS REPR-FNS))                                (* When GETP goes away, do 
+										(R GETP GETPROPLIST), and also add the 
+										macro (GETP ((X Y) (GETPROPLIST X Y))))
+    (DEFLIST [QUOTE ((FGETB ((B P)
+			     (GETP B P)))
+		     (GETB ((X Y)
+			    (GETP X Y)))
+		     (INIT-PART ((X Y)
+				 (GETP X Y)))
+		     [SETB (X (COND
+				[(AND (ISQ (CADR X))
+				      (FMEMB (CADADR X)
+					     XEQ-PARTS))
+				  (COND
+				    [(ISQ (CAR X))
+				      (LIST (QUOTE PROGN)
+					    [LIST (QUOTE PUTD)
+						  [KWOTE (SETQ ZZBP (GLUEE (CADAR X)
+									   (CADADR X]
+						  (LIST (QUOTE LIST)
+							(LIST (QUOTE QUOTE)
+							      (QUOTE LAMBDA))
+							(LIST (QUOTE QUOTE)
+							      (GETARGS (CADADR X)))
+							(LIST (QUOTE LIST)
+							      (LIST (QUOTE QUOTE)
+								    (QUOTE SELF-COMPILE))
+							      (KWOTE ZZBP)
+							      (LIST (QUOTE CONS)
+								    (KWOTE (GETFNAME (CADADR X)))
+								    (CADDR X]
+					    [LIST (QUOTE OR)
+						  (LIST (QUOTE GETB)
+							(CAR X)
+							(CADR X))
+						  (LIST (QUOTE ATTACH)
+							[KWOTE (LIST (CADADR X)
+								     (CONS ZZBP (GETARGS (CADADR X]
+							(LIST (QUOTE BPFS)
+							      (CAR X]
+					    (LIST (QUOTE PUT)
+						  (CAR X)
+						  (CADR X)
+						  (CADDR X]
+				    (T (LIST (QUOTE PROGN)
+					     [LIST (QUOTE PUTD)
+						   (LIST (QUOTE SETQ)
+							 (QUOTE ZZBP)
+							 (LIST (QUOTE GLUEE)
+							       (CAR X)
+							       (CADR X)))
+						   (LIST (QUOTE LIST)
+							 (LIST (QUOTE QUOTE)
+							       (QUOTE LAMBDA))
+							 (LIST (QUOTE QUOTE)
+							       (GETARGS (CADADR X)))
+							 (LIST (QUOTE LIST)
+							       (LIST (QUOTE QUOTE)
+								     (QUOTE SELF-COMPILE))
+							       (QUOTE ZZBP)
+							       (LIST (QUOTE CONS)
+								     (KWOTE (GETFNAME (CADADR X)))
+								     (CADDR X]
+					     [LIST (QUOTE OR)
+						   (LIST (QUOTE GETB)
+							 (CAR X)
+							 (CADR X))
+						   (LIST (QUOTE ATTACH)
+							 [LIST (QUOTE LIST)
+							       (CADR X)
+							       (LIST (QUOTE CONS)
+								     (QUOTE ZZBP)
+								     (KWOTE (GETARGS (CADADR X]
+							 (LIST (QUOTE BPFS)
+							       (CAR X]
+					     (LIST (QUOTE PUT)
+						   (CAR X)
+						   (CADR X)
+						   (CADDR X]
+				((ISQ (CADR X))
+				  (CONS (QUOTE PUT)
+					X))
+				(T (CONS (QUOTE SLOW-SETB)
+					 X]
+		     (ACCESS ((X)
+			      X))
+		     [GETBQ ((B P)
+			     (GETB (QUOTE B)
+				   (QUOTE P]
+		     (SETBQ ((B P Q)
+			     (SETB (QUOTE B)
+				   (QUOTE P)
+				   Q)))
+		     [APPLYB (X (COND
+				  ((AND (LISTP (CAR X))
+					(EQ (CAAR X)
+					    (QUOTE QUOTE)))
+				    (CONS (CADAR X)
+					  (CDR X)))
+				  (T (CONS (QUOTE APPLY*)
+					   X]
+		     (CSINT ((X)
+			     (CADAR X)))
+		     (CSOTHERS ((X)
+				(CDR X)))
+		     (CSBEST ((X)
+			      (CAR X)))
+		     (CINT ((X)
+			    (CADR X)))
+		     (RPLACINT ((X Y)
+				(RPLACA (CDR X)
+					Y)))
+		     (PINT ((X)
+			    (CADR X)))
+		     (P-OP ((X)
+			    (CAAR X)))
+		     (P-B ((X)
+			   (CADAR X)))
+		     (P-P ((X)
+			   (CADDAR X)))
+		     (PARG ((X)
+			    (CDDDAR X)))
+		     (P-V ((X)
+			   (CADDDR X)))
+		     (PWHY ((X)
+			    (CADDR X)))
+		     (COP ((X)
+			   (CAAR X)))
+		     (CWHY ((X)
+			    (CADDR X)))
+		     (MAKE-CAND (X (CONS (QUOTE LIST)
+					 X)))
+		     (CB ((X)
+			  (CADAR X)))
+		     (CP ((X)
+			  (CADDAR X)))
+		     (CARG ((X)
+			    (CDDDAR X)))
+		     (CACT ((X)
+			    (CAR X)))
+		     [BPFS ((X)
+			    (CDDR (CADDR (GETD X]
+		     (IPRED ((X)
+			     (CAR X)))
+		     (IDEF ((X)
+			    (CADR X)))
+		     (IVAL ((X)
+			    (CADDR X)))
+		     (IFEATURES ((X)
+				 (CDR X)))
+		     (IMAT ((X)
+			    (CDAR X)))
+		     (IFEA ((X)
+			    (CADR X)))
+		     [INCR ((X)
+			    (SETQ X (ADD1 X]
+		     [TYPE (X (CAR (LAST X]
+		     (ANY1OFE ((X)
+			       (CAR X)))
+		     [LASTELE ((X)
+			       (CAR (FLAST X]
+		     (IS-CON ((X)
+			      (GETHASH X HCON)))
+		     (ANY-OF (X (CONS (QUOTE OR)
+				      X)))
+		     (EACH1OF (X (CONS (QUOTE AND)
+				       X)))
+		     [ANY1OF (X (PROGN                                          (* RAND-MEMB X)
+				       (CAR X]
+		     (ALL-OF (X (CONS (QUOTE APPEND)
+				      X)))
+		     [ISYN ((X)
+			    (CDR (FASSOC X SYN-LIST]
+		     (Q ((X)
+			 (QUOTE (QUOTE X]
+	     (QUOTE MACRO])
+
+(INIT2
+  [LAMBDA NIL
+    (SETQ DFNFLG T)
+    (SETQ LISPXHISTORY)
+    (SETQ EDITHISTORY])
+
+(KILL-USED
+  [LAMBDA (B N1 CV)                                                             (* Here we want to remove the USED part 
+										from each entry of the INT part of B)
+										(* Here we do NOT actually remove the 
+										(USED b1 b2...), but merely those bi 
+										which are on NCONCEPTS)
+    (FOR N1 FROM 1 TO [SUB1 (LENGTH (GETB B (QUOTE INT] DO (COND
+							     ((SETQ CV (I-USED2 N1 B))
+							       (DSET-DIFF CV NCONCEPTS])
+
+(KILLB
+  [LAMBDA (B)
+    [MAPC (GETB B (QUOTE GENL))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE SPEC)
+		     B]
+    [MAPC (GETB B (QUOTE EXS))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE UP)
+		     B]
+    [MAPC (GETB B (QUOTE UP))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE EXS)
+		     B]
+    [MAPC (GETB B (QUOTE SPEC))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE GENL)
+		     B]
+    (PUTD B NIL)
+    (PUTHASH B NIL HCON)
+    (DREMOVE B GINTPREDS)                                                       (* Be sure to remove this if a smarter 
+										"interesting predicate list" scheme is 
+										devised)
+    (DREMOVE B CONCEPTS)
+    (DREMOVE B FIXEDCONS)                                                       (* Really, we should follow up links 
+										like GENL from B, and destroy all 
+										mention of it anywhere)
+    (RPLACD B NIL])
+
+(LISTF
+  [LAMBDA NIL
+    (TENEX "FTP
+SAIL
+LOG AM,DBL MER
+SEND TA≠
+TA
+SEND TB≠
+TB
+SEND CON6≠
+CON6
+SEND UTIL6≠
+UTIL6
+QUIT
+"])
+
+(LISTFILES1
+  [LAMBDA (X)
+    [COND
+      ((NULL X)
+	(TERPRI)
+	(PRIN1 "NO MORE FILES TO LIST JUST NOW ")
+	(TERPRI))
+      ((LISTP X)
+	(SETQ X (CAR X]
+    (TERPRI)
+    (SETQ X (UNPACK X))
+    [AND (EQ (CAR X)
+	     (QUOTE <))
+	 (SETQ X (CDR (FMEMB (QUOTE >)
+			     X]
+    [SETQ X (PACK (LDIFF X (MEMB (QUOTE ;)
+				 X]
+    (TERPRI)
+    (PRIN1 (CONCAT "SHOULD I FTP THE FILE " X " OVER TO SAIL? (Y,N)..."))
+    (COND
+      ((EQ (RATOM)
+	   (QUOTE Y))
+	(TENEX (CONCAT "FTP
+SAIL
+LOG AM,DBL MER
+SEND " X "≠
+" X "
+QUIT
+"])
+
+(MAKE-ATOMS
+  [LAMBDA (S X1)
+    (COND
+      ((NULL S)
+	NIL)
+      ((STREQUAL S "")
+	NIL)
+      ((NOT (SETQ X1 (STRPOSL PUNC1 S)))
+	(MAKE1ATOM S))
+      (T (APPEND (MAKE1ATOM (SUBSTRING S 1 (SUB1 X1)))
+		 (MAKE1PUNC (SUBSTRING S X1 X1))
+		 (MAKE-ATOMS (SUBSTRING S (ADD1 X1)
+					NIL])
+
+(MAKE-FUNC
+  [LAMBDA (B P V NNAM FRE BP)
+    (AND (IS-CON B)
+	 (FMEMB P FACETS)
+	 (OR V (SETQ V 50))
+	 [MAPC (APPEND (SETQ BP (GETB B P)))
+	       (FUNCTION (LAMBDA (E)
+		   (COND
+		     ((ILESSP (COUNT E)
+			      V)
+		       (CPRIN1S -1 CRLF Entry too short COLON E DCR))
+		     (T (CPRIN1S -1 CRLF Working on new entry of size (COUNT E)
+								 DCR Name QUES SPACE)
+			(SETQ NNAM (RATOM))
+			[COND
+			  ((GETD NNAM)
+			    (CPRIN1S -1 CRLF WARNING: NNAM ALREADY EXISTS EXCLAIM DCR Try one final time COLON Name 
+				     COLON SPACE)
+			    (SETQ NNAM (RATOM]
+			[EVAL (LIST (QUOTE DEFINEQ)
+				    (LIST NNAM (LIST (QUOTE LAMBDA)
+						     NIL
+						     (APPEND E]
+			(RPLACA (CDR (GETD NNAM))
+				(SETQ FRE (FREEVARS NNAM)))
+			(DSUBST (CONS NNAM FRE)
+				E BP)
+			(NFUN (LIST NNAM]
+	 (GETB B P])
+
+(MAKE1
+  [LAMBDA (FFLG)
+    (SETQ CONCEPTS (SORT (COPY CONCEPTS)))
+    (WIDEPAPER T)
+    (CPRIN1S -1 CRLF Fixvars: FIXVARS CRLF)
+    (COND
+      (FFLG)
+      ((FORGOT-ANY)
+	(HELP "Forgot some!!")))
+    (PRINT (MAKEFILE (QUOTE TOP6)))
+    (PRINT (MAKEFILE (QUOTE CON6)))
+    (MAKEFILE (QUOTE UTIL6])
+
+(MAKE1ATOM
+  [LAMBDA (S)
+    (COND
+      ((NULL S)
+	(LIST (QUOTE SPACE)))
+      ((STRINGP S)
+	(LIST (MKATOM S)))
+      (T (LIST S])
+
+(MAKE1PUNC
+  [LAMBDA (P)
+    (SELECTQ (MKATOM P)
+	     (%  NIL)
+	     (%. (QUOTE (DOT)))
+	     (? (QUOTE (QUES)))
+	     (+(QUOTE (PLUS)))
+	     (! (QUOTE (EXCLAIM)))
+	     (; (QUOTE (SEMICOLON)))
+	     (:(QUOTE (COLON)))
+	     (%( (QUOTE (LPAREN)))
+	     (%) (QUOTE (RPAREN)))
+	     (, (QUOTE (COMMA)))
+	     (%
+ (QUOTE (CRLF)))
+	     (CPRIN1 -1 "Not a known type of punc--- " P CRLF])
+
+(MAPB
+  [NLAMBDA (F)
+    (MAPC CONCEPTS (LIST (QUOTE LAMBDA)
+			 (LIST (QUOTE B))
+			 F])
+
+(MAPP
+  [NLAMBDA (F)
+    (MAPC FACETS (LIST (QUOTE LAMBDA)
+		       (LIST (QUOTE P))
+		       F])
+
+(MCON
+  [LAMBDA NIL
+    (SETQ CONCEPTS (SORT (COPY CONCEPTS)))
+    (FORGOT-ANY)
+    (WIDEPAPER T)
+    (MAKEFILE (QUOTE CON6)
+	      (QUOTE RC])
+
+(MFIX
+  [LAMBDA NIL
+    (SETQ FIXFNS (SUBSET FIXFNS (QUOTE EXPRP)))
+    (SETQ FIXEDCONS (SUBSET FIXEDCONS (QUOTE IS-CON)))
+    (WIDEPAPER T)
+    (SETQ FIXVARS (SUBSET FIXVARS (QUOTE ATOM)))
+    (MAKEFILE (QUOTE FIX])
+
+(MTOP
+  [NLAMBDA (X)
+    [RPLACA TOP6COMS (CONS (QUOTE FNS)
+			   (MERGE X (CDAR TOP6COMS]
+    (FORGOT-ANY)
+    (WIDEPAPER T)
+    (MAKEFILE (QUOTE TOP6)
+	      (QUOTE RC])
+
+(NEW-VERSION
+  [LAMBDA (NAME VNEW V OLD NEW)
+    [COND
+      (V)
+      ((PROG1 (SETQ V VERSION)
+	      (SETQ VERSION (ADD1 VERSION]
+    (SETQ OLD (PACK (LIST NAME V)))
+    [SETQ NEW (PACK (LIST NAME (OR VNEW (ADD1 V]
+    [NLSETQ (SET (PACK (LIST NEW (QUOTE COMS)))
+		 (EVAL (PACK (LIST OLD (QUOTE COMS]
+    (PRIN1 (CONCAT "OLD: " OLD ", NEW: " NEW ", V:" V ", ECMS: " (QUOTE REPLACEMENT)))
+    (ED-ALL (LIST (QUOTE RC) OLD NEW])
+
+(NFACET
+  [LAMBDA (F XEQ-FLAG SUF-FLAG)
+    [COND
+      ((ATOM F)
+	(SETQ F (LIST F]
+    [MAPC F (FUNCTION (LAMBDA (F1)
+	      [COND
+		(XEQ-FLAG (ATTACH F1 XEQ-PARTS)
+			  (ATTACH F1 XS-PARTS)
+			  (PUT F1 (QUOTE ARGS)
+			       (LIST (QUOTE BA1)
+				     (QUOTE BA2)
+				     (QUOTE BA3)
+				     (QUOTE BA4)))
+			  (PUT F1 (QUOTE FNAM)
+			       (QUOTE ACCESS]
+	      (COND
+		(SUF-FLAG (ATTACH F1 SUF-PARTS)))
+	      (DEFP F1)
+	      (SETQ GTEMP1 (GLUE (QUOTE ANYB)
+				 F1))
+	      (COND
+		((NOT (GETHASH GTEMP1 HCON))
+		  (CREATEB GTEMP1 T)
+		  (SET GTEMP1 GTEMP1)
+		  (SETPROPLIST GTEMP1 (GETPROPLIST F1))
+		  (PUTU GTEMP1 (QUOTE FROM-FILE)
+			(QUOTE CON6))
+		  (SETB GTEMP1 (QUOTE GENL)
+			(LIST (QUOTE ANYB-ANYP]
+    (SETQ FACETS (SORT (UNION F FACETS)))
+    (PRIN1 "  THE NUMBER OF FACETS IS NOW ")
+    (PRINT (LENGTH FACETS])
+
+(NFUN
+  [LAMBDA (FUNC FIL)
+    (SETQ FIXFNS (UNION FUNC FIXFNS))
+    [COND
+      ((NULL FIL)
+	(SETQ FIL (QUOTE TOP6]
+    [SETQ FIL (PACK (LIST FIL (QUOTE COMS]
+    [RPLACA (EVAL FIL)
+	    (CONS (QUOTE FNS)
+		  (SORT (UNION FUNC (CDAR (EVAL FIL]
+    (CPRIN1 0 "Now " (LENGTH (CAR (EVAL FIL)))
+	    " Functions on " FIL CRLF)
+    (CLOCK 2])
+
+(NVERSION
+  [LAMBDA (NV OV)
+    (PRINT (SETQ OV VERSION))
+    (PRINT (SETQ NV (ADD1 VERSION)))
+    (NEW-VERSION (QUOTE UTIL)
+		 NV OV)
+    (NEW-VERSION (QUOTE TOP)
+		 NV OV)
+    (NEW-VERSION (QUOTE CON)
+		 NV NIL])
+
+(ONLY-CON
+  [LAMBDA (B P)
+    (SUBSET (GETB B P)
+	    (QUOTE IS-CON])
+
+(PCANDS
+  [LAMBDA NIL
+    (PRINICE (SETQ CANDS (DREVERSE (SORT CANDS T])
+
+(RESET1
+  [LAMBDA NIL
+    [MAPB (OR (EQ B (QUOTE LIST-STRUC))
+	      (PROGN (REMPROP B (QUOTE EXS))
+		     (REMPROP B (QUOTE EXS-BDY))
+		     (REMPROP B (QUOTE INST]
+    (UNBREAK)
+    (BREAKDOWN)
+    (MAPC CONCEPTS (QUOTE BREAKDOWN))
+    (MAPC (CDAR TOP6COMS)
+	  (QUOTE BREAKDOWN))
+    (CLOCK 2])
+
+(RESET2
+  [LAMBDA NIL
+    (MAPB (OR (EQ B (QUOTE LIST-STRUC))
+	      (PROGN (REMPROP B (QUOTE EXS))
+		     (REMPROP B (QUOTE EXS-BDY])
+
+(RESET3
+  [LAMBDA NIL
+    [SETQ VCONCEPTS (SUBSET CONCEPTS (FUNCTION (LAMBDA (C)
+				(NEQ (GETTOPVAL C)
+				     (QUOTE NOBIND]
+    (SETQ NCONCEPTS (SET-DIFF CONCEPTS VCONCEPTS))
+    [COND
+      ((NULL NCONCEPTS)
+	(CPRIN1 0 CRLF " Are you sure any get expunged? ")
+	(SELECTQ (RATOM)
+		 [(Y y YES yes)
+		   (SETQ NCONCEPTS (LDIFF CONCEPTS (SETQ VCONCEPTS (MEMB (QUOTE ACTIVE)
+									 CONCEPTS]
+		 (CPRIN1 0 CRLF TAB "I hope you're right" DCR]
+    (CPRIN1 1 (LENGTH NCONCEPTS)
+	    " will be expunged, and "
+	    (LENGTH VCONCEPTS)
+	    " will be kept" DCR)
+    (CPRIN1 50 TAB NCONCEPTS CRLF)
+    (MAPC VCONCEPTS (QUOTE RESET3B))
+    (MAPC NCONCEPTS (QUOTE KILLB))
+    (CPRIN1 0 CRLF " About to call INIT-C. " (LENGTH NCONCEPTS)
+	    " were expunged." CRLF)
+    (INIT-C)
+    (CLEAN-ALL])
+
+(RESET3B
+  [LAMBDA (B)
+    [COND
+      ((FMEMB B PRIVBS)
+	(CLEAN1 B (QUOTE EXS)
+		(QUOTE UP)))
+      (T (REMPROP B (QUOTE EXS))
+	 [SETB B (QUOTE IN-DOM-OF)
+	       (DSET-DIFF (GETB B (QUOTE IN-DOM-OF))
+			  (QUOTE (COMPOSE COALESCE]                             (* This last kludge should stay in only 
+										as long as exs of Compose and Coalesce 
+										are not kept permanently)
+	 (REMPROP B (QUOTE EXS-NOT))
+	 (REMPROP B (QUOTE EXS-NOT-BDY))
+	 (REMPROP B (QUOTE EXS-BDY))
+	 (REMPROP B (QUOTE UP))
+	 (COND
+	   ((GETP B (QUOTE GUP))
+	     (PUT B (QUOTE UP)
+		  (APPEND (GETP B (QUOTE GUP]
+    [COND
+      ((GETP B (QUOTE GWORTH))
+	(PUT B (QUOTE WORTH)
+	     (GETP B (QUOTE GWORTH)))
+	(REMPROP B (QUOTE GWORTH]
+    (REMPROP B (QUOTE FEX))
+    (REMPROP B (QUOTE AID))
+    (KILL-USED B)
+    (REMPROP B (QUOTE UP-NOT))
+    [MAPP (COND
+	    [(AND (LISTP (GETB B P))
+		  (SETB B P (MAPCONC (GETP B P)
+				     (FUNCTION (LAMBDA (X)
+					 (COND
+					   ((FMEMB X VCONCEPTS)
+					     (LIST X))
+					   ((MEMB X NCONCEPTS)
+					     NIL)
+					   ((NLISTP X)
+					     (LIST X))
+					   ((INTERSECTION NCONCEPTS X)
+					     (LIST (SET-DIFF X NCONCEPTS)))
+					   ((INTERSECTION (FLATTEN X)
+							  NCONCEPTS)
+					     (CPRIN1 -1 CRLF "Warning: a Nconcept slipped in: " B COMMA P COMMA X CRLF)
+					     (LIST X))
+					   (T (LIST X]
+	    ((NULL (GETB B P))
+	      (REMPROP B P]
+    (CLEAN1 B (QUOTE UP)
+	    (QUOTE EXS))
+    (CLEAN1 B (QUOTE GENL)
+	    (QUOTE SPEC))
+    (CLEAN1 B (QUOTE SPEC)
+	    (QUOTE GENL])
+
+(RESET4
+  [LAMBDA NIL
+    (MAPC (LDIFF CONCEPTS (FMEMB (QUOTE ACTIVE)
+				 CONCEPTS))
+	  (FUNCTION (LAMBDA (X)
+	      (SET X (QUOTE NOBIND])
+
+(RESTORE-EXPR
+  [LAMBDA (BPNAME)
+    (UNSAVEDEF BPNAME (QUOTE EXPR])
+
+(SAVE
+  [LAMBDA NIL
+    (MAKEFILE (QUOTE SAVE])
+
+(SELF-ATOMS
+  [LAMBDA (PFLG CFLG SCNT)
+    (SETQ SCNT 0)
+    (SETQ GTEMP346 NIL)
+    [MAPATOMS (FUNCTION (LAMBDA (A)
+		  (COND
+		    ((EQ (GETTOPVAL A)
+			 A)
+		      (SETQ SCNT (ADD1 SCNT))
+		      (COND
+			(PFLG (PRIN1 A)
+			      (PRIN1 SPACE)))
+		      (COND
+			(CFLG (SETQ GTEMP346 (CONS A GTEMP346]
+    (CPRIN1S -1 CRLF There are SCNT self-set variables DCR)
+    (COND
+      (CFLG (CPRIN1S -1 They are stored as the value of (QUOTE GTEMP346)
+							DCR)))
+    (SETQ GTEMP346 (SORT GTEMP346))
+    (CLOCK 2])
+
+(SHOWP
+  [LAMBDA (P)
+    (SETQ GTEMP6 NIL)
+    (MAPB (AND (GETB B P)
+	       (PRINT B)
+	       (PRINT (GETB B P))
+	       (SETQ GTEMP6 (NCONC1 GTEMP6 B))
+	       (TERPRI)))
+    (PRIN1 " GTEMP6 = ")
+    GTEMP6])
+
+(SIN5
+  [LAMBDA (L)
+    (COND
+      ((NLISTP L)
+	NIL)
+      ((FMEMB SIN5 L)
+	T)
+      (T (SOME L (QUOTE SIN5])
+
+(SUPERTRACE
+  [LAMBDA (X Z)
+    (COND
+      ((NLISTP X)
+	(CPRIN1 0 X " is " (SETQ Z (EVAL X))
+		CRLF)
+	Z)
+      ((MEMB (ARGTYPE (CAR X))
+	     (LIST 1 3))
+	(CPRIN1 0 " NL-Function call " X CRLF)
+	(CPRIN1 0 " Return value of " (CAR X)
+		" is "
+		(SETQ Z (EVAL X))
+		CRLF)
+	Z)
+      ((MEMB (ARGTYPE (CAR X))
+	     (LIST 0 2))
+	(CPRIN1 0 " Function call " X CRLF)
+	(SETQ Z (MAPCAR (CDR X)
+			(QUOTE SUPERTRACE)))
+	(CPRIN1 0 " Return value of " (CAR X)
+		" is "
+		(SETQ Z (APPLY (CAR X)
+			       Z))
+		CRLF)
+	Z])
+
+(SWORD
+  [LAMBDA (SW NSW1)
+    [COND
+      ((AND SW (NLISTP SW))
+	(SETQ SW (LIST SW]
+    (SETQ NSW1 (SELF-INT (DSET-DIFF (APPEND SW)
+				    SWORDS)))
+    (CPRIN1 10 " Just added " (LENGTH NSW1)
+	    " new s-words. ")
+    (CPRIN1 39 CRLF TAB NSW1 CRLF)
+    (MERGE (SORT (APPEND NSW1))
+	   SWORDS)
+    (CPRIN1 0 " Now " (LENGTH SWORDS)
+	    " s-words. ")
+    (GLOB NSW1)
+    (MAPC NSW1 (QUOTE SELF))
+    NSW1])
+
+(TRANFUN
+  [LAMBDA (F FIL1 FIL2 F1COMS F2COMS)
+    [COND
+      ((ATOM F)
+	(SETQ F (LIST F]
+    [SETQ F1COMS (PACK (LIST FIL1 (QUOTE COMS]
+    [SETQ F2COMS (PACK (LIST FIL2 (QUOTE COMS]
+    [COND
+      ((NLISTP (CAR F2COMS))
+	(PRIN1 " INITIALIZATION IS REQUIRED ")
+	(TERPRI)
+	(SET F2COMS (CONS (LIST (QUOTE FNS)
+				(QUOTE DUMMY))
+			  (COPY (CDR (EVAL F1COMS]
+    (COND
+      ((NLISTP (CAR F1COMS))
+	(HELP "FIRST FILE'S COMS IS NULL ")))
+    (SETQ F (SORT F))
+    (MERGE (COPY F)
+	   (CDAR (EVAL F2COMS)))
+    (DREMOVE (QUOTE DUMMY)
+	     (CAR (EVAL F2COMS)))
+    (MAPC F (FUNCTION (LAMBDA (F1)
+	      (DREMOVE F1 (CAR (EVAL F1COMS])
+
+(UNARY
+  [LAMBDA (B)
+    (TERPRI)
+    (MAPC (GETB B (QUOTE EXS))
+	  (FUNCTION (LAMBDA (Z)
+	      [MAPC Z (FUNCTION (LAMBDA (ZZ)
+			(PRIN1 (SUB1 (LENGTH ZZ)))
+			(PRIN1 SPACE]
+	      (TERPRI])
+
+(UPCASE
+  [LAMBDA NIL
+    (SETQ UCASELST (NCONC (SUBSET TOP6COMS (QUOTE ATOM))
+			  (SUBSET CON6COMS (QUOTE ATOM])
+)
+  (RPAQQ BB
+	 (SET-STRUC-DELETE-E-INV STRUCTURE-MEMB STRUCTURE-INSERT RAND-MEMB SET-STRUC-DELETE OSET-STRUC INSTAN-PAT 
+				 INSTAN-REC INSTAN-BASE INSTAN-S INSTAN-D INSTAN-I INSTAN-1D INSTAN-1I INSTAN-1S 
+				 PICK-CAND XEQ-CAND UPDATE TLOOP GENL FILLIN PXEQ PGET APPLYB-P GETB-P-C RIPPLE-SIMULT 
+				 PSUF EXS RAND-THING))
+  [RPAQQ FIXCOMS ((FNS * FIXFNS)
+	  FIXFNS
+	  (VARS * FIXVARS)
+	  FIXVARS GLOBALVARS FIXEDCONS (COMS * (LIST (CONS (QUOTE IFPROP)
+							   (CONS (QUOTE ALL)
+								 FIXEDCONS]
+  (RPAQQ FIXEDCONS (DRAW-TRIANGLE MEASURE-TRIANGLE TRIANGLE-EQUAL TRIANGLE STRAIGHT-ANGLE RIGHT-ANGLE MEASURE-ANGLE 
+				  DRAW-ANGLE ANGLE-EQUAL ANGLE LINE-EQUAL BETWEEN COLLINEAR DRAW-LINE FUNC LINE 
+				  DISTANCE POINT))
+  (RPAQQ GLO1 (SPARECOMS SPARE-FNS))
+α  (RPAQQ MAXLEVEL 400)
+  (RPAQQ NOSWAPF
+	 (ADD1CAND ATOM-INT BPFS CPRIN1S CRAATEB DOTPROD DSET-DIFF DWIMUSERFN FRIPPLE-S GLUE GLUEE INCRB INS1CAND INVQ 
+		   NCONCB PRUNABLE RANDQMEMB RIPPLE RIPPLE-L SELF-INT SETB SORD UNFORGETTABLE))
+  (RPAQQ PRIVBS (ANYB ANYTHING LIST-STRUC TRUTH-VAL ANY-STRUC))
+  (RPAQQ PUNC1 (%  %. + %( , %) : ! ; %
+ ?))
+  (RPAQQ REPR-FNS
+	 (ACCEPT-B APPLYB BPFS CHANGE-B CREATEB DECRB DEFB DEFP DWIMUSERFN GCB GETB GETBQ GETU GLUE GLUEC GLUEE INCRB 
+		   INIT-PART NCONCB PGET PSUF PUTB PUTU PXEQ SETB SETBQ SWAPB SWGETB SWSETB))
+  (RPAQQ SAVECOMS (GLOBALVARS (VARS * GLOBALVARS)))
+  (RPAQQ SPARE-FNS NIL)
+  (RPAQQ STICKY-B TRIANGLE-EQUAL)
+  (RPAQQ STICKY-P ALGS)
+  (RPAQQ SYS-FORGET-LIST
+	 (DISPLAYTERMP PRETTYCOMPRINT PACK-IN-COMPBLOCK MAKESYS OBIN FGETP OSIN SYSOUT OSFBSZ PUTDQ /SETPROPLIST 
+		       SETTOPVAL /SETTOPVAL SETPROPLIST SETFILEPTR EDITV EDITF DEFINEQ MAKEFILE))
+  (RPAQQ UCASELST
+	 (FACETS BA-LIST BA-LIST2 CAND-TAIL CONSTRUCTIVE-OPS DO-THRESH DUNNO DWIMUSERFN EX-THRESH F-COUNTER GNUMS 
+		 INIT-CANDS INIT-ONCE-LIST INIT-PAST INIT-DOTHRESH INIT-EXTHRESH INIT-INT-THRESH INIT-INTHRESH 
+		 INT-THRESH INTHRESH JTRASH NO-LIST PUNC PUNC2 RANDSTATE REASON SWORDS TKNT-INIT TOP-ACTS TRIVB 
+		 TRIV-BVAL USED USERNAMES USERS VERBOSITY XEQ-PARTS YES-LIST ZMSG CONCEPTS AUX-FACETS SUF-PARTS 
+		 STRATEGY-PARTS XS-PARTS OR-PARTS GINTPREDS))
+  (RPAQQ VERSION 6)
+  (ADDTOVAR USERMACROS (COPY (N)
+			     (INSERT (## N)
+				     AFTER N))
+	    (C NIL (MBD * *)))
+  (ADDTOVAR EDITCOMSA C)
+  (ADDTOVAR EDITCOMSL COPY)
+  (INIT-MAC)
+  (SETQ FIXEDCONS NIL)
+  (SETQ FIXVARS NIL)
+  (SETQ FIXFNS NIL)
+  [ADVISE (QUOTE EDITV)
+	  (QUOTE (SETQ FIXVARS (UNION EDITVX FIXVARS]
+  [ADVISE (QUOTE EDITF)
+	  (QUOTE (SETQ FIXFNS (UNION EDITFX FIXFNS]
+  [ADVISE (QUOTE DEFINEQ)
+	  (QUOTE (SETQ FIXFNS (UNION (LIST (CAAR X))
+				     FIXFNS]
+  (SETQ GLOBALVARS (NCONC GLOBALVARS GLO1))
+[DECLARE: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS 
+  (ADDTOVAR NLAMA)
+  (ADDTOVAR NLAML MTOP MAPP MAPB)
+]
+(DECLARE: DONTCOPY
+  (FILEMAP (NIL (1450 28086 (ACCEPT-B 1462 . 2082) (AM-BT 2086 . 2506) (ARGS-OF 2510 . 2689) (CARC 2693 . 2925) (CHANGE-B
+2929 . 3863) (CHK-SPARE 3867 . 3928) (CLEAN-ALL 3932 . 3996) (CLEAN-D-R 4000 . 4542) (CLEAN1 4546 . 4669) (CLEAN1ALL
+4673 . 4884) (CONDENSEB 4888 . 5405) (DEFP 5409 . 6077) (ED-1F 6081 . 6196) (ED-1P 6200 . 6327) (ED-1V 6331 . 6605)
+(ED-ALL 6609 . 6704) (ED-ALLF 6708 . 6904) (ED-ALLP 6908 . 6966) (ED-ALLV 6970 . 7167) (FIXCPS 7171 . 7268) (FIXPRIN
+7272 . 7404) (FIXPRIN1 7408 . 7745) (FORGOT-ANY 7749 . 8790) (GET-SWORD 8794 . 9329) (GLOB 9333 . 9724) (ILEX 9728
+. 10441) (INIT-MAC 10445 . 15178) (INIT2 15182 . 15274) (KILL-USED 15278 . 15739) (KILLB 15743 . 16641) (LISTF 16645
+. 16782) (LISTFILES1 16786 . 17331) (MAKE-ATOMS 17335 . 17632) (MAKE-FUNC 17636 . 18468) (MAKE1 18472 . 18781) (
+MAKE1ATOM 18785 . 18923) (MAKE1PUNC 18927 . 19327) (MAPB 19331 . 19424) (MAPP 19428 . 19529) (MCON 19533 . 19682)
+(MFIX 19686 . 19908) (MTOP 19912 . 20090) (NEW-VERSION 20094 . 20533) (NFACET 20537 . 21402) (NFUN 21406 . 21756)
+(NVERSION 21760 . 21983) (ONLY-CON 21987 . 22059) (PCANDS 22063 . 22137) (RESET1 22141 . 22448) (RESET2 22452 . 22590)
+(RESET3 22594 . 23405) (RESET3B 23409 . 24977) (RESET4 24981 . 25126) (RESTORE-EXPR 25130 . 25200) (SAVE 25204 . 25253)
+(SELF-ATOMS 25257 . 25788) (SHOWP 25792 . 26011) (SIN5 26015 . 26132) (SUPERTRACE 26136 . 26670) (SWORD 26674 . 27099)
+(TRANFUN 27103 . 27759) (UNARY 27763 . 27962) (UPCASE 27966 . 28083)))))
+STOP
+
+

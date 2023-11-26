@@ -1,0 +1,1504 @@
+(FILECREATED "10-APR-76 20:31:15" <LENAT>CON6.;49 65204  
+
+     changes to:  GLOBALVARS
+
+     previous date: "24-MAR-76 18:52:21" <LENAT>CON6.;48)
+
+
+  (LISPXPRINT (QUOTE CON6COMS)
+	      T T)
+  [RPAQQ CON6COMS (ZMSG CONCEPTS AUX-FACETS SUF-PARTS STRATEGY-PARTS XS-PARTS LNK-PARTS LOOP-FNS POSS-RPARTS GD-TEST 
+			LEXL GSTL OR-PARTS GSPEC-SUG GSPEC2SUG GINTPREDS (VARS * USERS)
+			(VARS * PUNC)
+			BA-LIST BA-LIST2 CAND-TAIL CONSTRUCTIVE-OPS DO-THRESH DUNNO DWIMUSERFN EX-THRESH F-COUNTER 
+			GCONJ-FAC GLOBALVARS GNUMS INIT-CANDS INIT-KILS S INIT-ONCE-LIST INIT-PAST INIT-DOTHRESH 
+			INIT-EXTHRESH INIT-INT-THRESH INIT-INTHRESH INT-THRESH INTHRESH JTRASH NO-LIST PUNC PUNC2 
+			REASON SYN-LIST SWORDS TKNT-INIT TOP-ACTS TRIVB TRIV-BVAL USED USERNAMES USERS VERBOSITY 
+			XEQ-PARTS YES-LIST [COMS * (LIST (CONS (QUOTE IFPROP)
+							       (CONS (QUOTE ALL)
+								     CONCEPTS]
+			(P (INIT-C))
+			(DECLARE: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS (ADDVARS (NLAMA)
+											      (NLAML]
+  (RPAQQ ZMSG (* In reset3b maybe we should worry about removing in-dom-of))
+  (RPAQQ CONCEPTS
+	 (ACTIVE ACTIVE-D-R ACTIVE-EXS ACTIVE-EXS-NOT-BDY ACTIVE-TIES ANY-STRUC ANYB ANYB-ALGS ANYB-ANAS ANYB-ANYP 
+		 ANYB-CHECK ANYB-CHECK1 ANYB-CHECK2 ANYB-D-R ANYB-DEFN ANYB-DEFN-NEC ANYB-DEFN-SUF ANYB-EXS 
+		 ANYB-EXS-BDY ANYB-EXS-NOT ANYB-EXS-NOT-BDY ANYB-FILLIN ANYB-FILLIN1 ANYB-FILLIN2 ANYB-GENL 
+		 ANYB-IN-DOM-OF ANYB-IN-RAN-OF ANYB-INT ANYB-INTU ANYB-INV ANYB-RESTRUC ANYB-SPEC ANYB-SUGG ANYB-TIES 
+		 ANYB-UP ANYB-UP-NOT ANYB-VIEW ANYB-WORTH ANYTHING ATOM-OBJ BAG-OF-LISTS BAG-OF-STRUCS BAG-STRUC 
+		 BAG-STRUC-DELETE BAG-STRUC-DIFF BAG-STRUC-INSERT BAG-STRUC-INTERSECT BAG-STRUC-JOIN CANONIZE COALESCE 
+		 COMPOSE COMPOSE-D-R COMPOSE-EXS COMPOSE-EXS-D-R CONJEC CONSTRUCTIVE-OP EMPTY-STRUC FINAL FIRST 
+		 IDENTITY INV-OP INVERTED-OP INVERTED-OP-EXS LIST-STRUC LIST-STRUC-DELETE LIST-STRUC-INSERT 
+		 LIST-STRUC-INTERSECT MAP-JOIN MAP-REPLACE MAP-REPLACE2 MULT-STRUC NON-EMPTY-STRUC NONMULT-STRUC 
+		 NONMULT-STRUC-EXS OBJ-EQUAL OBJECT OBJECT-EXS OPERATION ORD-OBJ ORD-OBJ-EXS ORD-PAIR OSET-STRUC 
+		 OSET-STRUC-DELETE OSET-STRUC-INSERT OSET-STRUC-INTERSECT PREDICATE PROJ1 PROJ2 REAR RELATION RESTRICT 
+		 REV-ORD-PAIR SET-OF-LISTS SET-OF-STRUCS SET-STRUC SET-STRUC-DELETE SET-STRUC-DIFF SET-STRUC-INSERT 
+		 SET-STRUC-INTERSECT STRUC-OF-LISTS STRUC-OF-STRUCS STRUCTURE STRUCTURE-DELETE STRUCTURE-DIFF 
+		 STRUCTURE-EQUAL STRUCTURE-EXS STRUCTURE-EXS-BDY STRUCTURE-INSERT STRUCTURE-INTERSECT STRUCTURE-MEMB 
+		 TRUTH-VAL UNORD-OBJ UNORD-OBJ-EXS))
+  (RPAQQ AUX-FACETS (FILLIN1 FILLIN2 CHECK1 CHECK2))
+  (RPAQQ SUF-PARTS (FILLIN CHECK))
+  (RPAQQ STRATEGY-PARTS (FILLIN CHECK))
+  (RPAQQ XS-PARTS (INT ANAS INV CHECK1 CHECK2 FILLIN1 FILLIN2 INTU RESTRUC VIEW SUGG DEFN-NEC DEFN-SUF DEFN ALGS))
+  (RPAQQ LNK-PARTS (UP SPEC GENL))
+  (RPAQQ LOOP-FNS (MAPCAR MAPC MAPCONC MAP2CAR SUBSET EVERY NOTEVERY SOME ANY1OF-SATISFYING ANY2OF-SATISFYING 
+			  ANY3OF-SATISFYING MAPAPPEND REPLACE))
+  (RPAQQ POSS-RPARTS (DOMAIN RANGE DEFN))
+  [RPAQQ GD-TEST (SOME XSET (FUNCTION (LAMBDA (ZZ ZZ1)
+					      (COND ((SETQ ZZ1 (APPLY* XFN (CDR ZZ)))
+						     (RPLACA ZZ (ADD1 (CAR ZZ]
+  (RPAQQ LEXL
+	 (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z))
+  (RPAQQ GSTL (CLASS BAG OSET VECTOR))
+  (RPAQQ OR-PARTS (DEFN DEFN-NOT ALGS VIEW))
+  [RPAQQ GSPEC-SUG
+	 (AND (GETB B2 (QUOTE EXS))
+	      (IGREATERP (SETQ GTEMP330 (DOTPROD (MAP2CAR (GETB B1 (QUOTE WORTH))
+							  (GETB B2 (QUOTE WORTH))
+							  (QUOTE EAVG2))
+						 (LIST (QUOTIENT [SMALLER 30 (LENGTH (GETB B1 (QUOTE EXS]
+								 35.0)
+						       .1 .1)))
+			 BA1)
+	      (ADD1KIL (SUB1 GCNT)
+		       B2
+		       (QUOTE SUGG)
+		       (SPLIST No sense using this suggestion more than once))
+	      (LIST (LIST (LIST (QUOTE FILLIN)
+				B1
+				(QUOTE SPEC))
+			  GTEMP330
+			  (LIST (SPLIST Since there are even some examples of B2 COMMA an interesting specialization of 
+					B1 SEMICOLON so it is worth looking at other specializations of B1]
+  [RPAQQ GSPEC2SUG
+	 (AND (GETB B2 (QUOTE EXS))
+	      (IGREATERP (SETQ GTEMP330 (DOTPROD (MAP2CAR (GETB B1 (QUOTE WORTH))
+							  (GETB B2 (QUOTE WORTH))
+							  (QUOTE EAVG2))
+						 (LIST (QUOTIENT [SMALLER 30 (LENGTH (GETB B1 (QUOTE EXS]
+								 35.0)
+						       .1 .1)))
+			 BA1)
+	      (ADD1KIL (SUB1 GCNT)
+		       B2
+		       (QUOTE SUGG)
+		       (SPLIST No sense using this suggestion more than once))
+	      (LIST (LIST (LIST (QUOTE FILLIN)
+				B2
+				(QUOTE SPEC))
+			  GTEMP330
+			  (LIST (SPLIST There are known examples of this interesting specialization of B1 COMMA so let 
+					APOS go on and try to specialize B2]
+  (RPAQQ GINTPREDS (OBJ-EQUAL))
+  (RPAQQ AIKINS Jan)
+  (RPAQQ Allen 0)
+  (RPAQQ Avra 0)
+  (RPAQQ BARSTOW Dave)
+  (RPAQQ BLEDSOE Woody)
+  (RPAQQ BOBROW Danny)
+  (RPAQQ BUCHANAN Bruce)
+  (RPAQQ Bruce 1)
+  (RPAQQ CLANCY Mike)
+  (RPAQQ COHEN NOBIND)
+  (RPAQQ COHN Avra)
+  (RPAQQ Cordell 0)
+  (RPAQQ DAVIS Randy)
+  (RPAQQ Danny 0)
+  (RPAQQ Dave 0)
+  (RPAQQ Don 0)
+  (RPAQQ Doug 13)
+  (RPAQQ Ed 1)
+  (RPAQQ FEIGENBAUM Ed)
+  (RPAQQ GREEN Cordell)
+  (RPAQQ Herb 0)
+  (RPAQQ Jan 0)
+  (RPAQQ Josh 0)
+  (RPAQQ KNUTH Don)
+  (RPAQQ LEDERBERG Josh)
+  (RPAQQ LENAT Doug)
+  (RPAQQ Mike 0)
+  (RPAQQ NEWELL Allen)
+  (RPAQQ Paul 0)
+  (RPAQQ Randy 1)
+  (RPAQQ Richard 0)
+  (RPAQQ SIMON Herb)
+  (RPAQQ TYRO -1)
+  (RPAQQ WALDINGER Richard)
+  (RPAQQ WEYRAUCH Richard)
+  (RPAQQ Woody 0)
+  (RPAQQ APOS "'s")
+  (RPAQQ COLON :)
+  (RPAQQ COMMA ", ")
+  (RPAQQ CRLF "
+")
+  (RPAQQ DASH "-")
+  (RPAQQ DCR ".
+")
+  (RPAQQ DOT ".")
+  (RPAQQ EXCLAIM "! ")
+  (RPAQQ LPAREN " (")
+  (RPAQQ PLUS +)
+  (RPAQQ QUES "? ")
+  (RPAQQ RPAREN %))
+  (RPAQQ SEMICOLON ;)
+  (RPAQQ SPACE " ")
+  (RPAQQ TAB "      ")
+  (RPAQQ BA-LIST (BA1 BA2 BA3 BA4 BA5 BA6))
+  (RPAQQ BA-LIST2 (BA1 BA2 BA3))
+  [RPAQQ CAND-TAIL ((PRINT (QUOTE EXS)
+			   (QUOTE ANYB))
+	  0
+	  ((No decent reason)
+	   (This gets AM going]
+  (RPAQQ CONSTRUCTIVE-OPS (STRUCTURE-INSERT UNION NCONC ATTACH CONS APPEND LIST MAP-JOIN MAP-REPLACE MAP-REPLACE2 
+					    MAPCONC))
+  (RPAQQ DO-THRESH 178)
+  (RPAQQ DUNNO (* I don't understand what you're asking about))
+  (RPAQQ DWIMUSERFN T)
+  (RPAQQ EX-THRESH 500)
+  (RPAQQ F-COUNTER 0)
+  (RPAQQ GCONJ-FAC 90)
+  (RPAQQ GLOBALVARS
+	 (ACEXPIRE ALLOP AM AM-WAIT AM-WSECS APOS ARGS AUX-FACETS B-DEF BA-LIST BA-LIST2 BAL1 BAL2 CAND CAND-TAIL CANDS 
+		   CBEGIN CFN6COMS CIRC COLON COMMA CON6COMS CONCEPTS CONSTRUCTIVE-OPS CP9 CRLF CROS CS-ACT CS-B 
+		   CS-FAIL CS-INT CS-OP CS-P CS-WHY CTSPAN CVAL DASH DCR DEFN-STAK DISMISS DO-THRESH DOT DR-CHKLST 
+		   DR2CHKLST DUNNO ECMS EKNT ESTAT ETIM EX-THRESH EXCLAIM F-COUNTER FACETS FALSE FIRSTNAME FIXEDCONS 
+		   FIXFNS FIXVARS FL1 FL2 FL3 FL4 FROB FROB1 FV1 FV2 FV3 G-IF GADVISER GAEKNT GATH-PART GCAN-DEFN 
+		   GCEKNT GCNT GCONJ-FAC GD-TEST GEKNT GENG GEXISTING GIFN GINT-CONS GLEN GLOC-NOT GMSG GNEKNT GNUMS 
+		   GPGM GPNAME GQEKNT GRCOMP GREM GRPART GSOME-ELE GSOME-VAL GSP1 GSPEC-SUG GSPEC2SUG GSTL GSTRUC GSWI 
+		   GTEKNT GTEMP GTEMP1 GTEMP10 GTEMP101 GTEMP102 GTEMP103 GTEMP11 GTEMP117 GTEMP118 GTEMP119 GTEMP12 
+		   GTEMP120 GTEMP125 GTEMP126 GTEMP127 GTEMP128 GTEMP129 GTEMP13 GTEMP130 GTEMP131 GTEMP132 GTEMP133 
+		   GTEMP134 GTEMP135 GTEMP137 GTEMP138 GTEMP139 GTEMP14 GTEMP140 GTEMP15 GTEMP16 GTEMP17 GTEMP18 
+		   GTEMP19 GTEMP197 GTEMP198 GTEMP199 GTEMP2 GTEMP20 GTEMP200 GTEMP201 GTEMP21 GTEMP210 GTEMP212 
+		   GTEMP213 GTEMP214 GTEMP215 GTEMP216 GTEMP217 GTEMP218 GTEMP219 GTEMP22 GTEMP220 GTEMP221 GTEMP222 
+		   GTEMP223 GTEMP224 GTEMP225 GTEMP23 GTEMP24 GTEMP25 GTEMP26 GTEMP27 GTEMP28 GTEMP29 GTEMP3 GTEMP30 
+		   GTEMP301 GTEMP302 GTEMP307 GTEMP308 GTEMP309 GTEMP31 GTEMP310 GTEMP311 GTEMP312 GTEMP313 GTEMP314 
+		   GTEMP315 GTEMP316 GTEMP317 GTEMP318 GTEMP319 GTEMP330 GTEMP331 GTEMP332 GTEMP346 GTEMP351 GTEMP352 
+		   GTEMP36 GTEMP37 GTEMP370 GTEMP371 GTEMP372 GTEMP373 GTEMP380 GTEMP386 GTEMP39 GTEMP390 GTEMP391 
+		   GTEMP4 GTEMP43 GTEMP44 GTEMP46 GTEMP47 GTEMP48 GTEMP49 GTEMP5 GTEMP50 GTEMP51 GTEMP52 GTEMP53 
+		   GTEMP54 GTEMP55 GTEMP6 GTEMP60 GTEMP7 GTEMP8 GTEMP9 GTEMPA GTEMPP GUP1 GUSED GWHY GXTR-PART HCON 
+		   HUND ILEV INIT-CANDS INIT-DOTHRESH INIT-EXTHRESH INIT-INT-THRESH INIT-INTHRESH INIT-KILS 
+		   INIT-ONCE-LIST INIT-PAST GINTPREDS INT-THRESH INTHRESH JTRASH KILS LASTNAME LEXL LNK-PARTS LOOP-FNS 
+		   LPAREN MAIN-D-R MAXNAME MERGE-PARTS MWHY NCONCEPTS NEKNT NEW-C-PARTS NEW-CANDS NEW-CONCEPTS NEW-ILEV 
+		   NEW-PARTS NEWB NO-LIST NOSWAP-CONCEPTS NOSWAPF OBJX OK ONCE-LIST OR-PARTS ORIG-EMP PAST PHIST PKNT 
+		   PLUS PMAC POSS-RPARTS PREC PRIVBS PUNC PUNC1 PUNC2 QUES RANC RANDSTATE RANF RANU RB1 REASON REPR-FNS 
+		   RPAREN RTEM2 SEENCANDS SEMICOLON SIN5 SPACE STICKY-B STICKY-P STRAT STRATEGY-PARTS SUF-PARTS SUF1 
+		   SUF2 SWORDS SWSUF SYN-LIST SYNTH-RANGE SYS-FORGET-LIST TAB TKNT-INIT TMP1 TMP11 TMP2 TMP3 TMP4 TMP5 
+		   TMP6 TMP7 TMP8 TMP9 TOP-ACTS TOP6COMS TRIV-B TRIV-BVAL TRIVB TRUE TYRO UCONTROL USED USERNAME 
+		   USERNAMES UTIL6COMS V-REASON V1REASON VCONCEPTS VERBOSITY VERSION XEQ-PARTS XS-PARTS YES-LIST ZZBP 
+		   SPARECOMS SPARE-FNS SPARECOMS SPARE-FNS))
+  (RPAQQ GNUMS (6 5 4 3 2 1))
+  [RPAQQ INIT-CANDS (((PRINT (QUOTE EXS)
+			     (QUOTE ANYB))
+	   0
+	   ((No decent reason)
+	    (This gets AM going]
+  (RPAQQ INIT-KILS ((999 ANYTHING D-R DUNNO)))
+  (RPAQQ S NOBIND)
+  (RPAQQ INIT-ONCE-LIST (ANYB ANYP))
+  (RPAQQ INIT-PAST ((A B)
+	  (C D)
+	  (E F)
+	  (G H)
+	  (I J)
+	  (K L)
+	  (M N)
+	  (O P)
+	  (Q R)
+	  (S T)
+	  (U V)
+	  (W X)
+	  (Y Z)
+	  (AA BB)
+	  (CC DD)
+	  (EE FF)))
+  (RPAQQ INIT-DOTHRESH 500)
+  (RPAQQ INIT-EXTHRESH 500)
+  (RPAQQ INIT-INT-THRESH 279)
+  (RPAQQ INIT-INTHRESH 100)
+  (RPAQQ INT-THRESH 295)
+  (RPAQQ INTHRESH 59)
+  (RPAQQ JTRASH (JUST-ONCE (COND)))
+  (RPAQQ NO-LIST (N n NO no NIL))
+  (RPAQQ PUNC (APOS COLON COMMA CRLF DASH DCR DOT EXCLAIM LPAREN PLUS QUES RPAREN SEMICOLON SPACE TAB))
+  (RPAQQ PUNC2 (45 38 61 58))
+  (RPAQQ REASON NIL)
+  (RPAQQ SYN-LIST NIL)
+  (RPAQQ SWORDS (FALSE TRUE only all))
+  (RPAQQ TKNT-INIT 20000)
+  (RPAQQ TOP-ACTS (APPLYB CHECK EXPR-IN FILLIN GOAL PRINT TRANSLATE))
+  (RPAQQ TRIVB [LAMBDA (BP BA1 BA2 BA3 BA4)
+		       (SELECTQ BP NIL])
+  (RPAQQ TRIV-BVAL (FROM-FILE CON6))
+  (RPAQQ USED NIL)
+  (RPAQQ USERNAMES (DOUG ED CORDELL BRUCE DON))
+  (RPAQQ USERS
+	 (AIKINS Allen Avra BARSTOW BLEDSOE BOBROW BUCHANAN Bruce CLANCY COHEN COHN Cordell DAVIS Danny Dave Don Doug 
+		 Ed FEIGENBAUM GREEN Herb Jan Josh KNUTH LEDERBERG LENAT Mike NEWELL Paul Randy Richard SIMON TYRO 
+		 WALDINGER WEYRAUCH Woody))
+  (RPAQQ VERBOSITY 11)
+  (RPAQQ XEQ-PARTS (DEFN-SUF DEFN-NEC ALGS ANAS CHECK CHECK1 CHECK2 DEFN DEFN-NEC DEFN-SUF FILLIN FILLIN1 FILLIN2 INT 
+			     INTU INV RESTRUC SUGG VIEW))
+  (RPAQQ YES-LIST (Y y YES yes T))
+  (PUTPROPS ACTIVE GENL (ANYB) 
+                   SPEC (RELATION PREDICATE OPERATION) 
+                   WORTH (0) 
+                   DEFN-SUF [(TYPE NONRECURSIVE (GETB BA1 (QUOTE ALGS)))
+			     (TYPE NONRECURSIVE (GETB BA1 (QUOTE D-R] 
+                   GUP (ANYB) 
+                   UP (ANYB) 
+                   EXS (SET-STRUC-INTERSECT STRUCTURE-INTERSECT))
+  (PUTPROPS ACTIVE-D-R GENL (ANYB-D-R) 
+                       WORTH (0) 
+                       SPEC (COMPOSE-EXS-D-R COMPOSE-D-R))
+  (PUTPROPS ACTIVE-EXS GENL (ANYB-EXS) 
+                       FILLIN1 ((AC-EXS-FILLIN1)) 
+                       SUGG ((AC-EXS-SUGG)) 
+                       WORTH (0) 
+                       SPEC (COMPOSE-EXS INVERTED-OP-EXS))
+  (PUTPROPS ACTIVE-EXS-NOT-BDY GENL (ANYB-EXS-NOT-BDY) 
+                               FILLIN1 ((AC-XNB-FILLIN1)) 
+                               SUGG ((AC-XNB-SUGG)) 
+                               WORTH (0) 
+                               CHECK2 [(SETQ GTEMP301 (LENGTH (GARGS CS-B)))
+				       (* Note that this whole Cheeck2 part should also go under Active-exs-not.Check2, 
+					  when that Being gets created.)
+				       (MAPC (GETB CS-B CS-P)
+					     (FUNCTION (LAMBDA (E)
+							       (SETQ GTEMP302 (FNTH E GTEMP301))
+							       (COND ((CDR GTEMP302)
+								      (INCR GCEKNT)
+								      (RPLACD GTEMP302 NIL])
+  (PUTPROPS ACTIVE-TIES GENL (ANYB-TIES) 
+                        WORTH (0) 
+                        FILLIN1 ((AC-TIES1)) 
+                        FEX (56))
+  (PUTPROPS ANY-STRUC UP (ANYB) 
+                      GUP (ANYB) 
+                      EXS (BAG-STRUC EMPTY-STRUC LIST-STRUC MULT-STRUC NONMULT-STRUC OSET-STRUC SET-STRUC STRUCTURE) 
+                      GENL (ANYB) 
+                      WORTH (1 1 1 1 1 1 1 1 1 1 1) 
+                      DEFN [(TYPE NONRECURSIVE (FMEMB BA1 (FRIPPLE-S (QUOTE STRUCTURE])
+  (PUTPROPS ANYB UP (ANYTHING ANYB) 
+                 GUP (ANYTHING ANYB) 
+                 EXS (ACTIVE ANY-STRUC ANYB ANYB-ANYP OBJECT) 
+                 GENL (ANYTHING) 
+                 WORTH (1 1 1 1 1 1 1 1 1 1 1) 
+                 VIEW ((ABV1 BA1)
+		       [AND (FMEMB (QUOTE STRUCTURE)
+				   GTEMP5)
+			    (INTERSECTION GTEMP5 (CLASS SET-STRUC OSET-STRUC BAG-STRUC LIST-STRUC))
+			    (LIST (APPLYB (QUOTE STRUCTURE-INSERT)
+					  (QUOTE ALGS)
+					  (APPEND BA2)
+					  NIL
+					  (CAR (INTERSECTION GTEMP5 (SPEC STRUCTURE]
+		       (AND (FMEMB (QUOTE ORD-PAIR)
+				   GTEMP5)
+			    (LIST (LIST (QUOTE PAIR)
+					BA2 BA2)))
+		       (ABV2 BA1 BA3 BA2)) 
+                 SPEC (ACTIVE ANYB-ANYP OBJECT ANY-STRUC) 
+                 DEFN ((TYPE NONRECURSIVE (IS-CON BA1))))
+  (PUTPROPS ANYB-ALGS GENL (ANYB-ANYP) 
+                      ARGS (BA1 BA2 BA3 BA4 BA5) 
+                      CENT (GENL) 
+                      DEFN [NONRECURSIVE (AND (IS-CON BA1)
+					      (MATCH (UNPACK BA1)
+						     WITH
+						     (-- (QUOTE -)
+							 (QUOTE A)
+							 (QUOTE L)
+							 (QUOTE G)
+							 (QUOTE S] 
+                      FNAM ANY1OF 
+                      WORTH (0))
+  (PUTPROPS ANYB-ANAS GENL (ANYB-ANYP) 
+                      WORTH (0) 
+                      ARGS (BA1 BA2 BA3) 
+                      FNAM RUN-ANAS)
+  (PUTPROPS ANYB-ANYP GENL (ANYB) 
+                      FILLIN1 [(SELF-INT (APPLYB CS-B (QUOTE ANAS)
+						 CS-P)
+					 (* E.G., on Set-struc.anas, we could have (LINN (SUBPAIR (VECTOR 
+											       List-struc-insert...)
+												  (VECTOR 
+												Set-struc-insert...)
+												  (GETB (QUOTE 
+													 List-struc)
+													BA1] 
+                      WORTH (2 2 2) 
+                      SPEC (ANYB-ALGS ANYB-ANAS ANYB-CHECK ANYB-CHECK1 ANYB-CHECK2 ANYB-D-R ANYB-DEFN ANYB-EXS 
+				      ANYB-EXS-BDY ANYB-EXS-NOT ANYB-EXS-NOT-BDY ANYB-FILLIN ANYB-FILLIN1 ANYB-FILLIN2 
+				      ANYB-GENL ANYB-IN-DOM-OF ANYB-IN-RAN-OF ANYB-INT ANYB-INTU ANYB-INV ANYB-RESTRUC 
+				      ANYB-SPEC ANYB-SUGG ANYB-UP ANYB-UP-NOT ANYB-VIEW ANYB-WORTH ANYB-TIES 
+				      ANYB-DEFN-NEC ANYB-DEFN-SUF) 
+                      DEFN [(TYPE NONRECURSIVE (AND (APPLYB (QUOTE ANYB)
+							    (QUOTE DEFN)
+							    BA1)
+						    (CAR (SOME FACETS (FUNCTION (LAMBDA (P)
+											(MATCH (UNPACK BA1)
+											       WITH
+											       (-- (QUOTE -)
+												   $@
+												   (LAMBDA
+												     (Z)
+												     (EQUAL Z)
+												     (UNPACK P] 
+                      GUP (ANYB) 
+                      UP (ANYB))
+  (PUTPROPS ANYB-CHECK GENL (ANYB-ANYP) 
+                       WORTH (0) 
+                       ARGS (BA1 BA2 BA3) 
+                       CENT (GENL) 
+                       FNAM PROGN)
+  (PUTPROPS ANYB-CHECK1 GENL (ANYB-ANYP) 
+                        ARGS (BA1) 
+                        FNAM PROGN 
+                        WORTH (0))
+  (PUTPROPS ANYB-CHECK2 GENL (ANYB-ANYP) 
+                        ARGS (BA1) 
+                        FNAM PROGN 
+                        WORTH (0))
+  (PUTPROPS ANYB-D-R GENL (ANYB-ANYP) 
+                     WORTH (0) 
+                     SPEC (ACTIVE-D-R) 
+                     SUGG ((AB-DRSUG)) 
+                     CHECK2 ((AB-DRCHK)))
+  (PUTPROPS ANYB-DEFN GENL (ANYB-ANYP) 
+                      WORTH (0) 
+                      ARGS (BA1 BA2 BA3) 
+                      CENT (SPEC) 
+                      FNAM ANY1OF)
+  (PUTPROPS ANYB-DEFN-NEC FNAM EACH1OF 
+                          ARGS (BA1 BA2 BA3 BA4) 
+                          GENL (ANYB-ANYP) 
+                          CENT (GENL) 
+                          WORTH (0))
+  (PUTPROPS ANYB-DEFN-SUF FNAM ANY-OF 
+                          ARGS (BA1 BA2 BA3 BA4) 
+                          GENL (ANYB-ANYP) 
+                          CENT (SPEC) 
+                          WORTH (0))
+  (PUTPROPS ANYB-EXS GENL (ANYB-ANYP) 
+                     FILLIN1 ((ABF1)
+			      (INSTAN-S (GETB CS-B (QUOTE SPEC))
+					BA1)
+			      (INSTAN-D (GETB CS-B (QUOTE DEFN))
+					BA1)
+			      (INSTAN-I (GETB CS-B (QUOTE INTU))
+					BA1)
+			      (RUN-OPS-TO-GET CS-B)) 
+                     FILLIN2 ((ABF2 BA1 BA2)) 
+                     SUGG ((MAPCONC CONCEPTS (QUOTE ABX-SUG))) 
+                     WORTH (0) 
+                     CHECK2 ((ABC2)
+			     (* Eliminate duplicate entries)
+			     (ABC3)
+			     (ABC4)
+			     (SETQ GEXISTING (GETB CS-B (QUOTE EXS)))
+			     [MAPC (CDR (FRIPPLE-G CS-B))
+				   (FUNCTION (LAMBDA (S)
+						     (COND ((GETB S (QUOTE EXS))
+							    (SETB S (QUOTE EXS)
+								  (SET-DIFFERENCE (GETB S (QUOTE EXS))
+										  (GETB CS-B (QUOTE EXS]
+			     (ABC5)) 
+                     SPEC (ACTIVE-EXS OBJECT-EXS STRUCTURE-EXS) 
+                     CENT (SPEC) 
+                     CHECK1 ((ABC1)))
+  (PUTPROPS ANYB-EXS-BDY GENL (ANYB-ANYP) 
+                         CHECK1 [[MAPC (GETB CS-B (QUOTE EXS))
+				       (FUNCTION (LAMBDA (X1)
+							 (COND ((AND (GETB CS-B (QUOTE DEFN))
+								     (NOT (APPLYB CS-B (QUOTE DEFN)
+										  X1)))
+								(INCR GNEKNT)
+								(GTRANSFER X1 (QUOTE NOT-BDY)))
+							       ((AND (GETB CS-B (QUOTE INTU))
+								     (NOT (APPLYB CS-B (QUOTE INTU)
+										  X1)))
+								(INCR GQEKNT)
+								(GTRANSFER X1 (QUOTE BDY]
+				 (MAPC (GETB CS-B (QUOTE EXS-BDY))
+				       (FUNCTION (LAMBDA (X1)
+							 (AND (GETB CS-B (QUOTE DEFN))
+							      (NOT (APPLYB CS-B (QUOTE DEFN)
+									   X1))
+							      (INCR GNEKNT)
+							      (GTRANSFER X1 (QUOTE EXS-NOT-BDY] 
+                         SUGG [(MAPCONC CONCEPTS
+					(FUNCTION (LAMBDA (C)
+							  (AND (NULL (GETB C (QUOTE EXS-BDY)))
+							       (IGREATERP [SETQ GTEMP197
+										(FIX (DOTPROD (LIST .2 .1 .1)
+											      (GETB C (QUOTE WORTH]
+									  BA1)
+							       (LIST (LIST (LIST (QUOTE FILLIN)
+										 C
+										 (QUOTE EXS-BDY))
+									   GTEMP197
+									   (LIST (SPLIST We have no boundary-examples 
+											 for C yet] 
+                         WORTH (0) 
+                         CHECK2 [(SETQ GEXISTING (SETB CS-B (QUOTE EXS-BDY)
+						       (APPLYB (QUOTE SET-STRUC-INTERSECT)
+							       (QUOTE ALGS)
+							       (GETB CS-B (QUOTE EXS-BDY))
+							       (GETB CS-B (QUOTE EXS-BDY] 
+                         SPEC (STRUCTURE-EXS-BDY) 
+                         CENT (SPEC))
+  (PUTPROPS ANYB-EXS-NOT GENL (ANYB-ANYP) 
+                         WORTH (0) 
+                         FILLIN1 ((ABXN-FIL1)) 
+                         CHECK2 ((ABXN-CHK2)) 
+                         FILLIN2 [(PROG1 NIL [SETQ GEXISTING (SETB CS-B CS-P (SORT (GETB CS-B CS-P)
+										   (QUOTE COUNT]
+					 (BOOST1 (RMUL CS-INT 3 5)
+						 (QUOTE CHECK)
+						 CS-B CS-P NIL (SPLIST Some new COMMA unchecked (ENGN CS-P)
+								       of CS-B have recently been added])
+  (PUTPROPS ANYB-EXS-NOT-BDY GENL (ANYB-ANYP) 
+                             WORTH (0) 
+                             SPEC (ACTIVE-EXS-NOT-BDY) 
+                             FILLIN2 [(PROG1 NIL [SETQ GEXISTING (SETB CS-B CS-P (SORT (GETB CS-B CS-P)
+										       (QUOTE COUNT]
+					     (BOOST1 (RMUL CS-INT 3 5)
+						     (QUOTE CHECK)
+						     CS-B CS-P NIL (SPLIST Some new COMMA unchecked (ENGN CS-P)
+									   of CS-B have recently been added])
+  (PUTPROPS ANYB-FILLIN GENL (ANYB-ANYP) 
+                        WORTH (0) 
+                        ARGS (BA1 BA2 BA3) 
+                        CENT (GENL) 
+                        FNAM NCONC)
+  (PUTPROPS ANYB-FILLIN1 GENL (ANYB-ANYP) 
+                         ARGS (BA1) 
+                         FNAM NCONC 
+                         WORTH (0))
+  (PUTPROPS ANYB-FILLIN2 GENL (ANYB-ANYP) 
+                         ARGS (BA1) 
+                         FNAM NCONC 
+                         WORTH (0))
+  (PUTPROPS ANYB-GENL GENL (ANYB-ANYP) 
+                      WORTH (0) 
+                      CENT (GENL) 
+                      FILLIN1 [(MAPCONC (GETB CS-B (QUOTE DEFN))
+					(FUNCTION (LAMBDA (DE)
+							  (SELECTQ (CADR DE)
+								   (TRANSFORM NIL)
+								   (RECURSIVE (GENLIZE-RECDEF DE))
+								   (NONRECURSIVE (GENLIZE-NRDEF DE))
+								   NIL] 
+                      FEX (4))
+  (PUTPROPS ANYB-IN-DOM-OF GENL (ANYB-ANYP) 
+                           CENT (GENL) 
+                           WORTH (0))
+  (PUTPROPS ANYB-IN-RAN-OF GENL (ANYB-ANYP) 
+                           CENT (GENL) 
+                           WORTH (0))
+  (PUTPROPS ANYB-INT GENL (ANYB-ANYP) 
+                     WORTH (0) 
+                     ARGS (BA1 BA2 BA3) 
+                     FNAM SADD)
+  (PUTPROPS ANYB-INTU GENL (ANYB-ANYP) 
+                      WORTH (0) 
+                      ARGS (BA1 BA2 BA3) 
+                      FNAM ANY-OF 
+                      CENT (GENL))
+  (PUTPROPS ANYB-INV GENL (ANYB-ANYP) 
+                     ARGS (BA1 BA2 BA3 BA4 BA5) 
+                     CENT (GENL) 
+                     FNAM ANY1OF 
+                     WORTH (0))
+  (PUTPROPS ANYB-RESTRUC GENL (ANYB-ANYP) 
+                         WORTH (0) 
+                         ARGS (BA1 BA2 BA3) 
+                         FNAM ANY-OF 
+                         CENT (GENL))
+  (PUTPROPS ANYB-SPEC GENL (ANYB-ANYP) 
+                      WORTH (0) 
+                      CENT (SPEC) 
+                      FILLIN1 [(MAPCONC (GETB CS-B (QUOTE DEFN))
+					(FUNCTION (LAMBDA (DE)
+							  (* Note that much of the Transform methods are generally 
+							     applicable)
+							  (SELECTQ (CADR DE)
+								   (TRANSFORM (SPECLIZE-TRANSDEF DE))
+								   (RECURSIVE (SPECLIZE-RECDEF DE))
+								   NIL])
+  (PUTPROPS ANYB-SUGG GENL (ANYB-ANYP) 
+                      WORTH (0) 
+                      ARGS (BA1 BA2 BA3) 
+                      FNAM NCONC)
+  (PUTPROPS ANYB-TIES GENL (ANYB-ANYP) 
+                      CENT (GENL) 
+                      WORTH (0) 
+                      FILLIN1 ((ABT1)) 
+                      SPEC (ACTIVE-TIES) 
+                      FEX (56))
+  (PUTPROPS ANYB-UP GENL (ANYB-ANYP) 
+                    WORTH (0) 
+                    CENT (GENL) 
+                    FILLIN1 [[SELF-INT (MAPCONC (GETB CS-B (QUOTE SPEC))
+						(FUNCTION (LAMBDA (S)
+								  (SUBSET (APPLY* (QUOTE UP)
+										  S)
+									  (FUNCTION (LAMBDA (U)
+											    (APPLY* U (QUOTE DEFN)
+												    CS-B]
+			     (PROG1 NIL (REMPROP CS-B (QUOTE UP-NOT])
+  (PUTPROPS ANYB-UP-NOT ARGS (BA1 BA2 BA3 BA4) 
+                        GENL (ANYB-ANYP) 
+                        CENT (SPEC) 
+                        WORTH (0))
+  (PUTPROPS ANYB-VIEW GENL (ANYB-ANYP) 
+                      ARGS (BA1 BA2 BA3 BA4) 
+                      CENT (GENL) 
+                      FNAM ANY-OF 
+                      WORTH (0))
+  (PUTPROPS ANYB-WORTH GENL (ANYB-ANYP) 
+                       WORTH (0))
+  (PUTPROPS ANYTHING WORTH (0 0) 
+                     DEFN ((TYPE NONRECURSIVE TRIVIAL CONSTANT T)) 
+                     ALGS ((TYPE TRIVIAL CONSTANT T)) 
+                     SPEC (ANYB) 
+                     EXS (ANYB ANYTHING) 
+                     UP (ANYTHING) 
+                     IN-DOM-OF (STRUCTURE-DELETE BAG-STRUC-DELETE LIST-STRUC-DELETE OSET-STRUC-DELETE SET-STRUC-DELETE 
+						 STRUCTURE-INSERT BAG-STRUC-INSERT LIST-STRUC-INSERT OSET-STRUC-INSERT 
+						 SET-STRUC-INSERT STRUCTURE-MEMB) 
+                     IN-RAN-OF (FINAL FIRST))
+  (PUTPROPS ATOM-OBJ DEFN ((TYPE NONRECURSIVE (ATOM BA1))) 
+                     GENL (OBJECT) 
+                     WORTH (0) 
+                     ALGS ((TYPE NONRECURSIVE (MKATOM BA1))) 
+                     SPEC (TRUTH-VAL))
+  (PUTPROPS BAG-OF-LISTS GENL (BAG-OF-STRUCS STRUC-OF-LISTS) 
+                         WORTH (37 44 100 200 400 990 900 1000 800 800 1000) 
+                         DEFN [(TYPE QUASIRECURSIVE (AND (APPLYB (QUOTE BAG-STRUC)
+								 (QUOTE DEFN)
+								 BA1)
+							 (EVERY (CDR BA1)
+								(FUNCTION (LAMBDA (Z)
+										  (APPLYB (QUOTE LIST-STRUC)
+											  (QUOTE DEFN)
+											  Z])
+  (PUTPROPS BAG-OF-STRUCS GENL (BAG-STRUC STRUC-OF-STRUCS) 
+                          WORTH (20 100 300 600) 
+                          DEFN [(TYPE QUASIRECURSIVE (AND (ISA BA1 (QUOTE BAG-STRUC))
+							  (EVERY (CDR BA1)
+								 (FUNCTION (LAMBDA (Z)
+										   (ISA Z (QUOTE STRUCTURE] 
+                          SPEC (BAG-OF-LISTS))
+  (PUTPROPS BAG-STRUC GENL (UNORD-OBJ MULT-STRUC) 
+                      WORTH (600 700) 
+                      DEFN [(TYPE NONRECURSIVE (AND (LISTP BA1)
+						    (EQ (CAR BA1)
+							(QUOTE BAG] 
+                      IN-DOM-OF (BAG-STRUC-INSERT BAG-STRUC-JOIN BAG-STRUC-DELETE BAG-STRUC-INTERSECT) 
+                      IN-RAN-OF (BAG-STRUC-INSERT BAG-STRUC-JOIN BAG-STRUC-DELETE BAG-STRUC-INTERSECT) 
+                      SPEC (BAG-OF-STRUCS) 
+                      UP (ANY-STRUC))
+  (PUTPROPS BAG-STRUC-DELETE GENL (STRUCTURE-DELETE) 
+                             WORTH (0) 
+                             ALGS [(TYPE NONRECURSIVE (AND (SETQ GTEMP7 (FMEMB BA1 (CDR BA2)))
+							   (COND ((CDR GTEMP7)
+								  (RPLACA GTEMP7 (APPEND (CADR GTEMP7)))
+								  (RPLACD GTEMP7 (CDDR GTEMP7)))
+								 ((RPLACD BA2 (DREMOVE BA1 (CDR BA2] 
+                             INV [(TYPE NONRECURSIVE TRANSFORM (APPLYB (QUOTE STRUCTURE-DELETE)
+								       (QUOTE INV)
+								       BA1 BA2 (QUOTE BAG-STRUC] 
+                             D-R ((ANYTHING BAG-STRUC BAG-STRUC)))
+  (PUTPROPS BAG-STRUC-DIFF WORTH (0) 
+                           ALGS [(TYPE NONRECURSIVE (PROGN (SETQ BA2 (APPEND BA2))
+							   (SUBSET BA1 (FUNCTION (LAMBDA (X)
+											 (COND ((FMEMB X BA2)
+												(REM-ONCE X BA2)
+												NIL)
+											       (T T] 
+                           D-R ((BAG-STRUC BAG-STRUC BAG-STRUC)) 
+                           GUP (OPERATION) 
+                           UP (OPERATION))
+  (PUTPROPS BAG-STRUC-INSERT GENL (STRUCTURE-INSERT) 
+                             WORTH (0) 
+                             ALGS [(TYPE NONRECURSIVE OPAQUE QUICK (AND (OR BA2 (SETQ BA2 (BAG)))
+									(OR BA1 (SETQ BA1 (RAND-THING)))
+									(ATTACH (CAR BA2)
+										(MERGE (LIST BA1)
+										       (CDR BA2)
+										       (QUOTE SORD] 
+                             D-R ((ANYTHING BAG-STRUC BAG-STRUC)) 
+                             INV T)
+  (PUTPROPS BAG-STRUC-INTERSECT GENL (STRUCTURE-INTERSECT) 
+                                WORTH (0) 
+                                ALGS [(TYPE NONRECURSIVE (CONS (QUOTE BAG)
+							       (SUBSET (CDR BA1)
+								       (FUNCTION (LAMBDA (Z)
+											 (AND (APPLYB (QUOTE 
+												     STRUCTURE-MEMB)
+												      (QUOTE ALGS)
+												      Z BA2)
+											      (APPLYB (QUOTE 
+												   BAG-STRUC-DELETE)
+												      (QUOTE ALGS)
+												      Z BA2] 
+                                D-R ((BAG-STRUC BAG-STRUC BAG-STRUC)) 
+                                FEX (27) 
+                                SPEC (COA-BAG-STRUC-INTERSECT) 
+                                IN-DOM-OF (COALESCE))
+  (PUTPROPS BAG-STRUC-JOIN WORTH (0) 
+                           ALGS [(TYPE NONRECURSIVE OPAQUE QUICK (AND (LISTP BA1)
+								      (LISTP BA2)
+								      (APPEND BA1 (CDR BA2] 
+                           D-R ((BAG-STRUC BAG-STRUC BAG-STRUC)) 
+                           GUP (OPERATION) 
+                           UP (OPERATION))
+  (PUTPROPS CANONIZE WORTH (67 10 700 500 400 990 900 1000 800 800 1000) 
+                     D-R ((PREDICATE PREDICATE OPERATION)) 
+                     DEFN [(TYPE NONRECURSIVE (CANON-DEF BA1 BA2 BA3))
+			   (TYPE PC (FOREACH X Y IN (DOMAIN BA1)
+					     (IFF (BA1 X Y)
+						  (BA2 (BA3 X)
+						       (BA3 Y] 
+                     ALGS ((TYPE NONRECURSIVE (HANDLE-CANON BA1 BA2 BA3))) 
+                     GUP (OPERATION) 
+                     SUGG ((CANON-SUG)) 
+                     UP (OPERATION))
+  (PUTPROPS COALESCE WORTH (250 150 650 500 400 990 900 1000 800 800 1000) 
+                     D-R ((OPERATION OPERATION)
+			  (RELATION RELATION)
+			  (PREDICATE PREDICATE)
+			  (ACTIVE ACTIVE)) 
+                     DEFN [(TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ACTIVE))
+						   (ISA BA2 (QUOTE ACTIVE))
+						   (ALREADY-COALESCED BA1 BA2] 
+                     ALGS [(TYPE NONRECURSIVE NEWB (AND (IGREATERP [LENGTH (CAR (GETB BA1 (QUOTE D-R]
+								   2)
+							(SETQ GTEMP210 (GLUE (QUOTE COA)
+									     BA1))
+							[OR (SETQ GSWI NIL)
+							    (NOT (IS-CON GTEMP210))
+							    (SETQ GTEMP210 (PROG ((I 1))
+										 L1
+										 (COND ((IS-CON (SETQ GTEMP11
+												      (GLUE GTEMP210 I))
+												)
+											(SETQ I (ADD1 I))
+											(GO L1))
+										       ((RETURN GTEMP11]
+							(BLOWUP-COALES BA1 GTEMP210] 
+                     SUGG ((MAPCONC (ACEX OPERATION)
+				    (QUOTE COA-SUG))) 
+                     GUP (OPERATION) 
+                     UP (OPERATION))
+  (PUTPROPS COMPOSE WORTH (300 200 700 500 400 990 900 1000 800 800 1000) 
+                    D-R ((OPERATION OPERATION OPERATION)
+			 (RELATION RELATION RELATION)
+			 (PREDICATE ACTIVE PREDICATE)
+			 (ACTIVE ACTIVE ACTIVE)) 
+                    DEFN [[TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ACTIVE))
+						  (ISA BA2 (QUOTE ACTIVE))
+						  (ISA BA3 (QUOTE ACTIVE))
+						  (ARE-EQUIV BA3 (ALREADY-COMPOSED BA1 BA2]
+			  (TYPE PC (FOREACH X IN (DOMAIN BA2)
+					    RETURN
+					    (BA1 (BA2 X] 
+                    ALGS ((TYPE QUASIRECURSIVE INDIRECT CASES (COM-ALGS BA1 BA2 BA3 BA4 BA5))) 
+                    INT [(IMATRIX (1 2 3)
+				  (4 5))
+			 (COND [(INTERSECTION (MAPAPPEND (GETB BA2 (QUOTE D-R))
+							 (QUOTE LAST))
+					      (MAPAPPEND (GETB BA1 (QUOTE D-R))
+							 (QUOTE ALL-BUT-LAST)))
+				300
+				(IDIFF 400 (ITIMES 100 (IPLUS (LENGTH (GETB BA1 (QUOTE D-R)))
+							      (LENGTH (GETB BA2 (QUOTE D-R]
+			       (REASON (* In some interpretation, Range-of-op2 is 1 component of Domain-of-op1)))
+			 (COND [[MEMB [CAR (LAST (CAR (GETB BA2 (QUOTE D-R]
+				      (ALL-BUT-LAST (CAR (GETB BA1 (QUOTE D-R]
+				400
+				(IDIFF 1000 (ITIMES 100 (LENGTH (CAR (GETB BA1 (QUOTE D-R]
+			       (REASON (* In canonical interpretation, Range-of-op2 is a component of Domain of op1))
+			       (USED))
+			 (COND [[IS-ONE-OF [CAR (LAST (CAR (GETB BA2 (QUOTE D-R]
+					   (ALL-BUT-LAST (CAR (GETB BA1 (QUOTE D-R]
+				350
+				(IDIFF [ITIMES 100 (IDIFF [LENGTH (CAR (GETB BA1 (QUOTE D-R]
+							  (LENGTH (RIPPLE [IS-ONE-OF
+									    [SETQ TMP4
+										  (CAR (LAST (GETB BA2 (QUOTE D-R]
+									    (ALL-BUT-LAST (CAR (GETB BA1 (QUOTE D-R]
+									  (QUOTE GENL]
+				       (ITIMES 50 (LENGTH (RIPPLE TMP4 (QUOTE GENL]
+			       (REASON (* In canonical interpretation, Range-of-op2 is a specialization of a component 
+					  of Domain-of-op1)))
+			 (COND [[MEMB [CAR (LAST (CAR (GETB BA1 (QUOTE D-R]
+				      (ALL-BUT-LAST (CAR (GETB BA2 (QUOTE D-R]
+				450
+				(IPLUS 300 (COND ([MEMB [CAR (LAST (CAR (GETB BA1 (QUOTE D-R]
+							(ALL-BUT-LAST (CAR (GETB BA1 (QUOTE D-R]
+						  10)
+						 (T 250))
+				       (COND ([MEMB [CAR (LAST (CAR (GETB BA2 (QUOTE D-R]
+						    (ALL-BUT-LAST (CAR (GETB BA2 (QUOTE D-R]
+					      11)
+					     (T 250))
+				       (ITIMES 70 (LENGTH (RIPPLE [CAR (LAST (CAR (GETB BA1 (QUOTE D-R]
+								  (QUOTE GENL]
+			       (REASON (* In canonical interpretation, Range-of-op1 is one component of Domain-of-op2))
+			       (USED))
+			 (COND [[ISA [CAR (LAST (CAR (GETB BA1 (QUOTE D-R]
+				     (ALL-BUT-LAST (CAR (GETB BA2 (QUOTE D-R]
+				250
+				(IPLUS 50 (COND ([ISA [CAR (LAST (CAR (GETB BA1 (QUOTE D-R]
+						      (ALL-BUT-LAST (CAR (GETB BA1 (QUOTE D-R]
+						 10)
+						(T 100))
+				       (COND ([ISA [CAR (LAST (CAR (GETB BA2 (QUOTE D-R]
+						   (ALL-BUT-LAST (CAR (GETB BA2 (QUOTE D-R]
+					      11)
+					     (T 100))
+				       (ITIMES 50 (LENGTH (RIPPLE [CAR (LAST (CAR (GETB BA1 (QUOTE D-R]
+								  (QUOTE GENL]
+			       (REASON (* Range-of-op1 is a specialization of a component of Domain-of-op2] 
+                    GUP (OPERATION) 
+                    UP (OPERATION))
+  (PUTPROPS COMPOSE-D-R GENL (ACTIVE-D-R) 
+                        WORTH (0) 
+                        FILLIN1 [(PROGN (ARGS-ASA COMPOSE F1 F2)
+					(CADAR (CON-MERGE-ARGS F1 F2])
+  (PUTPROPS COMPOSE-EXS GENL (ACTIVE-EXS) 
+                        WORTH (100 75 100 100 50))
+  (PUTPROPS COMPOSE-EXS-D-R GENL (ACTIVE-D-R) 
+                            WORTH (0) 
+                            FILLIN1 ((COM-XDRF1 COMPOSE F1 F2 RAN1 DOM1 RAN2 DOM2 DOM3)))
+  (PUTPROPS CONJEC GENL (OBJECT) 
+                   IN-DOM-OF (PROVE DISPROVE) 
+                   WORTH (10 3 999))
+  (PUTPROPS CONSTRUCTIVE-OP WORTH (0) 
+                            DEFN [(TYPE QUASIRECURSIVE (OR (FMEMB BA1 CONSTRUCTIVE-OPS)
+							   (RIPPLE-UNTIL BA1 (QUOTE GENL)
+									 (LIST (QUOTE FMEMB)
+									       (QUOTE B)
+									       (QUOTE CONSTRUCTIVE-OPS] 
+                            GENL (OPERATION))
+  (PUTPROPS EMPTY-STRUC GENL (STRUCTURE) 
+                        WORTH (376 150 700 500 400 990 900 1000 800 800 1000) 
+                        DEFN [(TYPE NONRECURSIVE OPAQUE (AND (LISTP BA1)
+							     (NULL (CDR BA1] 
+                        UP (ANY-STRUC))
+  (PUTPROPS FINAL WORTH (0) 
+                  ALGS [(TYPE NONRECURSIVE (COND ((AND BA2 (CDR BA1))
+						  (FRPLACA (LAST BA1)
+							   BA2))
+						 (T (CAR (LAST (CDR BA1] 
+                  DEFN [(TYPE QUASIRECURSIVE (EQUAL BA2 (APPLYB (QUOTE FINAL)
+								(QUOTE ALGS)
+								BA1] 
+                  D-R ((STRUCTURE ANYTHING)) 
+                  GUP (OPERATION) 
+                  UP (OPERATION))
+  (PUTPROPS FIRST WORTH (0) 
+                  ALGS [(TYPE NONRECURSIVE (COND (BA2 (FSET-NTH BA1 2 BA2))
+						 (T (CADR BA1] 
+                  DEFN [(TYPE QUASIRECURSIVE (EQUAL BA2 (APPLYB (QUOTE FIRST)
+								(QUOTE ALGS)
+								BA1] 
+                  D-R ((STRUCTURE ANYTHING)) 
+                  GUP (OPERATION) 
+                  UP (OPERATION))
+  (PUTPROPS IDENTITY WORTH (100 100 800 900) 
+                     ALGS ((TYPE NONRECURSIVE BA1)
+			   (TYPE PC BA1)) 
+                     D-R ((ANYTHING ANYTHING)
+			  (STRUCTURE STRUCTURE)
+			  (OBJECT OBJECT)
+			  (ACTIVE ACTIVE)) 
+                     GENL (PROJ1) 
+                     DEFN ((TYPE NONRECURSIVE OPAQUE (EQUAL BA1 BA2))))
+  (PUTPROPS INV-OP WORTH (200 100) 
+                   D-R ((OPERATION OPERATION)
+			(RELATION RELATION)
+			(ACTIVE ACTIVE)) 
+                   DEFN [(TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ACTIVE))
+						 (ISA BA2 (QUOTE ACTIVE))
+						 (IS-CON (SETQ GTEMP210 (GLUE (QUOTE INV)
+									      BA1)))
+						 (ARE-EQUIV BA2 GTEMP210] 
+                   ALGS [(TYPE NONRECURSIVE NEWB (AND (SETQ GTEMP210 (GLUE (QUOTE INV)
+									   BA1))
+						      [OR (SETQ GSWI NIL)
+							  (NOT (IS-CON GTEMP210))
+							  (SETQ GTEMP210 (PROG ((I 1))
+									       L1
+									       (COND ((IS-CON (SETQ GTEMP11
+												    (GLUE GTEMP210 I)))
+										      (SETQ I (ADD1 I))
+										      (GO L1))
+										     ((RETURN GTEMP11]
+						      (BLOWUP-INV BA1 GTEMP210] 
+                   SUGG ((MAPCONC (ACEX OPERATION)
+				  (QUOTE INVOP-SUG))) 
+                   GUP (OPERATION) 
+                   ENGN "Construct an operation which is the inverse of: " 
+                   UP (OPERATION))
+  (PUTPROPS INVERTED-OP GENL (OPERATION) 
+                        WORTH (0) 
+                        IN-RAN-OF (INV-OP))
+  (PUTPROPS INVERTED-OP-EXS GENL (ACTIVE-EXS) 
+                            FILLIN1 ((IVOP-FIL1)) 
+                            WORTH (0) 
+                            CHECK1 ((IVOP-CHK1)))
+  (PUTPROPS LIST-STRUC GENL (ORD-OBJ MULT-STRUC) 
+                       WORTH (300 200 700 500 400 990 900 1000 800 800 1000) 
+                       DEFN [(TYPE NONRECURSIVE (AND (LISTP BA1)
+						     (EQ (CAR BA1)
+							 (QUOTE VECTOR] 
+                       INTU [(CONS (QUOTE VECTOR)
+				   (RAND-SUBSET USERNAMES))
+			     (CONS (QUOTE VECTOR)
+				   (APPEND (SETQ RB1 (RAND-SUBSET USERNAMES))
+					   (RAND-SUBSET RB1)))
+			     (CONS (QUOTE VECTOR)
+				   (RAND-PERMUTE (RAND-SUBSET USERNAMES] 
+                       IN-DOM-OF (LIST-STRUC-INSERT FIRST REAR FINAL LIST-STRUC-DELETE LIST-STRUC-INTERSECT) 
+                       EXS ((VECTOR)
+			    (VECTOR A)
+			    (VECTOR B)
+			    (VECTOR A B)
+			    (VECTOR A A)
+			    (VECTOR B A)
+			    (VECTOR A A B)
+			    (VECTOR D M I F 0)
+			    (VECTOR B (BAG B)
+				    (CLASS)
+				    A)) 
+                       EXS-BDY ((VECTOR)
+				(VECTOR BAG)) 
+                       EXS-NOT-BDY ((BAG VECTOR)
+				    (CLASS)) 
+                       IN-RAN-OF (LIST-STRUC-DELETE LIST-STRUC-INSERT LIST-STRUC-INTERSECT) 
+                       UP (ANY-STRUC))
+  (PUTPROPS LIST-STRUC-DELETE GENL (STRUCTURE-DELETE) 
+                              WORTH (0) 
+                              ALGS ((TYPE RECURSIVE INDIRECT (LIST-DALG BA1 BA2 BA3))) 
+                              INV [(TYPE NONRECURSIVE TRANSFORM (APPLYB (QUOTE STRUCTURE-DELETE)
+									(QUOTE INV)
+									BA1 BA2 (QUOTE LIST-STRUC] 
+                              D-R ((ANYTHING LIST-STRUC LIST-STRUC)))
+  (PUTPROPS LIST-STRUC-INSERT GENL (STRUCTURE-INSERT) 
+                              WORTH (0) 
+                              ALGS ((TYPE NONRECURSIVE OPAQUE QUICK (LSTINSALG BA1 BA2))) 
+                              D-R ((ANYTHING LIST-STRUC LIST-STRUC)) 
+                              INV T)
+  (PUTPROPS LIST-STRUC-INTERSECT GENL (STRUCTURE-INTERSECT) 
+                                 WORTH (0) 
+                                 ALGS [(TYPE RECURSIVE (AND (APPLYB (QUOTE LIST-STRUC)
+								    (QUOTE DEFN)
+								    BA1)
+							    (APPLYB (QUOTE LIST-STRUC)
+								    (QUOTE DEFN)
+								    BA2)
+							    (SETQ BA2 (CDR BA2))
+							    (CONS (QUOTE VECTOR)
+								  (MAPCONC (CDR BA1)
+									   (FUNCTION (LAMBDA (Z)
+											     (COND
+											       ((MEMBER Z BA2)
+												(SETQ
+												  BA2
+												  (CDR (MEMBER Z BA2)))
+												(LIST Z] 
+                                 D-R ((LIST-STRUC LIST-STRUC LIST-STRUC)))
+  (PUTPROPS MAP-JOIN WORTH (310 300 700 500 400 990 900 1000 800 800 1000) 
+                     D-R ((ANY-STRUC OPERATION OPERATION)) 
+                     DEFN [(TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ANY-STRUC))
+						   (ISA BA2 (QUOTE ACTIVE))
+						   (ISA BA3 (QUOTE ACTIVE))
+						   (ALREADY-MAP-JOINED BA1 BA2 BA3)))
+			   (TYPE PC (FORANY S IN BA1 (FOREACH X IN S JOIN (BA2 X] 
+                     ALGS ((TYPE NONRECURSIVE (BLOWUP-MAP-JOIN BA1 BA2))) 
+                     GUP (OPERATION) 
+                     SUGG ((PROG1 NIL (* Eventually: suggest map-joining certain structure classes and certain 
+					 operations))) 
+                     UP (OPERATION))
+  (PUTPROPS MAP-REPLACE WORTH (200 300 700 500 400 990 900 1000 800 800 1000) 
+                        D-R ((ANY-STRUC OPERATION OPERATION)) 
+                        DEFN [(TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ANY-STRUC))
+						      (ISA BA2 (QUOTE OPERATION))
+						      (ISA BA3 (QUOTE OPERATION))
+						      (ALREADY-MAP-REPLACED BA1 BA2 BA3)))
+			      (TYPE PC (FORANY S IN BA1 (FOREACH X IN S COLLECT (BA2 X] 
+                        ALGS ((TYPE NONRECURSIVE (BLOWUP-MAP-REPLACE BA1 BA2))) 
+                        GUP (OPERATION) 
+                        SUGG ((PROG1 NIL (* Eventually: suggest map-replacing certain structure classes and certain 
+					    operations))) 
+                        UP (OPERATION))
+  (PUTPROPS MAP-REPLACE2 WORTH (310 210 700 500 400 990 900 1000 800 800 1000) 
+                         D-R ((ANY-STRUC ANY-STRUC OPERATION OPERATION)) 
+                         DEFN [(TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ANY-STRUC))
+						       (ISA BA3 (QUOTE OPERATION))
+						       (ISA BA4 (QUOTE OPERATION))
+						       (ALREADY-MAP-REPLACED2 BA1 BA2 BA3 BA4)))
+			       (TYPE PC (FORANY S IN BA1 (FOREACH X IN S COLLECT (BA3 X BA2] 
+                         ALGS ((TYPE NONRECURSIVE (BLOWUP-MAP-REPLACE2 BA1 BA2 BA3))) 
+                         GUP (OPERATION) 
+                         SUGG ((PROG1 NIL (* Eventually: suggest map-replacing certain structure classes and certain 
+					     operations))) 
+                         UP (OPERATION))
+  (PUTPROPS MULT-STRUC GENL (STRUCTURE) 
+                       SPEC (LIST-STRUC BAG-STRUC) 
+                       WORTH (0) 
+                       UP (ANY-STRUC))
+  (PUTPROPS NON-EMPTY-STRUC WORTH (376 150 700 500 400 990 900 1000 800 800 1000) 
+                            DEFN [(TYPE NONRECURSIVE OPAQUE (AND (LISTP BA1)
+								 (CDR BA1] 
+                            GENL (STRUCTURE))
+  (PUTPROPS NONMULT-STRUC SPEC (SET-STRUC OSET-STRUC) 
+                          WORTH (0) 
+                          GENL (STRUCTURE) 
+                          IN-DOM-OF (MAP-REPLACE2) 
+                          UP (ANY-STRUC))
+  (PUTPROPS NONMULT-STRUC-EXS GENL (OBJECT-EXS) 
+                              WORTH (0) 
+                              CHECK1 [(MAPC GEXISTING (FUNCTION (LAMBDA (X1)
+									(COND ([NOT (EQUAL (CDR X1)
+											   (SELF-INT (CDR X1]
+									       (INCR GCEKNT)
+									       (RPLACD X1 (SELF-INT (CDR X1])
+  (PUTPROPS OBJ-EQUAL WORTH (500 500 666 4) 
+                      ALGS [(TYPE NONRECURSIVE OPAQUE (EQUAL BA1 BA2))
+			    (TYPE RECURSIVE MALLABLE (COND ((OR (NLISTP BA1)
+								(NLISTP BA2))
+							    (EQ BA1 BA2))
+							   (T (AND (APPLYB (QUOTE OBJ-EQUAL)
+									   (QUOTE ALGS)
+									   (CAR BA1)
+									   (CAR BA2))
+								   (APPLYB (QUOTE OBJ-EQUAL)
+									   (QUOTE ALGS)
+									   (CDR BA1)
+									   (CDR BA2] 
+                      SPEC (STRUCTURE-EQUAL) 
+                      D-R ((OBJECT OBJECT TRUTH-VAL)) 
+                      GUP (PREDICATE) 
+                      DEFN [(TYPE NONRECURSIVE OPAQUE (EQUAL BA1 BA2))
+			    (TYPE RECURSIVE MALLABLE (COND ((OR (NLISTP BA1)
+								(NLISTP BA2))
+							    (EQ BA1 BA2))
+							   (T (AND (APPLYB (QUOTE OBJ-EQUAL)
+									   (QUOTE DEFN)
+									   (CAR BA1)
+									   (CAR BA2))
+								   (APPLYB (QUOTE OBJ-EQUAL)
+									   (QUOTE DEFN)
+									   (CDR BA1)
+									   (CDR BA2] 
+                      UP (PREDICATE))
+  (PUTPROPS OBJECT GENL (ANYB) 
+                   SPEC (STRUCTURE ORD-OBJ UNORD-OBJ ATOM-OBJ CONJEC) 
+                   WORTH (0) 
+                   GUP (ANYB) 
+                   IN-DOM-OF (OBJ-EQUAL) 
+                   DEFN [(SOME (FIRSTN 5 (GETBQ OBJECT SPEC))
+			       (FUNCTION (LAMBDA (B1)
+						 (APPLY* (QUOTE DEFN)
+							 B1 BA1 BA2 BA3 BA4 TK2] 
+                   UP (ANYB) 
+                   VIEW ((OBJ-VU BA1 BA2)))
+  (PUTPROPS OBJECT-EXS GENL (ANYB-EXS) 
+                       WORTH (0) 
+                       SPEC (ORD-OBJ-EXS UNORD-OBJ-EXS NONMULT-STRUC-EXS) 
+                       CHECK1 ((OBJX-CHK1)))
+  (PUTPROPS OPERATION GENL (ACTIVE) 
+                      WORTH (0) 
+                      IN-DOM-OF (CONSTRUCTIVE) 
+                      IN-RAN-OF (CANONIZE COALESCE COMPOSE) 
+                      SPEC (CONSTRUCTIVE-OP INVERTED-OP) 
+                      EXS (PROJ1 PROJ2 REAR RESTRICT REV-ORD-PAIR STRUCTURE-DELETE STRUCTURE-DIFF STRUCTURE-INSERT 
+				 STRUCTURE-INTERSECT STRUCTURE-MEMB BAG-STRUC-DIFF BAG-STRUC-JOIN CANONIZE COALESCE 
+				 COMPOSE FINAL FIRST INV-OP MAP-JOIN MAP-REPLACE MAP-REPLACE2 SET-STRUC-INTERSECT))
+  (PUTPROPS ORD-OBJ GENL (OBJECT) 
+                    SPEC (OSET-STRUC LIST-STRUC ORD-PAIR) 
+                    WORTH (0) 
+                    IN-DOM-OF (REAR FINAL FIRST) 
+                    IN-RAN-OF (REAR))
+  (PUTPROPS ORD-OBJ-EXS GENL (OBJECT-EXS) 
+                        WORTH (0) 
+                        CHECK1 [(GETHASH [SETQ GTEMP4 (PACK (LIST CS-B (QUOTE -INSERT]
+					 HCON)
+				(SETQ GEXISTING (SETB CS-B (QUOTE EXS)
+						      (APPEND (GETB (QUOTE ANYB-EXS)
+								    (QUOTE INIT))
+							      [MAPCAR (GETB CS-B (QUOTE EXS))
+								      (FUNCTION (LAMBDA (Z)
+											(INCR GAEKNT)
+											(CONS (CAR Z)
+											      (RAND-PERMUTE
+												(CDR Z]
+							      (GETB CS-B (QUOTE EXS] 
+                        FEX (4))
+  (PUTPROPS ORD-PAIR GENL (ORD-OBJ) 
+                     IN-DOM-OF (REV-ORD-PAIR FIRST FINAL) 
+                     WORTH (300 200 700 500 400 990 900 1000 800 800 (COND ((GETB INTERESTING-ORD-PAIR (QUOTE EXS))
+									    801))) 
+                     DEFN [(TYPE NONRECURSIVE (MATCH BA1 WITH ('PAIR & &)))
+			   (TYPE NONRECURSIVE (AND (LISTP BA1)
+						   (EQ (CAR BA1)
+						       (QUOTE PAIR))
+						   (NULL (CDDDR BA1] 
+                     VIEW [[PROG1 NIL (SETQ GTEMP5 (RIPPLE BA1 (QUOTE GENL]
+			   (AND (FMEMB (QUOTE STRUCTURE)
+				       GTEMP5)
+				(LIST (CAR (INTERSECTION (SPEC STRUCTURE)
+							 GTEMP5))
+				      (APPLYB (QUOTE FIRST)
+					      (QUOTE ALGS)
+					      BA2)
+				      (APPLYB (QUOTE FINAL)
+					      (QUOTE ALGS)
+					      BA2] 
+                     INTU ((LIST (QUOTE PAIR)
+				 (RAND-MEMB USERNAMES)
+				 (RAND-MEMB USERNAMES))
+			   (LIST (QUOTE PAIR)
+				 (RAND-THING)
+				 (RAND-THING))
+			   (LIST (QUOTE PAIR)
+				 (SETQ RB1 (RAND-THING))
+				 RB1)))
+  (PUTPROPS OSET-STRUC GENL (ORD-OBJ NONMULT-STRUC) 
+                       WORTH (300 200 700 500 400 990 900 1000 800 800 1000) 
+                       DEFN [(TYPE NONRECURSIVE (AND (LISTP BA1)
+						     (EQ (CAR BA1)
+							 (QUOTE OSET] 
+                       INTU [(CONS (QUOTE OSET)
+				   (RAND-SUBSET USERNAMES))
+			     (CONS (QUOTE OSET)
+				   (RAND-PERMUTE (RAND-SUBSET USERNAMES] 
+                       IN-DOM-OF (OSET-STRUC-INSERT FIRST REAR FINAL OSET-STRUC-DELETE OSET-STRUC-INTERSECT) 
+                       IN-RAN-OF (OSET-STRUC-DELETE OSET-STRUC-INSERT OSET-STRUC-INTERSECT) 
+                       UP (ANY-STRUC))
+  (PUTPROPS OSET-STRUC-DELETE GENL (STRUCTURE-DELETE) 
+                              WORTH (0) 
+                              ALGS ((TYPE RECURSIVE INDIRECT (OSDEL-ALG BA1 BA2 BA3 BA4))) 
+                              INV [(TYPE NONRECURSIVE TRANSFORM (APPLYB (QUOTE STRUCTURE-DELETE)
+									(QUOTE INV)
+									BA1 BA2 (QUOTE OSET-STRUC] 
+                              D-R ((ANYTHING OSET-STRUC OSET-STRUC)))
+  (PUTPROPS OSET-STRUC-INSERT GENL (STRUCTURE-INSERT) 
+                              WORTH (0) 
+                              ALGS ((TYPE NONRECURSIVE OPAQUE QUICK (OSINS-ALG BA1 BA2))) 
+                              D-R ((ANYTHING OSET-STRUC OSET-STRUC)) 
+                              INV T)
+  (PUTPROPS OSET-STRUC-INTERSECT GENL (STRUCTURE-INTERSECT) 
+                                 WORTH (0) 
+                                 ALGS [(TYPE NONRECURSIVE OPAQUE
+					     (AND (APPLYB (QUOTE OSET-STRUC)
+							  (QUOTE DEFN)
+							  BA1)
+						  (APPLYB (QUOTE OSET-STRUC)
+							  (QUOTE DEFN)
+							  BA2)
+						  (SETQ BA2 (CDR BA2))
+						  (CONS (CAR BA1)
+							(MAPCONC (CDR BA1)
+								 (FUNCTION (LAMBDA (Z)
+										   (COND ((MEMBER Z BA2)
+											  (SETQ BA2
+												(CDR (MEMBER Z BA2)))
+											  (LIST Z] 
+                                 D-R ((OSET-STRUC OSET-STRUC OSET-STRUC)))
+  (PUTPROPS PREDICATE GENL (ACTIVE) 
+                      WORTH (0) 
+                      D-R ((ANYTHING TRUTH-VAL)) 
+                      IN-DOM-OF (CANONIZE) 
+                      EXS (OBJ-EQUAL))
+  (PUTPROPS PROJ1 WORTH (0) 
+                  ALGS ((TYPE NONRECURSIVE TRIVIAL BA1)) 
+                  D-R ((STRUCTURE ANYTHING STRUCTURE)
+		       (OPERATION ANYTHING OPERATION)
+		       (OBJECT ANYTHING OBJECT)
+		       (ACTIVE ANYTHING ACTIVE)
+		       (ANYTHING ANYTHING ANYTHING)
+		       (SET-OF-LISTS ANYTHING SET-OF-LISTS)) 
+                  SPEC (IDENTITY) 
+                  GUP (OPERATION) 
+                  DEFN ((TYPE NONRECURSIVE TRIVIAL (ARE-EQUIV BA3 BA1))
+			(TYPE PC BA1)) 
+                  UP (OPERATION))
+  (PUTPROPS PROJ2 WORTH (30 100 300 800) 
+                  ALGS ((TYPE NONRECURSIVE TRIVIAL BA2)) 
+                  D-R ((ANYTHING STRUCTURE STRUCTURE)
+		       (ANYTHING OPERATION OPERATION)
+		       (ANYTHING OBJECT OBJECT)
+		       (ANYTHING ACTIVE ACTIVE)
+		       (ANYTHING ANYTHING ANYTHING)
+		       (ANYTHING SET-OF-LISTS SET-OF-LISTS)) 
+                  GUP (OPERATION) 
+                  DEFN ((TYPE NONRECURSIVE TRIVIAL (ARE-EQUIV BA3 BA2))
+			(TYPE PC BA2)) 
+                  UP (OPERATION))
+  (PUTPROPS REAR WORTH (0) 
+                 ALGS [(TYPE NONRECURSIVE (COND [BA2 (CONS (CAR BA1)
+							   (CONS (CADR BA1)
+								 (CDR BA2]
+						(T (CONS (CAR BA1)
+							 (CDDR BA1] 
+                 DEFN ((TYPE QUASIRECURSIVE (APPLYB (QUOTE OBJ-EQUAL)
+						    (QUOTE ALGS)
+						    (APPLYB (QUOTE REAR)
+							    (QUOTE ALGS)
+							    BA1)
+						    BA2))) 
+                 D-R ((STRUCTURE STRUCTURE)) 
+                 GUP (OPERATION) 
+                 IN-DOM-OF (RESTRICT) 
+                 UP (OPERATION))
+  (PUTPROPS RELATION GENL (ACTIVE) 
+                     WORTH (0))
+  (PUTPROPS RESTRICT WORTH (50 66 700 500 400 990 900 1000 800 800 1000) 
+                     D-R ((OPERATION ANY-STRUC OPERATION)) 
+                     DEFN [(TYPE NONRECURSIVE (AND (ISA BA1 (QUOTE ACTIVE))
+						   (ISA BA2 (QUOTE ANY-STRUC))
+						   (ALREADY-RESTRICTED BA1 BA2 BA3)))
+			   (TYPE PC (FOREACH X IN BA2 (BA1 X] 
+                     ALGS ((TYPE NONRECURSIVE (BLOWUP-RESTRIC BA1 BA2 BA3))) 
+                     GUP (OPERATION) 
+                     SUGG ((PROG1 NIL (* Eventually: restrict active A to structures of type X if certain conditions 
+					 are present; e.g., X is more int than existing d-r, A is v int,...))) 
+                     NOTES ((If we could have something like (SPEC STRUCTURE)
+				as one domain component, we wouldn't need to have the Being ANY-STRUC exist)) 
+                     UP (OPERATION))
+  (PUTPROPS REV-ORD-PAIR WORTH (300 200 775) 
+                         ALGS [(TYPE NONRECURSIVE OPAQUE (RPLACD BA1 (DREVERSE (CDR BA1] 
+                         D-R ((ORD-PAIR ORD-PAIR)) 
+                         GUP (OPERATION) 
+                         UP (OPERATION))
+  (PUTPROPS SET-OF-LISTS GENL (SET-OF-STRUCS STRUC-OF-LISTS SET-STRUC) 
+                         WORTH (37 44 100 200 400 990 900 1000 800 800 1000) 
+                         DEFN [(TYPE QUASIRECURSIVE (AND (APPLYB (QUOTE SET-STRUC)
+								 (QUOTE DEFN)
+								 BA1)
+							 (EVERY (CDR BA1)
+								(FUNCTION (LAMBDA (Z)
+										  (APPLYB (QUOTE LIST-STRUC)
+											  (QUOTE DEFN)
+											  Z] 
+                         NOTES ((* Somewhere, we should be able to say that this Being is always the range of any 
+				   Example of Inv-op)))
+  (PUTPROPS SET-OF-STRUCS GENL (SET-STRUC STRUC-OF-STRUCS) 
+                          WORTH (0) 
+                          DEFN [(TYPE QUASIRECURSIVE (AND (APPLYB (QUOTE SET-STRUC)
+								  (QUOTE DEFN)
+								  BA1)
+							  (EVERY (CDR BA1)
+								 (FUNCTION (LAMBDA (Z)
+										   (APPLYB (QUOTE STRUCTURE)
+											   (QUOTE DEFN)
+											   Z] 
+                          SPEC (SET-OF-LISTS))
+  (PUTPROPS SET-STRUC GENL (UNORD-OBJ NONMULT-STRUC) 
+                      WORTH (750 700 700 500 400 990 900 1000 800 800 1000) 
+                      DEFN [[TYPE NONRECURSIVE (AND (LISTP BA1)
+						    (EQ (CAR BA1)
+							(QUOTE CLASS]
+			    (TYPE RECURSIVE (COND [(EQUAL BA1 (LIST (QUOTE CLASS]
+						  ((NOT (AND (LISTP BA1)
+							     (CDR BA1)))
+						   NIL)
+						  ((APPLYB (QUOTE SET-STRUC)
+							   (QUOTE DEFN)
+							   (APPLYB (QUOTE STRUCTURE-DELETE)
+								   (QUOTE ALGS)
+								   (APPLYB (QUOTE STRUCTURE-MEMB)
+									   (QUOTE ALGS)
+									   NIL
+									   (COPY BA1))
+								   (COPY BA1] 
+                      INTU [(CONS (QUOTE CLASS)
+				  (RAND-SUBSET USERNAMES))
+			    (CONS (QUOTE CLASS)
+				  (RECTANGLE (RAND 0 7)
+					     (RAND 0 7)
+					     (RAND 0 7)
+					     (RAND 0 7] 
+                      IN-DOM-OF (SET-STRUC-INSERT SET-STRUC-DELETE SET-STRUC-DIFF SET-STRUC-INTERSECT) 
+                      IN-RAN-OF (SET-STRUC-DELETE SET-STRUC-DIFF SET-STRUC-INSERT SET-STRUC-INTERSECT) 
+                      SPEC (SET-OF-LISTS SET-OF-STRUCS) 
+                      UP (ANY-STRUC))
+  (PUTPROPS SET-STRUC-DELETE GENL (STRUCTURE-DELETE) 
+                             WORTH (0) 
+                             ALGS [(TYPE NONRECURSIVE QUICK (COND ((AND BA1 BA2)
+								   (DREMOVE BA1 BA2))
+								  (BA1 (LIST (QUOTE CLASS)))
+								  (BA2 (RPLACD BA2 (CDDR BA2] 
+                             INV [(TYPE NONRECURSIVE TRANSFORM (APPLYB (QUOTE STRUCTURE-DELETE)
+								       (QUOTE INV)
+								       BA1 BA2 (QUOTE SET-STRUC] 
+                             D-R ((ANYTHING SET-STRUC SET-STRUC)) 
+                             FEX (56) 
+                             UP (ACTIVE OPERATION) 
+                             IN-DOM-OF (COA-COMPOSE))
+  (PUTPROPS SET-STRUC-DIFF GENL (STRUCTURE-DIFF) 
+                           WORTH (0) 
+                           ALGS ((TYPE NONRECURSIVE QUICK OPAQUE (PROGN [MAPC (CDR BA2)
+									      (FUNCTION (LAMBDA (Z)
+												(SETQ
+												  BA1
+												  (REMOVE Z
+													  (CDR BA1]
+									BA1))) 
+                           D-R ((SET-STRUC SET-STRUC SET-STRUC)))
+  (PUTPROPS SET-STRUC-INSERT GENL (STRUCTURE-INSERT) 
+                             WORTH (0) 
+                             ALGS ((TYPE NONRECURSIVE OPAQUE QUICK (SETINSALG BA1 BA2))) 
+                             D-R ((ANYTHING SET-STRUC SET-STRUC)) 
+                             INV T)
+  (PUTPROPS SET-STRUC-INTERSECT GENL (STRUCTURE-INTERSECT) 
+                                WORTH (0) 
+                                ALGS [(TYPE NONRECURSIVE QUICK OPAQUE (CONS (QUOTE CLASS)
+									    (INTERSECTION (CDR BA1)
+											  (CDR BA2] 
+                                D-R ((SET-STRUC SET-STRUC SET-STRUC)) 
+                                FEX (27) 
+                                UP (OPERATION ACTIVE))
+  (PUTPROPS STRUC-OF-LISTS GENL (STRUC-OF-STRUCS) 
+                           WORTH (0) 
+                           DEFN [(TYPE QUASIRECURSIVE (AND (APPLYB (QUOTE STRUCTURE)
+								   (QUOTE DEFN)
+								   BA1)
+							   (EVERY (CDR BA1)
+								  (FUNCTION (LAMBDA (Z)
+										    (APPLYB (QUOTE LIST-STRUC)
+											    (QUOTE DEFN)
+											    Z] 
+                           SPEC (SET-OF-LISTS BAG-OF-LISTS))
+  (PUTPROPS STRUC-OF-STRUCS GENL (STRUCTURE) 
+                            WORTH (0) 
+                            DEFN [(TYPE QUASIRECURSIVE (AND (APPLYB (QUOTE STRUCTURE)
+								    (QUOTE DEFN)
+								    BA1)
+							    (EVERY (CDR BA1)
+								   (FUNCTION (LAMBDA (Z)
+										     (APPLYB (QUOTE STRUCTURE)
+											     (QUOTE DEFN)
+											     Z] 
+                            SPEC (STRUC-OF-LISTS SET-OF-STRUCS BAG-OF-STRUCS))
+  (PUTPROPS STRUCTURE GENL (OBJECT) 
+                      INT [(IMATRIX (1 2)
+				    (3))
+			   (COND ([SOME (INT-PREDS)
+					(FUNCTION (LAMBDA (P)
+							  (COND ([AND (EQ 2 (LENGTH (GARGS P)))
+								      (EVERY (CDR BA1)
+									     (FUNCTION
+									       (LAMBDA (X)
+										       (EVERY (CDR BA1)
+											      (FUNCTION
+												(LAMBDA
+												  (Y)
+												  (APPLYB P
+													  (QUOTE ALGS)
+													  X Y]
+								 (RAISE-WORTH P)
+								 (SETQ GTEMPP P]
+				  [IPLUS [ITIMES 3 (LENGTH (GETB CS-B (QUOTE EXS-BDY]
+					 [ITIMES 3 (SMALLER 100 (LENGTH (GETB CS-B (QUOTE EXS]
+					 (LENGTH (GETB CS-B (QUOTE EXS-NOT)))
+					 (LENGTH (GETB CS-B (QUOTE EXS-NOT-BDY)))
+					 (DOTPROD (GETB CS-B (QUOTE WORTH))
+						  (LIST .2 .1))
+					 [SMALLER 300 (RMUL (APPLY (QUOTE IPLUS)
+								   (MAPCAR (GETB CS-B (QUOTE EXS))
+									   (QUOTE LENGTH)))
+							    100
+							    (ADD1 (LENGTH (GETB CS-B (QUOTE EXS]
+					 (COND ((ILESSP [SETQ GTEMP390
+							      (RMUL [APPLY (QUOTE IPLUS)
+									   (MAPCAR (GETB CS-B (QUOTE EXS))
+										   (FUNCTION
+										     (LAMBDA
+										       (X)
+										       (LENGTH (ATOM-INT (CDR X]
+								    100
+								    (ADD1 (LENGTH (GETB CS-B (QUOTE EXS]
+							100)
+						-10000)
+					       (T (IQUOTIENT GTEMP390 10]
+				  (FIX (RMUL (DOTPROD (LIST .6 .3 .1)
+						      (GETB GTEMPP (QUOTE WORTH)))
+					     (LENGTH BA1)
+					     30)))
+				 (REASON (* Each pair of elements satisfies the same interesting predicate P
+					    (for some P)))
+				 (USED))
+			   (COND ([SOME (INT-CONS)
+					(FUNCTION (LAMBDA (P)
+							  (COND ([EVERY (CDR BA1)
+									(FUNCTION (LAMBDA (X)
+											  (DEFN-AC P X]
+								 (RAISE-WORTH P)
+								 (SETQ GTEMPP P]
+				  (IPLUS [ITIMES 2 (LENGTH (GETB CS-B (QUOTE EXS-BDY]
+					 [ITIMES 2 (SMALLER 100 (LENGTH (GETB CS-B (QUOTE EXS]
+					 (LENGTH (GETB CS-B (QUOTE EXS-NOT)))
+					 (LENGTH (GETB CS-B (QUOTE EXS-NOT-BDY)))
+					 (DOTPROD (GETB CS-B (QUOTE WORTH))
+						  (LIST .25 .1))
+					 [IDIFFERENCE 400 (SMALLER 300 (RMUL (APPLY (QUOTE IPLUS)
+										    (MAPCAR (GETB CS-B (QUOTE EXS))
+											    (QUOTE LENGTH)))
+									     100
+									     (ADD1 (LENGTH (GETB CS-B (QUOTE EXS]
+					 (COND ((ILESSP [SETQ GTEMP391 (LENGTH (MAPCONC (GETB CS-B (QUOTE EXS))
+											(QUOTE ATOM-INT]
+							5)
+						-10000)
+					       (T GTEMP391)))
+				  (FIX (RMUL (DOTPROD (LIST .5 .3 .1)
+						      (GETB GTEMPP (QUOTE WORTH)))
+					     (LENGTH BA1)
+					     40)))
+				 (REASON (* Each element satisfies the defn of the interesting concept P
+					    (for some P)))
+				 (USED))
+			   (COND [(CDR BA1)
+				  13
+				  (MAX (CDR BA1)
+				       (FUNCTION (LAMBDA
+						   (M1)
+						   (DOTPROD (.9 .1)
+							    (COND
+							      ((GETB M1 (QUOTE WORTH)))
+							      ((LIST (FAN [COND ((GETB M1 (QUOTE GENL)))
+										[(SUBSET
+										   CONCEPTS
+										   (FUNCTION
+										     (LAMBDA
+										       (KC)
+										       (MEMBER M1 (GETB KC
+													(QUOTE EXS]
+										((LIST (QUOTE ANYB]
+									  (QUOTE INT)
+									  M1]
+				 (REASON (* There is 1 very interesting element in the set] 
+                      SPEC (MULT-STRUC NONMULT-STRUC EMPTY-STRUC STRUC-OF-STRUCS NON-EMPTY-STRUC) 
+                      IN-DOM-OF (STRUCTURE-INSERT STRUCTURE-MEMB STRUCTURE-DELETE STRUCTURE-EQUAL EMPTY NON-EMPTY 
+						  STRUCTURE-DIFF STRUCTURE-INTERSECT MAP-REPLACE2) 
+                      WORTH (10 3 999) 
+                      VIEW ((STRUC-VU BA1 BA2)) 
+                      DEFN-NEC ((TYPE NONRECURSIVE (LISTP BA1))) 
+                      DEFN [(TYPE NONRECURSIVE OPAQUE (AND (LISTP BA1)
+							   (FMEMB (CAR BA1)
+								  (CLASS BAG VECTOR OSET] 
+                      IN-RAN-OF (STRUCTURE-DELETE STRUCTURE-DIFF STRUCTURE-INSERT STRUCTURE-INTERSECT) 
+                      UP (ANY-STRUC))
+  (PUTPROPS STRUCTURE-DELETE WORTH (0) 
+                             ALGS ((TYPE NONRECURSIVE (OR [AND (SETQ GTEMP7 (FMEMB BA1 (CDR BA2)))
+							       (COND ((CDR GTEMP7)
+								      (RPLACA GTEMP7 (APPEND (CADR GTEMP7)))
+								      (RPLACD GTEMP7 (CDDR GTEMP7)))
+								     ((RPLACD BA2 (DREMOVE BA1 (CDR BA2]
+							  BA2))) 
+                             INV ((TYPE NONRECURSIVE TRANSFORM INDIRECT (STRUCDINV BA1 BA2 BA3))) 
+                             D-R ((ANYTHING STRUCTURE STRUCTURE)) 
+                             SPEC (BAG-STRUC-DELETE LIST-STRUC-DELETE OSET-STRUC-DELETE SET-STRUC-DELETE) 
+                             GUP (OPERATION) 
+                             UP (OPERATION))
+  (PUTPROPS STRUCTURE-DIFF WORTH (0) 
+                           ALGS [(TYPE NONRECURSIVE OPAQUE QUICK (AND (LISTP BA1)
+								      (LISTP BA2)
+								      (EQ (CAR BA1)
+									  (CAR BA2))
+								      (SUBSET BA1 (FUNCTION
+										(LAMBDA (Z)
+											(PROG1 (EQUAL Z (CAR BA2))
+											       (SETQ BA2 (CDR BA2] 
+                           INV ((TYPE NONRECURSIVE TRANSFORM (APPLYB (QUOTE STRUCTURE-DIFF)
+								     (QUOTE ALGS)
+								     BA2 BA1 BA3))) 
+                           D-R ((STRUCTURE STRUCTURE STRUCTURE)) 
+                           SPEC (SET-STRUC-DIFF) 
+                           GUP (OPERATION) 
+                           UP (OPERATION))
+  (PUTPROPS STRUCTURE-EQUAL GENL (OBJ-EQUAL) 
+                            WORTH (0) 
+                            D-R ((STRUCTURE STRUCTURE TRUTH-VAL)))
+  (PUTPROPS STRUCTURE-EXS GENL (ANYB-EXS) 
+                          FILLIN2 ((FIL-STRUC-P (QUOTE EXS))) 
+                          WORTH (0))
+  (PUTPROPS STRUCTURE-EXS-BDY GENL (ANYB-EXS-BDY) 
+                              FILLIN2 ((FIL-STRUC-P (QUOTE EXS-BDY))
+				       (FIL-STRUC-P2)) 
+                              WORTH (0))
+  (PUTPROPS STRUCTURE-INSERT WORTH (0) 
+                             ALGS [(TYPE NONRECURSIVE CASES BRANCH (AND (SETQ BA2 (STRUCTYP? BA1 BA2 BA3))
+									[IS-CON (SETQ GTEMP3 (GLUE GTEMP3 (QUOTE INSERT]
+									(APPLYB GTEMP3 (QUOTE ALGS)
+										BA1 BA2] 
+                             D-R ((ANYTHING STRUCTURE STRUCTURE)) 
+                             SPEC (BAG-STRUC-INSERT LIST-STRUC-INSERT OSET-STRUC-INSERT SET-STRUC-INSERT) 
+                             GUP (OPERATION) 
+                             IN-DOM-OF (MAP-REPLACE2) 
+                             UP (OPERATION))
+  (PUTPROPS STRUCTURE-INTERSECT WORTH (0) 
+                                ALGS [(TYPE NONRECURSIVE CASES BRANCH
+					    (AND (LISTP BA1)
+						 (LISTP BA2)
+						 (SETQ BA2 (STRUCTYP? BA1 BA2 BA3))
+						 [SETQ GTEMP3 (CAR (SOME (RIPPLE GTEMP3 (QUOTE GENL))
+									 (FUNCTION (LAMBDA (G)
+											   (IS-CON (GLUE G
+													 (QUOTE 
+													  INTERSECT]
+						 (NEQ GTEMP3 (QUOTE STRUCTURE))
+						 (APPLYB (GLUE GTEMP3 (QUOTE INTERSECT))
+							 (QUOTE ALGS)
+							 BA1 BA2] 
+                                D-R ((STRUCTURE STRUCTURE STRUCTURE)) 
+                                SPEC (SET-STRUC-INTERSECT BAG-STRUC-INTERSECT LIST-STRUC-INTERSECT OSET-STRUC-INTERSECT)
+                                GUP (OPERATION) 
+                                IN-DOM-OF (MAP-REPLACE2 COMPOSE INT-COMPOSE) 
+                                UP (OPERATION ACTIVE) 
+                                FEX (27))
+  (PUTPROPS STRUCTURE-MEMB WORTH (0) 
+                           ALGS [(TYPE NONRECURSIVE QUICK CASES (COND [(AND BA1 BA2)
+								       (NOT (NOT (MEMBER BA1 (CDR BA2]
+								      (BA2 (CADR BA2))
+								      (BA1 (LIST (QUOTE CLASS)
+										 BA1] 
+                           INV ((TYPE NONRECURSIVE CASES (STMEMBINV BA1 BA2))) 
+                           D-R ((ANYTHING STRUCTURE TRUTH-VAL)) 
+                           GUP (OPERATION) 
+                           UP (OPERATION))
+  (PUTPROPS TRUTH-VAL GENL (ATOM-OBJ) 
+                      IN-RAN-OF (PREDICATE CONSTRUCTIVE EMPTY NON-EMPTY OBJ-EQUAL STRUCTURE-EQUAL STRUCTURE-MEMB) 
+                      WORTH (0) 
+                      DEFN [(TYPE NONRECURSIVE CASES (COND ((EQUAL BA1 T))
+							   ((EQUAL BA1 NIL))
+							   ((EQUAL BA1 FALSE))
+							   ((EQUAL BA1 TRUE))
+							   (T NIL] 
+                      ALGS [(TYPE NONRECURSIVE CASES (COND (BA1 TRUE)
+							   (T FALSE] 
+                      EXS (FALSE NIL T TRUE))
+  (PUTPROPS UNORD-OBJ GENL (OBJECT) 
+                      SPEC (SET-STRUC BAG-STRUC) 
+                      WORTH (0))
+  (PUTPROPS UNORD-OBJ-EXS GENL (OBJECT-EXS) 
+                          WORTH (0) 
+                          CHECK1 ((UNORD-CK1)))
+  (INIT-C)
+[DECLARE: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS 
+  (ADDTOVAR NLAMA)
+  (ADDTOVAR NLAML)
+]
+(DECLARE: DONTCOPY
+  (FILEMAP (NIL)))
+STOP
+
+

@@ -1,0 +1,4491 @@
+(FILECREATED "16-APR-76 13:59:20" <LENAT>TB.;6 125120 
+
+     changes to:  M2 RUN-OPS-TO-GET SLOPE FILLIN TBCOMS
+
+     previous date: "10-APR-76 20:51:12" <LENAT>TB.;5)
+
+
+  (LISPXPRINT (QUOTE TBCOMS)
+	      T T)
+  [RPAQQ TBCOMS
+	 ((FNS GET-NAMES GET-SEEN GET-UCON GET-VERBO GET-WAIT GETARGS GETB-OR GETB-P GETB-P-C GETBQ GETFNAME GETU GETUP 
+	       GETUPN GETX GETXB GETXNB GEXADD GFNAME GFNAMES GLUE GLUE-CANO GLUE-IF-ABLE GLUEC GLUEE GRAND-STRUC 
+	       GS-CHECK GTRANSFER HANDLE-CANON HANDLE-I HANDLE-I-INTERRUPT HANDLE-I1 HANDLE-N I-USED I-USED2 I-USED3 
+	       IAD2 IAD3 IDI2 IDI3 IDIV IMATRIX IN-A-LOOP IN-FACTOR INCR INCR-TIE INCR-USED INCRB INDUCE-CANON-STYPE 
+	       INIT-VARS INS1CAND INSTAN-1D INSTAN-1I INSTAN-1S INSTAN-ACT-TRANS INSTAN-BASE INSTAN-D INSTAN-I 
+	       INSTAN-PAT INSTAN-REC INSTAN-S INSTAN-TRANSF INT-CONS INT-ENUF INT-PREDS INTERCEPT INV-EX INV-STYP 
+	       INVOP-SUG INVQ IS-CON IS-CON-L IS-CONN IS-CONSTANTT IS-ONE-OF ISA ISA1 ISAG ISAS ISQ ISYN IVOP-CHK1 
+	       IVOP-FIL1 KILB KINDS-OF LAPP LARGER LASTELE LIN LINN LIST-DALG LLOCATE LLOCX LONGEST LSTINSALG M2 
+	       MAKE-IDENTICAL MAP-JOINABLE MAP-REPLACE2ABLE MAP-REPLACEABLE MAPAPPEND MAX2 MAX1 MEAS MEAS3 MERGE2BS 
+	       MIN2 MORE-INT MOST-OF MULT-STRUC-PAIR NCONCB NEW-CON NEWNAME NORM NOT-USED-YET NUM-BETWEEN NUM-WTS 
+	       OBJ-VU OBJX-CHK1 ONE-ISA ONE-ISAG ORD-STRUC-PAIR ORDINAL OSDEL-ALG OSET OSINS-ALG OUTA PAD PAD1 PADI 
+	       PAIR PGET PICK-CAND POINTP POR PRINES PRINICE PRUNABLE PRUNE PSUF PT PUTB PXEQ Q RAISE-WORTH 
+	       RAND-ACEX-MEMB RAND-CON RAND-INCRB RAND-MEMB RAND-OBJ RAND-PERMUTE RAND-PRED RAND-SUBSET RAND-THING 
+	       RAND-USER RANDFMEMB RANDQMEMB RCON RDIST REBB RECENTLY-TRIED RECTANGLE REM-ALLEV REM-ONCE RENAM-SYN 
+	       RENAME2BS RIGHT-STRUC RIPPLE RIPPLE-L RIPPLE-S2 RIPPLE-UNTIL RIPPLE-UNTIL-P RMUL RNUM RPLACINT RUN-ANAS 
+	       RUN-OPS-TO-GET RUN1ANA S-DECODE SAD2 SAD3 SADD SAFE-DEFN SCDR SELF SELF-COMPILE SELF-INT SET-DIFF 
+	       SET-DIFFER2 SET-DIFFERENCE SET-NTH SETB SETBQ SETINSALG SGREATERP SHOWLEN SIDE1 SIDE2 SIDE3 SIMPLIFY1 
+	       SIMULT-SATISFY SLOPE SMALLER SOFS SOFS-DECODE SOME-EBP SOMEE SORD SORTED SORV SPECL1RDEF SPECLIZE-RECDEF 
+	       SPECLIZE-TRANSDEF SPLIST SQ SSORT STACK-BS START STMEMBINV STRUC STRUC-PAIR STRUC-VU STRUCDINV STRUCHECK 
+	       STRUCTYP? STRUCTYPE SUB-ONCE SUBSET-INVOLVING-ONLY SUGGEST SWHY SWITCH SYM-XEQ TIMES1000 TLOOP TRI 
+	       TRIANGLE-ORIENTATION TYPE UNFORGETTABLE UNORD-CK1 UNTANGLE-ARGS UNUM UP-THRESH UPDATE USED-YET VECTOR 
+	       VERTEX XEQ-CAND)
+	  (FNS INIT1 INIT-COMP INIT-C)
+	  FACETS
+	  (FNS * FACETS)
+	  RANDSTATE
+	  [P (INIT-COMP)
+	     (INIT1)
+	     (ADVISE (QUOTE MAKEFILE)
+		     (QUOTE BEFORE)
+		     (QUOTE (WIDEPAPER T)))
+	     (ADVISE (QUOTE MAKEFILE)
+		     (QUOTE AFTER)
+		     (QUOTE (WIDEPAPER NIL]
+	  (DECLARE: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS
+		    (ADDVARS (NLAMA VECTOR TYPE TRI STRUC SPLIST SADD PT PAIR OSET LIN)
+			     (NLAML VIEW UP-NOT UP TIES SUGG SPEC INV INTU INT IN-RAN-OF IN-DOM-OF GENL FILLIN 
+				    EXS-NOT-BDY EXS-NOT EXS-BDY EXS DEFN-SUF DEFN-NEC DEFN D-R CHECK ANAS ALGS WORTH 
+				    SWITCH SWHY SETBQ SELF-COMPILE SELF Q INCR GETBQ]
+(DEFINEQ
+
+(GET-NAMES
+  [LAMBDA NIL
+    (SETQ LASTNAME (COND
+	((EQ USERNAME (QUOTE LENAT))
+	  (CPRIN1S 0 CRLF Please type in your last name LPAREN
+					 then carriage-return RPAREN COLON)
+	  (U-CASE (RATOM)))
+	(T USERNAME)))
+    (SETQ FIRSTNAME (COND
+	((NEQ (QUOTE NOBIND)
+	      (GETTOPVAL LASTNAME))
+	  (GETTOPVAL LASTNAME))
+	((EQ (QUOTE Doug)
+	     FIRSTNAME)
+	  (QUOTE TYRO))
+	(T (SET FIRSTNAME 0)
+	   FIRSTNAME)))
+    (SETQ ESTAT (COND
+	((MINUSP (GETTOPVAL FIRSTNAME))
+	  0)
+	(T (SUB1 (SETTOPVAL FIRSTNAME (ADD1 (GETTOPVAL FIRSTNAME])
+
+(GET-SEEN
+  [LAMBDA NIL
+    (SETQ V1REASON 4)
+    (SETQ V-REASON 8)
+
+          (* These can be reset; the first value is the minimum verbosity level to see the reason for the 
+	  chosen candidate; the second is the min verbosity level to see the reasons for all SEENCANDS 
+	  candsidates each time)
+
+
+    (SETQ SEENCANDS
+      (COND
+	((SELECTQ UCONTROL
+		  ((0 1 2)
+		    (CPRIN1S 0 CRLF Do you want me to tell you which new Cand I'm about to work on each time QUES)
+		    (DISMISS (SELECTQ ESTAT
+				      (0 6000)
+				      ((1 2)
+					4000)
+				      1500))
+		    (COND
+		      ((READP)
+			(FMEMB (RATOM)
+			       YES-LIST))
+		      ((ILESSP VERBOSITY 2)
+			(PRIN1 "no")
+			NIL)
+		      (T (PRIN1 "yes")
+			 T)))
+		  (PROGN (CPRIN1S 0 CRLF Before deciding which new Cand to work on, I'll print my top choices DCR)
+			 T))
+	  (CPRIN1S 0 CRLF How many Candidates would you like to see each time QUES SPACE)
+	  [SETQ S1 (IPLUS (RMUL UCONTROL 1 2)
+			  (SMALLER 3 (IQUOTIENT VERBOSITY 4]
+	  (CPRIN1S 2 CRLF TAB LPAREN "I suggest " S1 RPAREN COLON SPACE)
+	  (CLEARBUF T T)
+	  (DISMISS (SELECTQ ESTAT
+			    (0 9000)
+			    ((1 2)
+			      6000)
+			    4000))
+	  (COND
+	    ((READP)
+	      (RNUM))
+	    (T (CPRIN1S 0 SPACE SPACE S1 DCR)
+	       S1)))
+	(T 0)))
+    [AND (IGREATERP UCONTROL 2)
+	 (IGREATERP VERBOSITY 4)
+	 (SELECTQ SEENCANDS
+		  (0 NIL)
+		  [1 (CPRIN1S 2 CRLF Should (QUOTE I)
+			      tell you my reasons for the Cand (QUOTE I)
+						      select each time QUES SPACE)
+		     (COND
+		       ((EQ (QUOTE Y)
+			    (ASKUSER 4 (COND
+				       ((ILESSP VERBOSITY 4)
+					 (QUOTE N))
+				       (T (QUOTE Y)))
+				     SPACE NIL T NIL))
+			 (SETQ V1REASON (SUB1 VERBOSITY))
+			 (SETQ V-REASON (ITIMES 2 V1REASON)))
+		       (T (SETQ V1REASON (ADD1 VERBOSITY))
+			  (SETQ V-REASON (ITIMES 2 V1REASON]
+		  (PROGN (CPRIN1S 2 CRLF Should (QUOTE I)
+				  tell you my reasons for each Cand (QUOTE I)
+							  am considering selecting each time QUES SPACE)
+			 (COND
+			   ((EQ (QUOTE Y)
+				(ASKUSER 4 (COND
+					   ((ILESSP VERBOSITY 9)
+					     (QUOTE N))
+					   (T (QUOTE Y)))
+					 SPACE NIL T NIL))
+			     (SETQ V-REASON (SUB1 VERBOSITY))
+			     (SETQ V1REASON (IQUOTIENT V-REASON 2)))
+			   (T (SETQ V-REASON (ADD1 VERBOSITY))
+			      (CPRIN1S 2 CRLF Should (QUOTE I)
+				       tell you my reasons for the Cand (QUOTE I)
+							       actually select each time QUES SPACE)
+			      (COND
+				((EQ (QUOTE Y)
+				     (ASKUSER 4 (COND
+						((ILESSP VERBOSITY 4)
+						  (QUOTE N))
+						(T (QUOTE Y)))
+					      SPACE NIL T NIL))
+				  (SETQ V1REASON (SUB1 VERBOSITY)))
+				(T (SETQ V1REASON (ADD1 VERBOSITY]
+    SEENCANDS])
+
+(GET-UCON
+  [LAMBDA NIL
+    (CPRIN1S 0 User-control Level LPAREN 0 - 10 COMMA or SPACE QUES RPAREN SPACE DOT DOT DOT DOT)
+    (SETQ UCONTROL (RATOM))
+    (COND
+      ((AND (FIXP UCONTROL)
+	    (ILESSP UCONTROL 100)))
+      ((EQ UCONTROL (QUOTE ?))
+	(SETQ UCONTROL 0)
+	(CPRIN1S 0 CRLF TAB User-control = the degree
+	   to which you supervise AM APOS activities CRLF TAB In this system COMMA User-control is just a 
+	      numeric-valued variable CRLF TAB TAB which the top-level control functions look at DCR TAB User-control 
+	      level 0 lets you gain control only via ↑I DCR TAB User-control level 5 lets you see a few
+	     of AM APOS alternatives COMMA CRLF TAB TAB and waits 6 seconds
+	   for you
+	   to OK its choice DCR TAB User-control level 10 displays several alternative Candidates COMMA CRLF TAB TAB
+		and waits indefinitely
+	   until you to select one DCR CRLF)
+	(GET-UCON))
+      (T (SETQ UCONTROL 1)
+	 (CPRIN1S 0 CRLF No COMMA no EXCLAIM Please type in a positive integer COMMA in the CRLF interval 0
+	    to 10 COMMA inclusive COMMA followed by a carriage-return COMMA CRLF or type in a question-mark COMMA 
+											    followed
+	    by carriage-return DCR CRLF)
+	 (GET-UCON)))
+    UCONTROL])
+
+(GET-VERBO
+  [LAMBDA NIL
+    (CPRIN1 0 "Verbosity Level (1 - 10, or ?) .... ")
+    (EPRIN1S 2 LPAREN Please terminate your response with a carriage-return RPAREN SPACE DOT DOT DOT)
+    (SETQ VERBOSITY (RATOM))
+    (COND
+      ((AND (FIXP VERBOSITY)
+	    (ILESSP VERBOSITY 100)))
+      ((EQ VERBOSITY (QUOTE ?))
+	(SETQ VERBOSITY 1)
+	(CPRIN1S 0 CRLF TAB Verbosity = the amount of data that AM spews out
+	   to FIRSTNAME DCR TAB In this system COMMA Verbosity is just a numeric-valued variable CRLF TAB TAB which the 
+	      Printing functions look at DCR TAB Verbosity level 0 suppresses all messages DCR TAB Verbosity level 5 
+	      lets most important messages get printed DCR TAB Verbosity level 10 dumps out enough
+	   to actually get some CRLF TAB TAB feeling for the inner workings of AM DCR CRLF)
+	(EPRIN1S 1 TAB The suggested value for FIRSTNAME is 8 DCR CRLF)
+	(GET-VERBO))
+      (T (SETQ VERBOSITY 1)
+	 (CPRIN1S 0 CRLF No COMMA no EXCLAIM Please type in a positive integer COMMA in the CRLF interval 1
+	    to 10 COMMA inclusive COMMA followed by a carriage-return COMMA CRLF or type in a question-mark COMMA 
+											    followed
+	    by carriage-return DCR CRLF)
+	 (GET-VERBO)))
+    VERBOSITY])
+
+(GET-WAIT
+  [LAMBDA NIL
+    [SETQ AM-WAIT (ITIMES 1000 (SETQ AM-WSECS (LARGER (RMUL SEENCANDS 4 3)
+						      UCONTROL]
+    (CPRIN1S (SUB1 ESTAT)
+	     CRLF TAB If you have not typed anything within AM-WSECS seconds after a prompt COMMA
+	then AM will fill in a default answer for you DCR)
+    (EPRIN1S 2 A space will suffice to keep AM from defaulting on you COMMA CRLF while you think about what
+       to reply to any question AM asks you DCR)
+    (EPRIN1S 1 In general COMMA your response should be terminated by a carriage return DCR)
+    [COND
+      ((IGREATERP UCONTROL 2)
+	(CPRIN1S 0 CRLF Would you like to reset this waiting time QUES SPACE)
+	(CLEARBUF T T)
+	(DISMISS (IPLUS AM-WAIT 3000))
+	(COND
+	  ((OR [AND (READP)
+		    (FMEMB (RATOM)
+			   (LIST (QUOTE Y)
+				 (QUOTE YES)
+				 (QUOTE y)
+				 (QUOTE yes]
+	       (COND
+		 ((IGREATERP UCONTROL 5)
+		   (CPRIN1S 0 yes CRLF)
+		   T)
+		 (T (CPRIN1S 0 no CRLF)
+		    NIL)))
+	    (CPRIN1S 0 Number of seconds I should wait before defaulting on you COLON SPACE)
+	    (SETQ AM-WAIT (ITIMES 1000 (SETQ AM-WSECS (RNUM]
+    AM-WSECS])
+
+(GETARGS
+  [LAMBDA (P)
+    (GETP P (QUOTE ARGS])
+
+(GETB-OR
+  [LAMBDA (B P1 P2)
+    (OR (GETB B P1)
+	(GETB B P2])
+
+(GETB-P
+  [LAMBDA (B)
+    (GETB B P])
+
+(GETB-P-C
+  [LAMBDA (B)
+    (COPY (GETB B P])
+
+(GETBQ
+  [NLAMBDA (B P)
+    (GETB B P])
+
+(GETFNAME
+  [LAMBDA (P)
+    (GETP P (QUOTE FNAM])
+
+(GETU
+  [LAMBDA (B PROP)
+    (GET (GETTOPVAL B)
+	 PROP])
+
+(GETUP
+  [LAMBDA (B)
+    (APPEND (GETB B (QUOTE UP])
+
+(GETUPN
+  [LAMBDA (B)
+    (APPEND (GETB B (QUOTE UP-NOT])
+
+(GETX
+  [LAMBDA (B)
+    (APPEND (GETB B (QUOTE EXS])
+
+(GETXB
+  [LAMBDA (B)
+    (APPEND (GETB B (QUOTE EXS-BDY])
+
+(GETXNB
+  [LAMBDA (B)
+    (APPEND (GETB B (QUOTE EXS-NOT-BDY])
+
+(GEXADD
+  [LAMBDA (X)
+    (SETQ GEXISTING (UNION GEXISTING X))
+    X])
+
+(GFNAME
+  [LAMBDA (L)
+    (COND
+      ((NLISTP L)
+	L)
+      ((EQ (CAR L)
+	   (QUOTE APPLYB))
+	(GFNAME (CADR L)))
+      ((ISQ L)
+	(GFNAME (CADR L)))
+      (T (GFNAME (CAR L])
+
+(GFNAMES
+  [LAMBDA (L)
+    (SELF-INT (MAPCAR (CDDDR L)
+		      (QUOTE GFNAME])
+
+(GLUE
+  [LAMBDA (X Y)                                                                 (* A more sophisticated scheme can be 
+										implemented: e.g., using HASHing)
+    (PACK (LIST (OR (IS-CON X)
+		    X)
+		(QUOTE -)
+		(OR (IS-CON Y)
+		    Y])
+
+(GLUE-CANO
+  [LAMBDA (A B)
+    (GLUE-IF-ABLE A B (QUOTE CANONIZE-)
+		  (QUOTE CAN-])
+
+(GLUE-IF-ABLE
+  [LAMBDA (B1 B2 NBIG NLIT NB)
+    [COND
+      ((IS-CON B1)
+	(SETQ B1 (IS-CON B1]
+    [COND
+      ((IS-CON B2)
+	(SETQ B2 (IS-CON B2]
+    (COND
+      ((ILESSP (IPLUS 5 (NCHARS B1)
+		      (NCHARS B2))
+	       MAXNAME)
+	(PACK (LIST NBIG B1 (QUOTE &)
+		    B2)))
+      (T (CPRIN1S 0 CRLF Name of new Being is too long COLON CRLF NLIT B1 & B2 CRLF)
+	 (CLEARBUF T T)
+	 (SETQ NB (NEWNAME (ABBREV1 (CONCAT NLIT B1 (QUOTE &)
+					    B2)
+				    MAXNAME)))
+	 (COND
+	   ((AND (IGREATERP VERBOSITY 3)
+		 (IGREATERP UCONTROL 3)
+		 (IGREATERP SEENCANDS 1))
+	     (CPRIN1S 3 If you want COMMA give me a short new name
+		for it SPACE LPAREN my suggestion is NB SPACE RPAREN COLON SPACE)
+	     (CLEARBUF T T)
+	     (DISMISS AM-WAIT)
+	     (COND
+	       ((READP)
+		 (RATOM))
+	       (T NB)))
+	   (T NB])
+
+(GLUEC
+  [LAMBDA (A B)
+    (GLUE-IF-ABLE A B (QUOTE COMPOSE-)
+		  (QUOTE COM-])
+
+(GLUEE
+  [LAMBDA (B P)                                                                 (* A more sophisticated scheme can be 
+										implemented: e.g., using HASHing)
+    (PACK (LIST B (QUOTE -E-)
+		P])
+
+(GRAND-STRUC
+  [LAMBDA NIL                                                                   (* If we are in the midst of a tight 
+										loop, then keep the structure the same;
+										else change it)
+    (APPEND (COND
+	      ((IN-A-LOOP)
+		GSTRUC)
+	      (T (SETQ GSTRUC (RAND-MEMB (ACEX STRUCTURE])
+
+(GS-CHECK
+  [LAMBDA (B)                                                                   (* See if B is related to some B' both 
+										by Genl and Spec; then conclude that 
+										B=B')
+    (AND (GETB B (QUOTE GENL))
+	 (GETB B (QUOTE SPEC))
+	 (MAKE-IDENTICAL (INTERSECTION [SETB B (QUOTE GENL)
+					     (DREMOVE B (GETB B (QUOTE GENL]
+				       (SETB B (QUOTE SPEC)
+					     (DREMOVE B (GETB B (QUOTE SPEC])
+
+(GTRANSFER
+  [LAMBDA (GEX NEWGP)
+    (DECRB CS-B CS-P GEX)
+    (COND
+      ((OR (FMEMB (SETQ GTEMP4 NEWGP)
+		  FACETS)
+	   (FMEMB (SETQ GTEMP4 (GLUE CS-P NEWGP))
+		  FACETS))
+	(BOOST1 (SUB1 (AVG2 CS-INT INTHRESH))
+		(QUOTE CHECK)
+		CS-B GTEMP4 NIL (SPLIST Some (ENGN GTEMP4)
+					were recently added to CS-B COMMA entries that AM previously thought were
+							       (ENGN CS-P)))
+	(INCRB CS-B GTEMP4 GEX))
+      (T (CPRIN1S 1 CRLF WARNING COLON SPACE GTEMP4 is not a real part name DCR TAB (QUOTE GTRANSFER)
+		  was called with (QUOTE GEX)= GEX COMMA and (QUOTE NEWGP)= NEWGP DCR)
+	 NIL])
+
+(HANDLE-CANON
+  [LAMBDA (BA1 BA2 BA3)
+    [COND
+      ((NOT (AND (ISA BA1 (QUOTE PREDICATE))
+		 (ISA BA2 (QUOTE PREDICATE))
+		 (NEQ BA1 BA2)))
+	(SETQ GTEMP12 NIL))
+      ((IS-CON (SETQ GTEMP12 (GLUE-CANO BA1 BA2)))                              (* Note that we are assuming that there 
+										will not be more than 1 canonization for
+										any given pair of predicates)
+	[SETQ GUP1 (COND
+	    ((ISAG CS-B (QUOTE CANONIZE))
+	      CS-B)
+	    (T (QUOTE CANONIZE]
+	(INCRB GUP1 (QUOTE EXS)
+	       (NCONC1 (GEARGS GUP1)
+		       GTEMP12))
+	(INCRB GTEMP12 (QUOTE IN-RAN-OF)
+	       GUP1)
+	GTEMP12)
+      ([SETQ GTEMP11 (SOME [SETQ GTEMP200 (NCONC (MAPCAR (EXS-BDY CANONIZE)
+							 (QUOTE LASTELE))
+						 (MAPCAR (EXS CANONIZE)
+							 (QUOTE LASTELE]
+			   (FUNCTION (LAMBDA (Z)
+			       (SOME (GETB Z (QUOTE DEFN))
+				     (FUNCTION (LAMBDA (D)
+					 (MATCH D WITH ('TYPE 'APPLICATION 'OF & ('APPLYB ('QUOTE 'CANONIZE)
+											  ('QUOTE 'ALGS)
+											  ('QUOTE =BA1)
+											  ('QUOTE =BA2)
+											  $]
+	(SETQ GTEMP12 (CAR GTEMP11)))
+      ((SETQ GTEMP11 (DEDUCE-CANON BA1 BA2 GTEMP12 [SETQ GTEMPA (CAR (ANY1OFE (GETB BA1 (QUOTE D-R]
+				   (CONTRAST-DEFNS BA1 BA2)))
+	(GS-CHECK GTEMP12)
+	(CPRIN1 (COND
+		  ((MATCH CS-ACT WITH ('APPLYB ('QUOTE 'CANONIZE)
+					       $))
+		    7)
+		  (T 98))
+		CRLF Succeeded EXCLAIM CRLF)
+
+          (* Here we must boost or do the following: (1) Create a new specialization of GTEMPA = 
+	  (Car (any1ofe (getb BA1 D-R))) called Canonical-A, which contains just those A's which are 
+	  Gtemp12-canonical, with all the GTEMPA defns suitably transformed;
+	  and (2) create new specializations of BA1 and BA2, called Canon-restric-BA1 and -BA2, which have the
+	  same defns as BA1 and BA2 but are restricted to the domain Canonical-A x Canonical-A;
+	  (3) with much less interest level, consider all things in the IN-DOM-OF part of A, and consider 
+	  restricting those operations to Canonical-A; (4) with even less intensity, consider how those ops in
+	  IN-RAN-OF (GTEMPA) might be restricted so as to only map into Canonical-A;
+	  some of these are true for ANY new specialization of a Being GTEMPA)
+
+
+	(SETBQ CANONIZE GWORTH (APPEND (GETBQ CANONIZE WORTH)))
+	(RPLACA (GETB (QUOTE CANONIZE)
+		      (QUOTE WORTH))
+		(RMUL (CAR (GETB (QUOTE CANONIZE)
+				 (QUOTE WORTH)))
+		      3 2))
+	(BLOWUP-CANR GTEMPA GTEMP12 BA1 BA2)                                    (* This binds Newb to the name of the 
+										new canonical class of GTEMPA)
+	(BOOST1 (IDIFFERENCE CS-INT 2)
+		(QUOTE APPLYB)
+		(Q RESTRICT)
+		(Q ALGS)
+		(LIST (KWOTE BA1)
+		      (KWOTE NEWB)
+		      (Q DOMAIN))
+		(SPLIST BA1 was one
+		   of the predicates which defined the new concept NEWB COMMA so it is worth considering the 
+		      restriction
+		     of BA1
+		   to that subset of GTEMPA APOS))
+	(CPRIN1S 6 CRLF Some conjectures that AM considers believable COLON CRLF CRLF BA2 COMMA restricted
+	   to canonical GTEMPA APOS COMMA is indistinguishable
+	   from BA1 DCR CRLF There is a powerful analogy between CRLF)
+	(COND
+	  ((IGREATERP VERBOSITY 6)
+	    (TERPRI)
+	    (PAD BA1 33 BA2)
+	    (PAD GTEMPA 33 NEWB)
+	    (PAD "operators on and into" 33 "those operators restricted to")
+	    (PADI GTEMPA 33 NEWB)
+	    (PAD "statements involving these" 33 "statements involving these")
+	    (TERPRI)))
+	[INCRB BA1 (QUOTE ANAS)
+	       (LIST BA2 (LIST BA1 BA2)
+		     (LIST GTEMPA NEWB)
+		     (LIST (QUOTE ANY-OPERATION)
+			   (LIST (QUOTE APPLYB)
+				 (Q RESTRICT)
+				 (Q ALGS)
+				 (Q ANY-OPERATION)
+				 (KWOTE NEWB]
+	[MAPC (OR (GETB GTEMPA (QUOTE IN-DOM-OF))
+		  (APPLY* (QUOTE IN-DOM-OF)
+			  GTEMPA))
+	      (FUNCTION (LAMBDA (ID)
+		  (BOOST1 (SMALLER (DOTPROD (NCONC (LIST CS-INT DO-THRESH INTHRESH)
+						   (GETB ID (QUOTE WORTH)))
+					    (LIST .5 .1 .1 .1 .1 .1))
+				   (IDIFFERENCE CS-INT 5))
+			  (QUOTE APPLYB)
+			  (Q RESTRICT)
+			  (Q ALGS)
+			  (LIST (KWOTE ID)
+				(KWOTE NEWB)
+				(Q DOMAIN))
+			  (SPLIST ID operates on the space GTEMPA COMMA for which we now have a canonical 
+									    representation]
+	[MAPC (GETB GTEMPA (QUOTE IN-RAN-OF))
+	      (FUNCTION (LAMBDA (ID)
+		  (BOOST1 (SMALLER (DOTPROD (NCONC (LIST CS-INT DO-THRESH INTHRESH)
+						   (GETB ID (QUOTE WORTH)))
+					    (LIST .3 .1 .1 .1 .1 .1))
+				   (IDIFFERENCE CS-INT 8))
+			  (QUOTE APPLYB)
+			  (Q RESTRICT)
+			  (Q ALGS)
+			  (LIST (KWOTE ID)
+				(KWOTE NEWB)
+				(Q RANGE))
+			  (SPLIST ID maps into the space GTEMPA COMMA for which we now have a canonical representation]
+										(* Note that those ops whose dom and ran
+										are both GtempA will be highly 
+										reinforced)
+	NEWB)
+      (T (KILB GTEMP12)
+	 (CPRIN1 (COND
+		   ((MATCH CS-ACT WITH ('APPLYB ('QUOTE 'CANONIZE)
+						$))
+		     6)
+		   (T 97))
+		 CRLF Failed DCR)                                               (* Note we are tampering with the SUGG 
+										and the WORTH part of this very Being)
+	 (RPLACA (GETB (QUOTE CANONIZE)
+		       (QUOTE WORTH))
+		 (RMUL (CAR (GETB (QUOTE CANONIZE)
+				  (QUOTE WORTH)))
+		       2 3]
+    (COND
+      ((AND BA3 (IS-CON GTEMP12))
+	(APPLYB GTEMP12 (QUOTE ALGS)
+		BA3))
+      ((IS-CON GTEMP12])
+
+(HANDLE-I
+  [LAMBDA (B D A)
+    (CPRIN1S 0 CRLF Interestingness of DOT DOT DOT QUES)
+    (SETQ B (READ))
+    (CPRIN1S 0 SPACE R/L QUES)
+    (EPRIN1S 3 LPAREN (QUOTE R)
+	     means Raise COMMA (QUOTE L)
+	     means Lower RPAREN SPACE)
+    (SETQ D (RATOM))                                                            (* B is the Being or Cand, D is the 
+										direction of the change, A is the Amount
+										it is changed)
+    (CPRIN1S 0 CRLF How much QUES)
+    (EPRIN1S 3 LPAREN 0 means slightly COMMA 10 means tremendously RPAREN SPACE)
+    (SETQ A (RNUM))
+    (HANDLE-I1 B D A])
+
+(HANDLE-I-INTERRUPT
+  [LAMBDA (ITMP)
+    (CPRIN1 -1 CRLF CRLF (QUOTE ?)
+	    COLON SPACE)
+    (DISMISS 2000)
+    (COND
+      ((NOT (READP))
+	(CPRIN1 1 LPAREN (QUOTE W)
+		COMMA
+		(QUOTE I)
+		COMMA
+		(QUOTE E)
+		COMMA
+		(QUOTE M)
+		COMMA
+		(QUOTE N)
+		COMMA
+		(QUOTE ?)
+		COMMA Q RPAREN SPACE)))
+    (SELECTQ (RATOM)
+	     ((I i)
+	       (HANDLE-I))
+	     ((Q q)
+	       (CPRIN1S 0 Quitting DOT Resuming execution))
+	     ((N n)
+	       (HANDLE-N))
+	     ((E e)
+	       (CPRIN1S 0 Eval of DOT DOT DOT)
+	       (PRIN1 (SETQ ITMP (READ)))
+	       (CPRIN1S 0 is (EVAL ITMP)))
+	     ((W w)
+	       (CPRIN1S -1 TAB Why COLON GWHY)
+	       (SETQ GWHY DUNNO))
+	     (? (CPRIN1S -1 CRLF Here are more detailed explanations of your options COLON CRLF (QUOTE W)
+									TAB Why COLON AM gives FIRSTNAME the 
+									explanation behind its last printed CRLF TAB 
+									TAB message DCR (QUOTE I)
+									TAB Interest COLON FIRSTNAME can modify the 
+									interest ratings
+								       of concepts and CRLF TAB TAB Candidates DCR
+										       (QUOTE E)
+										       TAB Evaluate COLON FIRSTNAME 
+										       types
+		   in an expression and AM runs EVAL on it DCR (QUOTE M)
+							TAB Message COLON What was the last message that AM did
+							(QUOTE NOT)
+							type out CRLF TAB TAB because the verbosity was too low QUES 
+							CRLF (QUOTE N)
+							TAB Name COLON Rename some concept
+		   to whatever you want to call it DCR (QUOTE Q)
+					   TAB Quit COLON resume execution DCR CRLF In general COMMA AM will 
+					   automatically resume execution after answering one query DOT You must hit ↑I 
+					   again
+		   to interrupt DCR)
+		(HANDLE-I-INTERRUPT))
+	     ((M m)
+	       (CPRIN1S -1 TAB Last LPAREN unseen RPAREN message COLON GMSG)
+	       (SETQ GWHY MWHY)
+	       (SETQ MWHY DUNNO))
+	     (PROGN (CPRIN1S -1 CRLF No COMMA no EXCLAIM Type only the initial
+		       of the command you want COLON CRLF TAB)
+		    (EPRIN1S 5 Why COMMA Interest COMMA Evaluate COMMA Message COMMA Quit COMMA or
+		      else type a question-mark DCR)
+		    (HANDLE-I-INTERRUPT)))
+    (PRIN1 CRLF)
+    (CLOCK 2])
+
+(HANDLE-I1
+  [LAMBDA (B D A R I2)
+    (COND
+      [(IS-CON B)
+	[RPLACA (GETB B (QUOTE WORTH))
+		(IPLUS (CAR (GETB B (QUOTE WORTH)))
+		       (SETQ I2 (RMUL [IDIFFERENCE (SELECTQ D
+							    (R 1000)
+							    0)
+						   (CAR (GETB B (QUOTE WORTH]
+				      A 10]
+	(OR [NUMBERP (CADDDR (GETB B (QUOTE WORTH]
+	    (SET-NTH (GETB B (QUOTE WORTH))
+		     4 1))
+	(SET-NTH (GETB B (QUOTE WORTH))
+		 4
+		 (IPLUS (CADDDR (GETB B (QUOTE WORTH)))
+			(RMUL [IDIFFERENCE (SELECTQ D
+						    (R 1000)
+						    0)
+					   (CADDDR (GETB B (QUOTE WORTH]
+			      (AVG2 A 10)
+			      10)))
+	(OR R (SETQ R (SPLIST Interestingness of B has changed recently)))
+	(MAPC CANDS (FUNCTION (LAMBDA (C)
+		  (COND
+		    ((EQ B (CB C))
+		      (ADD1CAND (CACT C)
+				I2 R]
+      [(AND (LISTP B)
+	    (ENSURE1 B))                                                        (* Assumed to be a Cand)
+	(ADD1CAND B (RMUL (SELECTQ D
+				   (R 800)
+				   -800)
+			  A 10)
+		  (OR R (PROGN (CPRIN1S 0 CRLF If you know why COMMA tell me COLON SPACE)
+			       (DISMISS 5000)
+			       (OR (AND (READP)
+					(CONS (RATOM)
+					      (READLINE)))
+				   (PRINT (SPLIST Direct suggestion by FIRSTNAME]
+      (T (CPRIN1S 0 Can't understand this DCR You must type
+	    in either the name of a specific Being COMMA CRLF TAB or
+				else a specific candidate COMMA
+	    in the format CRLF TAB LPAREN (QUOTE A)
+	       (QUOTE B)
+	       (QUOTE P)
+	       RPAREN COMMA CRLF TAB
+	    where CRLF TAB TAB (QUOTE A)= Action to be taken COMMA like FILLIN or CHECK CRLF TAB TAB
+										  (QUOTE (QUOTE B))= The name
+						   of a specific concept
+	    to work on crlf tab tab (QUOTE (QUOTE P))= The specific facet of (QUOTE (QUOTE B))
+	    to apply (QUOTE (QUOTE A)) to DCR CRLF)
+	 (HANDLE-I])
+
+(HANDLE-N
+  [LAMBDA (N1 N2 N3)
+    (CPRIN1S 0 CRLF Rename which existing concept QUES)
+    (SETQ N1 (RCON))
+    (CPRIN1S 0 CRLF What is its new name QUES)
+    (SETQ N2 (RATOM))
+    (RENAME2BS N2 N1)
+    (HANDLE-I1 N2 (QUOTE R)
+	       7)
+    (CPRIN1S 0 CRLF Done DCR CRLF])
+
+(I-USED
+  [LAMBDA (N)
+    (CADDDR (CAR (FNTH G-IF N])
+
+(I-USED2
+  [LAMBDA (N)
+    (CADDDR (CAR (FNTH (IFEATURES (GETB B (QUOTE INT)))
+		       N])
+
+(I-USED3
+  [LAMBDA (N)
+    (CAR (FNTH (IFEATURES (GETB B (QUOTE INT)))
+	       N])
+
+(IAD2
+  [LAMBDA (N I M X UI)
+    (AND (ILESSP N 9)
+	 (CONS (QUOTE CLASS)
+	       (ADJA-INT (SORT [FOR I FROM 0 TO (IQUOTIENT N 2)
+				  JOIN (PROGN (SETQ M (IDIFFERENCE N I))
+					      (SELECTQ I
+						       (0 (LIST (LIST (QUOTE BAG)
+								      M)))
+						       (MAPCAR (CDR (IAD2 M))
+							       (FUNCTION (LAMBDA (X)
+								   (RPLACD X (MERGE (LIST I)
+										    (CDR X)
+										    (QUOTE SORD]
+			       (QUOTE SORD])
+
+(IAD3
+  [LAMBDA (N I M X)
+    (CONS (QUOTE CLASS)
+	  (ADJA-INT (NCONC1 [FOR I FROM 1 TO (IQUOTIENT N 2) JOIN (PROGN (SETQ M (IDIFFERENCE N I))
+									 (LIST (LIST (QUOTE BAG)
+										     I M]
+			    (LIST (QUOTE BAG)
+				  N])
+
+(IDI2
+  [LAMBDA (N I M X)
+    (CONS (QUOTE CLASS)
+	  (ADJA-INT (SORT [FOR I FROM 1 TO (FIX (SQRT N)) JOIN (COND
+								 ((ZEROP (IREMAINDER N I))
+								   (SETQ M (IQUOTIENT N I))
+								   (SELECTQ I
+									    (1 (LIST (LIST (QUOTE BAG)
+											   M)))
+									    (MAPCAR (CDR (IDI2 M))
+										    (FUNCTION (LAMBDA (X)
+											(RPLACD X (MERGE (LIST I)
+													 (CDR X)
+													 (QUOTE SORD]
+			  (QUOTE SORD])
+
+(IDI3
+  [LAMBDA (N I M X)
+    (CONS (QUOTE CLASS)
+	  (ADJA-INT (SORT [FOR I FROM 1 TO (FIX (SQRT N)) JOIN (COND
+								 ((ZEROP (IREMAINDER N I))
+								   (SETQ M (IQUOTIENT N I))
+								   (SELECTQ I
+									    (1 (LIST (LIST (QUOTE BAG)
+											   M)))
+									    (LIST (LIST (QUOTE BAG)
+											I M]
+			  (QUOTE SORD])
+
+(IDIV
+  [LAMBDA (N I M X UI Y)
+    [SETQ N (COND
+	((NUMBERP N)
+	  N)
+	(T (SUB1 (LENGTH N]
+    (CONS (QUOTE CLASS)
+	  (SELF-INT (FOR I FROM 1 TO (FIX (SQRT N)) JOIN (COND
+							   ((ZEROP (IREMAINDER N I))
+							     (SETQ M (IQUOTIENT N I))
+							     (SETQ UI (UNUM I))
+							     (SELECTQ I
+								      [1 (LIST (LIST (QUOTE BAG)
+										     (UNUM M]
+								      (MAPCAR (CDR (IDIV M))
+									      (FUNCTION (LAMBDA (X)
+										  (RPLACD X (MERGE (LIST UI)
+												   (CDR X)
+												   (QUOTE SORD])
+
+(IMATRIX
+  [LAMBDA NIL 0])
+
+(IN-A-LOOP
+  [LAMBDA (SRES)                                                                (* A Predicate to see if we are 
+										currently inside a tight loop)
+    [SEARCHPDL (FUNCTION (LAMBDA (N V)
+		   (COND
+		     ((FMEMB N LOOP-FNS)
+		       (SETQ SRES T)
+		       T)
+		     ((IS-CON N)
+		       (SETQ SRES NIL)
+		       (NEQ N (QUOTE CONSTANT-STRUC)))
+		     (T NIL]
+    SRES])
+
+(IN-FACTOR
+  [LAMBDA (N)
+    (COND
+      (CVAL (IQUOTIENT N 2))
+      (T (IQUOTIENT N 3])
+
+(INCR
+  [NLAMBDA (Z)
+    (SET Z (ADD1 (EVAL Z])
+
+(INCR-TIE
+  [LAMBDA (B1 B2 P V BOTH IT1 IT2)
+    (COND
+      [[SETQ IT1 (FASSOC B2 (GETB B1 (QUOTE TIES]
+	(COND
+	  [(SETQ IT2 (FASSOC P (CDR IT1)))
+	    (COND
+	      ((MEMBER V (CDR IT2)))
+	      (T (NCONC1 IT2 V]
+	  (T (NCONC IT1 (LIST P V]
+      (T (INCRB B1 (QUOTE TIES)
+		(LIST B2 (LIST P V])
+
+(INCR-USED
+  [LAMBDA (N B X CV)
+
+          (* N is the number of the interestingness factor used, located on the INT part of Being B;
+	  X is the name of the new Being who uses this factor)
+
+
+    [COND
+      ((ATOM N)
+	(SETQ N (LIST N]
+    (SETQ N (SUBSET N (QUOTE NUMBERP)))
+    (AND N B X (MAPC N (FUNCTION (LAMBDA (N1)
+			 (COND
+			   ((SETQ CV (I-USED2 N1 B))
+			     (NCONC1 CV X))
+			   (T (NCONC1 (I-USED3 N1 B)
+				      (LIST (QUOTE USED)
+					    X])
+
+(INCRB
+  [LAMBDA (B P X)                                                               (* Note that for speed, we do NOT have 
+										this fn return any definite value that 
+										can be relied on)
+    (COND
+      ((MEMBER X (GETB B P)))
+      (X (SETB B P (NCONC1 (GETB B P)
+			   X])
+
+(INDUCE-CANON-STYPE
+  [LAMBDA (P1 A PGM2 T1F T2F)
+    (COND
+      ((CAN-BE-1-STYPE P1)                                                      (* Altho the experimenting fns don't use
+										it, maybe they should get and use A, and
+										only draw examples from AxA)
+	(SETQ PGM2 (LIST (QUOTE SELECTQ)
+			 (LIST (QUOTE CAR)
+			       (QUOTE BA1))
+			 (LIST (QUOTE BAG)
+			       (Q BAG))
+			 (LIST (QUOTE CLASS)
+			       (Q CLASS))
+			 (LIST (QUOTE VECTOR)
+			       (Q VECTOR))
+			 (Q OSET)))
+	[SETQ GCAN-DEFN (LIST (QUOTE AND)
+			      (LIST (QUOTE APPLY*)
+				    (Q DEFN)
+				    (KWOTE A)
+				    (QUOTE BA1)
+				    NIL NIL NIL (QUOTE TK2))
+			      (LIST (QUOTE FMEMB)
+				    (LIST (QUOTE CAR)
+					  (QUOTE BA1))
+				    (LIST (QUOTE LIST)
+					  (Q BAG)
+					  (Q CLASS)
+					  (Q VECTOR)
+					  (Q OSET]                              (* See if reordering affects the value 
+										of P1)
+	(EXPERIMENT-ORD P1)                                                     (* Now get new examples to experiment 
+										with, to see if multiple elements in 
+										arguments to P1 hae any effect on its 
+										value)
+	(EXPERIMENT-MUL P1)                                                     (* T1F and T2F are flags which indicate 
+										whether any conclusion was reached about
+										ordering and multiple eles, 
+										respectively)
+	[OR T1F T2F (SETQ GTEMPA (STRUCTYPE (LIST (PROG (BA1)
+						        (RETURN (EVAL PGM2]     (* That OR just reset the x part of 
+										"canonical-x" if a unique type was 
+										found)
+	PGM2)
+      (T (SETQ GCAN-DEFN (LIST (QUOTE APPLY*)
+			       (Q DEFN)
+			       (KWOTE A)
+			       (QUOTE BA1)
+			       NIL NIL NIL (QUOTE TK2)))
+	 (SETQ PGM2 (LIST (QUOTE CAR)
+			  (QUOTE BA1])
+
+(INIT-VARS
+  [LAMBDA NIL
+    (SETQ PKNT 0)
+    (SETQ GCNT 1)
+    (SETQ MERGE-PARTS (CDR FACETS))                                             (* This just discounts the WORTH facet, 
+										which is numerical)
+    [MAPC CONCEPTS (FUNCTION (LAMBDA (X)
+	      (REMPROP X (QUOTE FEX]
+    (SETQ ACEXPIRE 4)
+    (SETQ GWHY DUNNO)
+    (SETQ GINT-CONS (LIST -1))
+    (SETQ DR-CHKLST NIL)
+    (SETQ DR2CHKLST NIL)
+    (SETQQ CS-ACT (find some new tasks for AM to do))
+    (SETQ CVAL NIL)
+    (SETQ MWHY DUNNO)
+    [MAPC BA-LIST (FUNCTION (LAMBDA (BA)
+	      (SET BA NIL]
+    (SETQ DO-THRESH INIT-DOTHRESH)
+    (SETQ CS-INT 200)
+    (SETQ EX-THRESH INIT-EXTHRESH)
+    (SETQ DEFN-STAK (LIST (QUOTE STAK-BOTM)))
+    (SETQ INT-THRESH INIT-INT-THRESH)
+    (SETQ INTHRESH INIT-INTHRESH)
+    (SETQ KILS (COPY INIT-KILS))
+    (SETQ PAST (COPY INIT-PAST))
+    (SETQ CANDS (COPY INIT-CANDS])
+
+(INS1CAND
+  [LAMBDA (C I1 C2)
+    (COND
+      ((ILESSP I1 INTHRESH)
+	NIL)
+      ([SETQ C2 (SOME CANDS (FUNCTION (LAMBDA (C1)
+			  (NOT (ILESSP I1 (CINT C1]
+	(ATTACH C C2))
+      (T (NCONC1 CANDS C)))
+    C])
+
+(INSTAN-1D
+  [LAMBDA (D BASE REC PAT P SFN DTYP DBOD CR CC CARGS CB CBX TEXS SUCC-TEXS)
+    (MATCH D WITH (SFN←&
+		    DTYP←$
+		    DBOD←&))
+    (SELECTQ (CAR DTYP)
+	     [RECURSIVE (AND [OR (MATCH DBOD WITH ('OR BASE←$
+						       REC←&))
+				 (MATCH DBOD WITH ('COND BASE←$
+							 (REC←&)))
+				 (MATCH DBOD WITH ('COND BASE←$
+							 ('T REC←$]
+			     (NCONC (INSTAN-BASE BASE)
+				    (INSTAN-REC REC]
+	     [NONRECURSIVE (OR (AND (EQUAL (CAR DBOD)
+					   (QUOTE AND))
+				    (SIMULT-SATISFY (CDR DBOD)))
+			       (AND (MATCH DBOD WITH ('MATCH 'BA1 'WITH PAT←&))
+				    (INSTAN-PAT PAT))
+			       (AND (MATCH DBOD WITH (&@[LAMBDA (Z)
+							 (OR (EQ Z (QUOTE EQ))
+							     (EQ Z (QUOTE EQUAL]
+						       CR←&
+						       CC←&))
+				    (CR-INVERT CR CC]
+	     [TRANSFORM (OR (AND (MATCH DBOD WITH ('AND CC←$
+							('APPLYB ('QUOTE CB←&@IS-CON)
+								 ('QUOTE 'DEFN)
+								 CARGS←$)))
+				 (COND
+				   ((ISA CS-B (QUOTE ACTIVE))
+				     (INSTAN-ACT-TRANS CB CC CARGS))
+				   ((MATCH CC WITH (('SOME CBX←&
+							   REC←&)))
+				     [SETQ SUCC-TEXS (SUBSET (SETQ TEXS (APPLY* (QUOTE EXS)
+										CB))
+							     (FUNCTION (LAMBDA (BA1)
+								 (EVAL (CAR CC]
+				     (APPENDB CS-B (QUOTE EXS-NOT-BDY)
+					      (SET-DIFFERENCE TEXS SUCC-TEXS))
+				     SUCC-TEXS)))
+			    (AND (MATCH DBOD WITH ('APPLYB ('QUOTE CB←&@IS-CON)
+							   ('QUOTE 'ALGS)
+							   CARGS←$))
+				 (INSTAN-TRANSF DBOD]
+	     (QUASIRECURSIVE NIL)
+	     (APPLICATION                                                       (* I THINK THIS IS JUST EVAL OF THE 
+										FINAL MEMBER OF TYPE,...)
+			  NIL)
+	     (PC                                                                (* PRED. CALC. MUST TRANSFORM 
+										(BAJ X) INTO (APPLYB BAJ ALGS 
+										(TRANSFORM X)))
+		 NIL)
+	     (BRANCH NIL)
+	     (IMPLICIT NIL)
+	     (CPRIN1 0 CRLF "******* WARNING: NOT A KNOWN TYPE OF DEFN: " D CRLF " EVAL OF CADR OF THIS IS: " P CRLF 
+		     "BACK-TRACING: " CRLF (AM-BT)
+		     CRLF])
+
+(INSTAN-1I
+  [LAMBDA (I)
+    (GEXADD (ERRORSET I])
+
+(INSTAN-1S
+  [LAMBDA (S)
+    NIL])
+
+(INSTAN-ACT-TRANS
+  [LAMBDA (CB CC CARGS TMPD LOSE TMP-BLIST)
+
+          (* This is where all the thinking goes. Where do i get the right stuff to put in...
+	  do i go from the reduced-to BEING, and check to see if it meets the new requirements, etc.)
+
+
+    [SETQ TMP-BLIST (MAP2CAR BA-LIST (ANY1OFE (GETB CS-B (QUOTE D-R)))
+			     (FUNCTION (LAMBDA (BA BB)
+				 (COND
+				   ((FMEMB (EVAL BA)
+					   (APPLY* (QUOTE ACEX)
+						   BB))                         (* Then this BAi must already have been 
+										instantiated and bound)
+				     NIL)
+				   (T (LIST BA (APPLY* (QUOTE ACEX)
+						       BB]
+    (AND (EVERY TMP-BLIST (QUOTE CADR))
+	 [OR ETIM (SETQ ETIM (MINUS (IPLUS (CLOCK 2)
+					   10000
+					   (ITIMES CS-INT 60]
+	 (PROG NIL
+	   L5  [MAPC TMP-BLIST (FUNCTION (LAMBDA (BA)
+			 (SET (CAR BA)
+			      (RAND-MEMB (CADR BA]
+	       (COND
+		 ([AND (EVERY CC (QUOTE EVAL))
+		       (SETQ TMPD (APPLY (QUOTE REBB)
+					 (CONS (QUOTE (SOMEE (GETB CB (QUOTE DEFN))
+							     (QUOTE INSTAN-1D)))
+					       (MAPCAR CARGS (QUOTE EVAL]
+		   (CPRIN1 9 " In  instantiating the definition of " CS-B ",
+which actually is just that of " CB ", plus " (LENGTH CC)
+			   " new
+constraints, AM has in fact found an example.")
+		   (CPRIN1 10 " in " (QUOTIENT (IPLUS (CLOCK 2)
+						      ETIM 10000 (ITIMES CS-INT 60))
+					       1000.0)
+			   " seconds." CRLF "  The example is: " TMPD)
+		   (CPRIN1 9 CRLF)
+		   (RETURN TMPD))
+		 ((MINUSP (IPLUS (CLOCK 2)
+				 ETIM))
+		   (GO L5))
+		 (T (CPRIN1 9 " Sorry, AM ran out of time, trying to find an example of" CRLF CS-B 
+			    ", which by the way reduces to  " CB ", plus " (LENGTH CC)
+			    " new conditions." CRLF)
+		    [MAPC TMP-BLIST (FUNCTION (LAMBDA (Z)
+			      (SET (CAR Z)
+				   NIL]
+		    (RETURN NIL])
+
+(INSTAN-BASE
+  [LAMBDA (BASE BEX)
+    (SOMEE BASE (FUNCTION (LAMBDA (BASE1)
+	       (AND (LISTP BASE1)
+		    (NULL (CDR BASE1))
+		    (SETQ BASE1 (CAR BASE1)))
+	       (AND (MATCH BASE1 WITH (&@[LAMBDA (Z)
+					  (OR (EQ Z (QUOTE EQ))
+					      (EQ Z (QUOTE EQUAL]
+					'BA1 BEX←&))
+		    (ERRORSET BEX])
+
+(INSTAN-D
+  [LAMBDA (DE)
+    (MAPCONC DE (FUNCTION (LAMBDA (D1)
+		 (MAPC BA-LIST (QUOTE SELF))
+		 (SETQ ETIM NIL)
+		 (CPRIN1S 95 Instantiating (CADR D1)
+			  defn DCR)
+		 (INSTAN-1D D1])
+
+(INSTAN-I
+  [LAMBDA (IN)
+    (MAPCONC IN (QUOTE INSTAN-1I])
+
+(INSTAN-PAT
+  [LAMBDA (PAT1)
+    (SETQ PAT1 (COPY PAT1))
+    (ATTACH (QUOTE LIST)
+	    PAT1)
+    (DSUBST (LIST (QUOTE RAND-THING))
+	    (QUOTE &)
+	    PAT1)
+    (SETQ PAT1 (LSUBST (LIST (LIST (QUOTE RAND-THING))
+			     (LIST (QUOTE RAND-THING)))
+		       (QUOTE --)
+		       PAT1))
+    (SETQ PAT1 (LSUBST (LIST (LIST (QUOTE RAND-THING))
+			     (LIST (QUOTE RAND-THING)))
+		       (QUOTE $)
+		       PAT1))                                                   (* This should be made recursive, on 
+										CAR, it should call itself if LISTP, 
+										else check unpack for ←)
+    (GEXADD (ERRORSET PAT1])
+
+(INSTAN-REC
+  [LAMBDA (REC1 DPROC BOP)
+    (SETQ REC1 (COPY REC1))
+    (AND (EQ (CAR REC1)
+	     (QUOTE APPLYB))
+	 (EQ (EVAL (CADDR REC1))
+	     (QUOTE DEFN))
+	 (OR (EQ (EVAL (CADR REC1))
+		 CS-B)
+	     (CPRIN1 2 CRLF "Warning from INSTAN-REC:  The concept " (CADR REC1)
+		     ", which = "
+		     (EVAL (CADR REC1))
+		     " is NOT equal to CS-B, which = " CS-B CRLF)
+	     T)
+	 (SETQ DPROC (CADDDR REC1))
+	 (GEXADD (OR [AND (EQ (CAR DPROC)
+			      (QUOTE APPLYB))
+			  (EQ (EVAL (CADDR DPROC))
+			      (QUOTE ALGS))
+			  (SETQ BOP (EVAL (CADR DPROC)))
+			  (GETHASH BOP HCON)
+			  (LIST (APPLYB BOP (COND
+					  ((APPLYB (QUOTE CONSTRUCTIVE-OP)
+						   (QUOTE DEFN)
+						   BOP)
+					    (QUOTE ALGS))
+					  (T (QUOTE INV)))
+					(CADDDR DPROC)
+					(CAR (CDDDDR DPROC))
+					(CADR (CDDDDR DPROC]
+		     (ERRORSET DPROC])
+
+(INSTAN-S
+  [LAMBDA (SP)
+    (MAPCONC SP (QUOTE INSTAN-1S])
+
+(INSTAN-TRANSF
+  [LAMBDA (DBOD CARGS CB TMPD LOSE TMP-BLIST)
+    [SETQ TMP-BLIST (MAP2CAR BA-LIST (ANY1OFE (GETB CS-B (QUOTE D-R)))
+			     (FUNCTION (LAMBDA (BA BB)
+				 (COND
+				   ((FMEMB (EVAL BA)
+					   (APPLY* (QUOTE ACEX)
+						   BB))                         (* Then this BAi must already have been 
+										instantiated and bound)
+				     NIL)
+				   (T (LIST BA (APPLY* (QUOTE ACEX)
+						       BB]
+    (AND (EVERY TMP-BLIST (QUOTE CADR))
+	 [OR ETIM (SETQ ETIM (MINUS (IPLUS (CLOCK 2)
+					   10000
+					   (ITIMES CS-INT 60]
+	 (PROG NIL
+	   L5  [MAPC TMP-BLIST (FUNCTION (LAMBDA (BA)
+			 (SET (CAR BA)
+			      (RAND-MEMB (CADR BA]
+	       (COND
+		 ([AND (EVERY2 (MAPCAR CARGS (QUOTE EVAL))
+			       [ALL-BUT-LAST (ANY1OFE (GETB CB (QUOTE D-R]
+			       (QUOTE ISA))
+		       (SETQ TMPD (APPLY (QUOTE REBB)
+					 (CONS DBOD (MAPCAR CARGS (QUOTE EVAL]
+		   (CPRIN1S 9 In instantiating the definition
+		      of CS-B COMMA which twists into that of CB COMMA AM has found an example)
+		   (CPRIN1 10 " in " (QUOTIENT (IPLUS (CLOCK 2)
+						      ETIM 10000 (ITIMES CS-INT 60))
+					       1000.0)
+			   " seconds." CRLF "  The example is: " TMPD)
+		   (CPRIN1 9 DCR)
+		   (RETURN TMPD))
+		 ((MINUSP (IPLUS (CLOCK 2)
+				 ETIM))
+		   (GO L5))
+		 (T (CPRIN1 9 " Sorry, AM ran out of time, trying to find an example of" CRLF CS-B 
+			    ", which by the way reduces to  " CB DCR)
+		    [MAPC TMP-BLIST (FUNCTION (LAMBDA (Z)
+			      (SET (CAR Z)
+				   NIL]
+		    (RETURN NIL])
+
+(INT-CONS
+  [LAMBDA NIL                                                                   (* Gather up some interesting concepts 
+										-- relevant to CS-B, perhaps)
+    (SET-DIFF (COND
+		[(IGREATERP GCNT (CAR GINT-CONS))
+		  (CDR (SETQ GINT-CONS (CONS (IPLUS 3 GCNT)
+					     (FIRSTN 5 (SORT (APPEND CONCEPTS)
+							     (FUNCTION (LAMBDA (C1 C2)
+								 (ILESSP (CAR (GETB C2 (QUOTE WORTH)))
+									 (CAR (GETB C1 (QUOTE WORTH]
+		(T (CDR GINT-CONS)))
+	      (STACK-BS])
+
+(INT-ENUF
+  [LAMBDA (S P IM CM)
+    (SETQ GREM NIL)
+    (SETQ GUSED NIL)
+    (SETQ GENG (LIST (QUOTE COMMENT)))
+    (SETQ GIFN (SELECTQ P
+			(DEFN (QUOTE IDEF))
+			(QUOTE IVAL)))
+    (SETQ NEW-ILEV 200)
+    (COND
+      ((SETQ G-IF (IFEATURES S))
+	(SETQ IM (IMAT S))
+	[MAPC IM (FUNCTION (LAMBDA (CYC TV1)
+		  (COND
+		    ((EVERY CYC (QUOTE NOT-USED-YET))
+		      (SETQ TV1 (MAX1 CYC (QUOTE SORV)))
+		      [COND
+			((IGREATERP (CAR TV1)
+				    INT-THRESH)
+			  (SETQ NEW-ILEV (PLUS NEW-ILEV (CAR TV1)))
+			  (NCONC1 GENG (APPEND (FOU2 TV1)))
+			  (SETQ GUSED (NCONC1 GUSED (CADR TV1)))
+			  (SETQ CM (NCONC1 CM (FOU TV1]
+
+          (* (NUMBERP (CADR TV1)) (SETQ GREM (NCONC1 GREM (FOU1 TV1))) I think that all references to GREM can
+	  be commented away, since the remaining int features are automatically deduced from the USED subparts
+	  as we frippleg)
+
+
+		      NIL]
+	[SETQ NEW-ILEV (IQUOTIENT NEW-ILEV (ADD1 (LENGTH CM]
+	CM])
+
+(INT-PREDS
+  [LAMBDA NIL                                                                   (* This can be made fancier later -- 
+										E.G., cut off those with wrong no.
+										of args, or with lo enuf int)
+    GINTPREDS])
+
+(INTERCEPT
+  [LAMBDA (L X1 X2 Y1 Y2 P1 P2)
+    (SETQ P1 (CADR L))
+    (SETQ P2 (CADDR L))
+    (SETQ X1 (CADR P1))
+    (SETQ Y1 (CADDR P1))
+    (SETQ X2 (CADR P2))
+    (SETQ Y2 (CADDR P2))
+    (COND
+      ((EQUAL X1 X2)
+	1000)
+      (T (QUOTIENT (DIFFERENCE (TIMES X1 Y2)
+			       (TIMES X2 Y1))
+		   (DIFFERENCE X1 X2])
+
+(INV-EX
+  [LAMBDA (E)
+    (COND
+      ((EQUAL (LASTELE E)
+	      BA1)
+	(CONS (QUOTE VECTOR)
+	      (ALL-BUT-LAST E])
+
+(INV-STYP
+  [LAMBDA (S)
+    (SELECTQ S
+	     (SET-STRUC (QUOTE SET))
+	     (LIST-STRUC (QUOTE LIST))
+	     (BAG-STRUC (QUOTE BAG))
+	     (OSET-STRUC (QUOTE OSET))
+	     (COND
+	       ((ISAG S (QUOTE SET-STRUC))
+		 (QUOTE SET))
+	       ((ISAG S (QUOTE LIST-STRUC))
+		 (QUOTE LIST))
+	       ((ISAG S (QUOTE BAG-STRUC))
+		 (QUOTE BAG))
+	       ((ISAG S (QUOTE OSET-STRUC))
+		 (QUOTE OSET))
+	       (T (QUOTE STRUC])
+
+(INVOP-SUG
+  [LAMBDA (C)                                                                   (* These weights and criteria are 
+										similar to Coalescing.
+										Maybe there should be some addl hints 
+										here)
+    (AND (GETB C (QUOTE EXS))
+	 (IGREATERP (DOTPROD (GETB C (QUOTE WORTH))
+			     (LIST .4 .2 .1))
+		    DO-THRESH)
+	 (NOT (IS-CON (GLUE (QUOTE INV)
+			    C)))
+	 (NOT (ISA C (QUOTE INVERTED-OP)))
+	 (NOT (GETB C (QUOTE INV)))
+	 (LIST (LIST (LIST (QUOTE APPLYB)
+			   (Q INV-OP)
+			   (Q ALGS)
+			   (KWOTE C))
+		     (DOTPROD (LIST .7 .1 .1 .1)
+			      (GETB C (QUOTE WORTH)))
+		     (LIST (SPLIST C is interesting COMMA an Operation COMMA (LENGTH (GETB C (QUOTE EXS)))
+				   known examples COMMA and (QUOTE I)
+							    have
+			      never tried to invert it])
+
+(INVQ
+  [LAMBDA (L)
+    (COND
+      ((LISTP L)
+	(EVAL L))
+      (L])
+
+(IS-CON
+  [LAMBDA (B)
+    (GETHASH B HCON])
+
+(IS-CON-L
+  [LAMBDA (B)
+    (AND (GETHASH B HCON)
+	 (LIST B])
+
+(IS-CONN
+  [LAMBDA (N N1)
+    (SETQ N1 (IS-CON N))
+    (COND
+      ((EQ N1 N)
+	N)
+      (N1 (IS-CONN N1])
+
+(IS-CONSTANTT
+  [LAMBDA (Z)
+    (EQ Z (CONSTANTT Z])
+
+(IS-ONE-OF
+  [LAMBDA (X XSET)
+    (AND X XSET (CAR (OR (FMEMB X XSET)
+			 (SOME (RIPPLE X (QUOTE GENL))
+			       (FUNCTION (LAMBDA (Z)
+				   (FMEMB Z XSET])
+
+(ISA
+  [LAMBDA (BNAME BTYPE TK2)
+    (COND
+      ((NOT (IS-CON BTYPE))                                                     (* Call on Defn in this case)
+	NIL)
+      [(NOT (IS-CON BNAME))                                                     (* Call on Defn in this case)
+										(* This might lead to an infinite loop:)
+	(APPLY* (QUOTE DEFN)
+		BTYPE BNAME NIL NIL NIL (OR TK2 (IPLUS CS-INT (CLOCK 2)
+						       1000]
+      ((FMEMB BTYPE (GETB BNAME (QUOTE UP)))
+	T)
+      ((FMEMB BTYPE (GETB BNAME (QUOTE UP-NOT)))
+	NIL)
+      ([OR [SOME (GETB BNAME (QUOTE UP))
+		 (FUNCTION (LAMBDA (U)
+		     (ISAG U BTYPE]
+	   (SOME (GETB BNAME (QUOTE GENL))
+		 (FUNCTION (LAMBDA (G)
+		     (ISA1 G BTYPE]
+
+          (* Actually, a 3rd way that this could be proven -- or disproven -- is the fact that 
+	  (BN ISA BT) iff (APPLYB BT (QUOTE DEFN) BN) is non-null.
+	  This might turn out to be faster when the system is big;
+	  perhaps use a cost measure on the time to run the Defn part of BT)
+
+
+	(INCRB BNAME (QUOTE UP)
+	       BTYPE)
+	T)
+      (T (INCRB BNAME (QUOTE UP-NOT)
+		BTYPE)
+	 NIL])
+
+(ISA1
+  [LAMBDA (BNAME BTYPE)
+    (COND
+      ((FMEMB BTYPE (GETB BNAME (QUOTE UP)))
+	T)
+      ((FMEMB BTYPE (GETB BNAME (QUOTE UP-NOT)))
+	NIL)
+      ([OR [SOME (GETB BNAME (QUOTE UP))
+		 (FUNCTION (LAMBDA (U)
+		     (ISAG U BTYPE]
+	   (SOME (GETB BNAME (QUOTE GENL))
+		 (FUNCTION (LAMBDA (G)
+		     (ISA1 G BTYPE]                                             (* Notice: no permanent record of 
+										success is kept here)
+	T)
+      (T                                                                        (* Notice: no permanent record of 
+										failure is kept here)
+	 NIL])
+
+(ISAG
+  [LAMBDA (BN BT)
+    (OR (EQ BN BT)
+	(FMEMB BT (GETB BN (QUOTE GENL)))
+	(FMEMB BT (RIPPLE BN (QUOTE GENL])
+
+(ISAS
+  [LAMBDA (BN BT)
+    (OR (EQ BN BT)
+	(FMEMB BT (GETB BN (QUOTE SPEC)))
+	(FMEMB BT (RIPPLE BN (QUOTE SPEC])
+
+(ISQ
+  [LAMBDA (L)
+    (EQ (QUOTE QUOTE)
+	(CAR L])
+
+(ISYN
+  [LAMBDA (C)
+    (CDR (FASSOC C SYN-LIST])
+
+(IVOP-CHK1
+  [LAMBDA NIL
+    (COND
+      ((ISAG [LASTELE (ANY1OFE (GETB CS-B (QUOTE D-R]
+	     (QUOTE STRUC-OF-STRUCS))
+	(PROG (ES ES1)
+	      (SETQ ES (GETB CS-B CS-P))
+	  L2  (COND
+		((SETQ GTEMP372 (SASSOC (CAAR ES)
+					(CDR ES)))
+		  (SETQ ES1 (LASTELE (CAR ES)))
+		  (DREMOVE GTEMP372 ES)
+		  (INCR GCEKNT)
+		  [MAPC (CDR (LASTELE GTEMP372))
+			(FUNCTION (LAMBDA (E)
+			    (SETQ ES1 (APPLYB (QUOTE STRUCTURE-INSERT)
+					      (QUOTE ALGS)
+					      E ES1]
+		  (DSUBST ES1 (LASTELE (CAR ES))
+			  (CAR ES))
+		  (GO L2))
+		((SETQ ES (CDR ES))
+		  (GO L2))
+		(T (RETURN NIL])
+
+(IVOP-FIL1
+  [LAMBDA NIL
+    (COND
+      ([SOME (GETB CS-B (QUOTE DEFN))
+	     (FUNCTION (LAMBDA (D)
+		 (MATCH D WITH ('TYPE 'TRANSFORM 'REDUCING-TO & ('EVERY & ('FUNCTION ('LAMBDA
+										       $
+										       ('AND $ ('APPLYB ('QUOTE 
+													 GTEMP371←&)
+													('QUOTE 'DEFN)
+													$ 'BA1]
+	[SETQ GTEMP370 (MAPCAR (GETB GTEMP371 (QUOTE EXS))
+			       (FUNCTION (LAMBDA (E)                            (* Actually, CLASS and VECTOR should be 
+										X1 and X2, where the domain is the 
+										X1-OF-X2s type of STRUC-OF-STRUCS 
+										concept)
+				   (LIST (LASTELE E)
+					 (LIST (QUOTE CLASS)
+					       (CONS (QUOTE VECTOR)
+						     (ALL-BUT-LAST E]
+	(BOOST1 (AVG2 CS-INT (LENGTH GTEMP370))
+		(QUOTE CHECK)
+		CS-B
+		(QUOTE EXS)
+		NIL
+		(SPLIST Some very superficial COMMA unreliable stategies were employed
+		   in getting examples of the inverted operation named CS-B))
+	GTEMP370])
+
+(KILB
+  [LAMBDA (B)
+    [MAPC (GETB B (QUOTE GENL))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE SPEC)
+		     B]
+    [MAPC (GETB B (QUOTE EXS))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE UP)
+		     B]
+    [MAPC (GETB B (QUOTE UP))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE EXS)
+		     B]
+    [MAPC (GETB B (QUOTE SPEC))
+	  (FUNCTION (LAMBDA (S)
+	      (DECRB S (QUOTE GENL)
+		     B]
+    (PUTD B NIL)
+    (PUTHASH B NIL HCON)
+    (DREMOVE B GINTPREDS)                                                       (* Be sure to remove this if a smarter 
+										"interesting predicate list" scheme is 
+										devised)
+    (DREMOVE B CONCEPTS)                                                        (* Really, we should follow up links 
+										like GENL from B, and destroy all 
+										mention of it anywhere)
+    (RPLACD B NIL])
+
+(KINDS-OF
+  [LAMBDA (K)
+    (OR (APPLY* (QUOTE SPEC)
+		K)
+	(PROGN 
+
+          (* Perhaps we are willing to work hard here, to the extent of: 
+	  (SUBSET CONCEPTS (FUNCTION (LAMBDA (KC) (FMEMB K (APPLYB KC 
+	  (QUOTE GENL)))))))
+
+
+	       NIL])
+
+(LAPP
+  [LAMBDA (A B)
+    (APPEND (COND
+	      ((LISTP A)
+		A)
+	      (T (LIST A)))
+	    (COND
+	      ((LISTP B)
+		B)
+	      (T (LIST B])
+
+(LARGER
+  [LAMBDA (A B)
+    (COND
+      ((ILESSP A B)
+	B)
+      (A])
+
+(LASTELE
+  [LAMBDA (L)
+    (COND
+      ((NLISTP L)
+	L)
+      ((CAR (FLAST L])
+
+(LIN
+  [NLAMBDA X
+    (CONS (QUOTE LIN)
+	  X])
+
+(LINN
+  [LAMBDA (X)                                                                   (* List, If Not Null)
+    (COND
+      (X (LIST X])
+
+(LIST-DALG
+  [LAMBDA (BA1 BA2 BA3)
+    (COND
+      ((NULL (CADR BA2))
+	BA2)
+      (T (SETQ BA3 (CADR BA2))
+	 (RPLACD BA2 (CDDR BA2))
+	 (COND
+	   ((APPLYB (QUOTE OBJ-EQUAL)
+		    (QUOTE ALGS)
+		    BA1 BA3)
+	     BA2)
+	   (T (APPLYB (QUOTE STRUCTURE-INSERT)
+		      (QUOTE ALGS)
+		      BA3
+		      (APPLYB (QUOTE LIST-STRUC-DELETE)
+			      (QUOTE ALGS)
+			      BA1 BA2])
+
+(LLOCATE
+  [LAMBDA (X L NFLG)                                                            (* Each time we recurse into or out of a
+										NOT, the value of the logical variable 
+										GLOC-NOT flips)
+    (COND
+      ((NLISTP L)
+	NIL)
+      ((AND (EQ (CAR L)
+		X)
+	    (NOT (AND NFLG GLOC-NOT)))
+	L)
+      [(OR (EQ (CAR L)
+	       (QUOTE NOT))
+	   (EQ (CAR L)
+	       (QUOTE NULL)))
+	(SETQ GLOC-NOT (NOT GLOC-NOT))
+	(OR (LLOCATE X (CADR L))
+	    (SETQ GLOC-NOT (NOT GLOC-NOT]
+      (T (SOMEE (CDR L)
+		(QUOTE LLOCX])
+
+(LLOCX
+  [LAMBDA (L)
+    (LLOCATE X L NFLG])
+
+(LONGEST
+  [LAMBDA (L)
+    (PROG (M)
+      L1  [COND
+	    ((NULL L)
+	      (RETURN M))
+	    ((IGREATERP (LENGTH (CAR L))
+			(LENGTH M))
+	      (SETQ M (CAR L]
+          (SETQ L (CDR L))
+          (GO L1])
+
+(LSTINSALG
+  [LAMBDA (BA1 BA2)
+    (AND [OR BA2
+	     (CAR (SETQ BA2
+		    (LIST (CAAR (LAST (OR (GETB (QUOTE LIST-STRUC)
+						(QUOTE EXS))
+					  (PROGN (BOOST (QUOTE FILLIN)
+							(QUOTE LIST-STRUC)
+							(QUOTE EXS)
+							NIL
+							(SPLIST If List-struc-insert had some existing examples
+							   of Lists COMMA
+							      then he could produce some new ones))
+						 GEXISTING]
+	 (OR BA1 (SETQ BA1 (RAND-THING)))
+	 (ATTACH (CAR BA2)
+		 (FRPLACA BA2 (COND
+			    ((EQ BA1 BA2)
+			      (COPY BA1))
+			    (T BA1])
+
+(M2
+  [LAMBDA (J C1)
+    (SETQ CAND (CAR CANDS))
+    [SELECTQ SEENCANDS
+	     (0)
+	     (1 (CPRIN1S 0 CRLF CRLF The top Cand is:)
+		(ENGC CAND V1REASON))
+	     (PROGN (CPRIN1S 0 CRLF CRLF The top SEENCANDS Cands are: CRLF)
+		    (FOR J FROM 1 TO SEENCANDS AS C1 IN CANDS DO (PROGN (CPRIN1S 0 SPACE SPACE SPACE J COLON)
+									(ENGC C1 V-REASON)))
+		    [SELECTQ UCONTROL
+			     (0)
+			     (1)
+			     [(2 3 4 5 6 7 8)
+			       (CPRIN1S 0 CRLF I choose first Cand DOT TAB OK QUES SPACE)
+			       (PROG (CW)
+				 L1  (CLEARBUF T T)
+				 L2  (DISMISS AM-WAIT)
+				     (COND
+				       [(READP)
+					 (SETQ CW (READ))
+					 (COND
+					   [(NUMBERP CW)
+					     (SETQ CAND (CAR (FNTH CANDS CW]
+					   ((FMEMB CW YES-LIST))
+					   ((FMEMB CW NO-LIST)
+					     (CPRIN1S 0 Please type
+						in the number of the Cand you suggest COMMA or
+							       else type SPACE QUES)
+					     (CLEARBUF T T)
+					     (DISMISS AM-WAIT)
+					     (GO L2))
+					   ((EQ CW (QUOTE ?))
+					     (CPRIN1S 0 There are (LENGTH CANDS)
+						      total Candidates on (QUOTE CANDS)
+									  DCR)
+					     (CPRIN1S 0 In more detail COMMA the top Cands are: CRLF)
+					     (FOR J FROM 1 TO (IPLUS 3 SEENCANDS) AS C1 IN CANDS
+						DO (PROGN (CPRIN1S 0 SPACE SPACE SPACE J COLON value =(CINT C1)
+								   SEMICOLON SPACE SPACE)
+							  (ENGC C1 -1)))
+					     (CPRIN1S 0 CRLF Please type y COMMA n COMMA a number COMMA
+							or just wait AM-WSECS seconds DCR)
+					     (GO L1))
+					   ((EQ CW (QUOTE F))
+					     (SETQ CANDS (CDR CANDS))
+					     (CPRIN1S 5 CRLF TAB Forgetting the
+						first Cand COMMA choosing the second one DCR)
+					     (SETQ CAND (CAR CANDS)))
+					   ((EQ CW (QUOTE FF))
+					     (SETQ CANDS (CDDR CANDS))
+					     (CPRIN1S 5 CRLF TAB Forgetting the
+						first two Cands COMMA choosing the third one DCR)
+					     (SETQ CAND (CAR CANDS)))
+					   ((EQ CW (QUOTE K))
+					     (KILLB (CB (CAR CANDS)))
+					     (CPRIN1S 5 CRLF TAB Forgetting the
+						first Cand COMMA choosing the second one DCR)
+					     (SETQ CANDS (CDR CANDS))
+					     (SETQ CAND (CAR CANDS)))
+					   ((EQ CW (QUOTE KK))
+					     (KILLB (CB (CAR CANDS)))
+					     (KILLB (CB (CADR CANDS)))
+					     (CPRIN1S 5 CRLF TAB Forgetting the
+						first two Cands COMMA choosing the third one DCR)
+					     (SETQ CANDS (CDDR CANDS))
+					     (SETQ CAND (CAR CANDS)))
+					   (T (CPRIN1S 0 No COMMA no EXCLAIM Please type y COMMA n COMMA a number COMMA 
+						       a question-mark COMMA or just wait AM-WSECS seconds DCR)
+					      (GO L1]
+				       (T (CPRIN1S 0 yes DCR]
+			     (PROGN (CPRIN1S 0 CRLF Which Cand should I do next QUES SPACE)
+				    (SETQ CAND (CAR (FNTH CANDS (RNUM]
+		    (COND
+		      ((AND (IGREATERP VERBOSITY (SUB1 V1REASON))
+			    (ILESSP VERBOSITY (ADD1 V-REASON)))
+			(ENGR CAND]
+    CAND])
+
+(MAKE-IDENTICAL
+  [LAMBDA (BS)
+    (SELECTQ (LENGTH BS)
+	     (0 NIL)
+	     (1 T)
+	     (2                                                                 (* Must make the 2 Beings identical.)
+		(MERGE2BS (CAR BS)
+			  (CADR BS)))
+	     (NOT-IN-YET])
+
+(MAP-JOINABLE
+  [LAMBDA (S OP1)
+    (SETQ MAIN-D-R NIL)
+    (SETQ SYNTH-RANGE NIL)
+    (AND [NULL (CDDAR (GETB OP1 (QUOTE D-R]
+	 [OR [AND (ISAG S (QUOTE STRUC-OF-STRUCS))
+		  (SETQ MAIN-D-R (CAR (SOME (GETB OP1 (QUOTE D-R))
+					    (FUNCTION (LAMBDA (Z)               (* Actually, it must only be ISA of the 
+										proper kind of struc)
+						(AND (ISA (LASTELE Z)
+							  (QUOTE ANY-STRUC))
+						     (RIGHT-STRUC Z]
+	     (SETQ MAIN-D-R (CAR (SOME (GETB OP1 (QUOTE D-R))
+				       (FUNCTION (LAMBDA (Z)
+					   (AND (EQ (CAR Z)
+						    (QUOTE ANYTHING))
+						(ISA (LASTELE Z)
+						     (QUOTE ANY-STRUC]
+	 (SETQ SYNTH-RANGE (CAR (SOFS-DECODE S])
+
+(MAP-REPLACE2ABLE
+  [LAMBDA (S S2 OP1)
+    (SETQ MAIN-D-R NIL)
+    (SETQ SYNTH-RANGE NIL)
+    (AND [OR [AND (ISAG S (QUOTE STRUC-OF-STRUCS))
+		  (SETQ MAIN-D-R (CAR (SOME (GETB OP1 (QUOTE D-R))
+					    (QUOTE RIGHT-STRUC]
+	     (SETQ MAIN-D-R (FASSOC (QUOTE ANYTHING)
+				    (GETB OP1 (QUOTE D-R]
+	 (NULL (CDDDR MAIN-D-R))
+	 (ISAG S2 (CADDR MAIN-D-R))
+	 (OR [SOME (APPLY* (QUOTE GENL)
+			   S)
+		   (FUNCTION (LAMBDA (SS1)
+		       (SOME (APPLY* (QUOTE GENL)
+				     (LASTELE MAIN-D-R))
+			     (FUNCTION (LAMBDA (SS2)
+				 (SETQ SYNTH-RANGE (SOFS SS1 SS2]
+	     (SETQ SYNTH-RANGE S))
+	 SYNTH-RANGE])
+
+(MAP-REPLACEABLE
+  [LAMBDA (S OP1)
+    (SETQ MAIN-D-R NIL)
+    (SETQ SYNTH-RANGE NIL)
+    (AND [OR [AND (ISAG S (QUOTE STRUC-OF-STRUCS))
+		  (SETQ MAIN-D-R (CAR (SOME (GETB OP1 (QUOTE D-R))
+					    (QUOTE RIGHT-STRUC]
+	     (SETQ MAIN-D-R (FASSOC (QUOTE ANYTHING)
+				    (GETB OP1 (QUOTE D-R]
+	 (NULL (CDDR MAIN-D-R))
+	 (OR [SOME (APPLY* (QUOTE GENL)
+			   S)
+		   (FUNCTION (LAMBDA (S1)
+		       (SOME (APPLY* (QUOTE GENL)
+				     (LASTELE MAIN-D-R))
+			     (FUNCTION (LAMBDA (S2)
+				 (SETQ SYNTH-RANGE (SOFS S1 S2]
+	     (SETQ SYNTH-RANGE S])
+
+(MAPAPPEND
+  [LAMBDA (XSET F)
+    (APPLY (QUOTE APPEND)
+	   (MAPCAR XSET F])
+
+(MAX2
+  [LAMBDA (X1 X2 F MVAL MCAN)
+    (SETQ MVAL -1)
+    [MAP2C X1 X2 (FUNCTION (LAMBDA (Z1 Z2 TMV)
+	       (AND (SETQ TMV (APPLY* F Z1 Z2))
+		    (ILESSP MVAL TMV)
+		    (SETQ MVAL TMV)
+		    (SETQ MCAN (LIST Z1 Z2 TMV]
+    (CONS MVAL MCAN])
+
+(MAX1
+  [LAMBDA (MSET MFN)
+    (PROG (TV MC (MVAL -1000))
+      L1  [COND
+	    ((NULL MSET)
+	      (RETURN (LIST MVAL MC)))
+	    ((IGREATERP (SETQ TV (APPLY* MFN (CAR MSET)))
+			MVAL)
+	      (SETQ MVAL TV)
+	      (SETQ MC (CAR MSET]
+          (SETQ MSET (CDR MSET))
+          (GO L1])
+
+(MEAS
+  [LAMBDA (P1 P2 P3 A B C Z)
+    (SETQ A (RDIST P1 P3))
+    (SETQ B (RDIST P1 P2))
+    (SETQ C (RDIST P2 P3))
+    (SETQ Z (QUOTIENT (DIFFERENCE (PLUS (SQ B)
+					(SQ C))
+				  (SQ A))
+		      (TIMES 2 B C)))
+    (ARCCOS Z])
+
+(MEAS3
+  [LAMBDA (A)
+    (SORT (LIST (APPLYB (QUOTE MEASURE-ANGLE)
+			(QUOTE ALGS)
+			(LIST (QUOTE ANG)
+			      (CADR A)
+			      (CADDR A)
+			      (CADDDR A)))
+		(APPLYB (QUOTE MEASURE-ANGLE)
+			(QUOTE ALGS)
+			(LIST (QUOTE ANG)
+			      (CADDR A)
+			      (CADDDR A)
+			      (CADR A)))
+		(APPLYB (QUOTE MEASURE-ANGLE)
+			(QUOTE ALGS)
+			(LIST (QUOTE ANG)
+			      (CADDDR A)
+			      (CADR A)
+			      (CADDR A])
+
+(MERGE2BS
+  [LAMBDA (A B B1 A1)                                                           (* A absorbs B's parts)
+    (COND
+      ((AND (IS-CON A)
+	    (IS-CON B))
+	(SETQ A1 (ENGN A))
+	(SETQ B1 (GETHASH B HCON))
+	[MAPC CONCEPTS (FUNCTION (LAMBDA (C)
+		  (COND
+		    ((EQ B1 (GETHASH C HCON))
+		      (PUTHASH C A HCON)
+		      (PUT C (QUOTE ENGN)
+			   A1)
+		      (DSUBST A C (GETPROPLIST C))
+		      (DSUBST A C CANDS)))
+		  (DSUBST A B (GETPROPLIST C]
+	[MAPC MERGE-PARTS (FUNCTION (LAMBDA (P)
+		  (NCONCB A P (GETB B P]                                        (* We shouldn't just NCONCB, but, eg, 
+										choose the faster leading defn from the 
+										2 concepts, to keep as the leading defn 
+										here)
+	(INCRB A (QUOTE IDEN)
+	       (LIST A B))
+	(DSUBST A B CANDS)
+	(SETQ SYN-LIST (CONS (CONS A B)
+			     SYN-LIST))
+	[SETB A (QUOTE WORTH)
+	      (FOR I FROM 1 TO 12 COLLECT (SAD3 (CAR (FNTH (GETB A (QUOTE WORTH))
+							   I))
+						(CAR (FNTH (GETB B (QUOTE WORTH))
+							   I]
+	[MAPC LNK-PARTS (FUNCTION (LAMBDA (P)
+		  (SETB A P (SUBSET (GETB A P)
+				    (FUNCTION (LAMBDA (E)
+					(NEQ (IS-CONN E)
+					     (IS-CONN A]
+	(SETPROPLIST B (GETPROPLIST A))
+	(DEFB A)
+	(PUTD B (GETD A))
+	(SETQ B A])
+
+(MIN2
+  [LAMBDA (X1 X2 F MVAL MCAN)
+    (SETQ MVAL 1000)
+    [MAP2C X1 X2 (FUNCTION (LAMBDA (Z1 Z2 TMV)
+	       (AND (SETQ TMV (APPLY* F Z1 Z2))
+		    (ILESSP TMV MVAL)
+		    (SETQ MVAL TMV)
+		    (SETQ MCAN (LIST Z1 Z2 TMV]
+    MCAN])
+
+(MORE-INT
+  [LAMBDA (A B)
+    (IGREATERP (CAR (GETB A (QUOTE WORTH)))
+	       (CAR (GETB B (QUOTE WORTH])
+
+(MOST-OF
+  [LAMBDA (X F L1)
+    (COND
+      ((IGREATERP (SETQ L1 (LENGTH X))
+		  200)                                                          (* Ranomly sample from X, until timer 
+										runs out or:)
+	(MOST-OF (RAND-SUBSET X)
+		 F))
+      ((ILESSP L1 (ADD1 (RMUL (LENGTH (SUBSET X F))
+			      3 2])
+
+(MULT-STRUC-PAIR
+  [LAMBDA (E)
+    (AND (APPLY* (QUOTE DEFN)
+		 (QUOTE MULT-STRUC)
+		 (CAR E))
+	 (APPLY* (QUOTE DEFN)
+		 (QUOTE MULT-STRUC)
+		 (CADR E])
+
+(NCONCB
+  [LAMBDA (B P X G)
+    (SETQ G (GETB B P))
+    (COND
+      ((NULL X)
+	G)
+      (G (NCONC G (SET-DIFFER2 X G)))
+      ((SETB B P X])
+
+(NEW-CON
+  [LAMBDA (B)
+    (COND
+      ((IS-CON B)
+	(PRIN1 B)
+	(PRIN1 " modified.
+"))
+      ((ATTACH B CONCEPTS)
+	(PUTHASH B B HCON)))
+    (DEFB B)
+    (CLEAN1ALL B)
+    B])
+
+(NEWNAME
+  [LAMBDA (N N2 I)
+    (COND
+      ((NOT (IS-CON N))
+	N)
+      ((SETQ N2 N)
+	(FOR I FROM 1 TO 20 UNTIL (NOT (IS-CON N2)) DO (SETQ N2 (GLUE N I)))
+	N2)
+      (T (CPRIN1 0 CRLF CRLF "NEWNAME can't create a new name out of " N DCR "ERROR!!!" CRLF)
+	 (HELP "Type in new name"])
+
+(NORM
+  [LAMBDA (X LO HI)
+    (COND
+      ((OR (NOT (NUMBERP X))
+	   (LESSP X LO))
+	LO)
+      ((GREATERP X HI)
+	HI)
+      (T X])
+
+(NOT-USED-YET
+  [LAMBDA (C)
+    (NOT (USED-YET C CS-B])
+
+(NUM-BETWEEN
+  [LAMBDA (A B C)
+    (COND
+      ((LESSP A B)
+	(NOT (LESSP C B)))
+      ((NOT (LESSP B C])
+
+(NUM-WTS
+  [LAMBDA NIL
+    (SETB (QUOTE REV-ORD-PAIR)
+	  (QUOTE WORTH)
+	  (LIST 10))
+    (SETB (QUOTE CANONIZE)
+	  (QUOTE WORTH)
+	  (LIST 10))
+    (SETB (QUOTE INV-OP)
+	  (QUOTE WORTH)
+	  (LIST 50))
+    (SETB (QUOTE CONJEC)
+	  (QUOTE WORTH)
+	  (LIST 10))
+    (SETB (QUOTE MAP-JOIN)
+	  (QUOTE WORTH)
+	  (LIST 10))
+    (SETB (QUOTE MAP-REPLACE)
+	  (QUOTE WORTH)
+	  (LIST 10))
+    (SETB (QUOTE MAP-REPLACE2)
+	  (QUOTE WORTH)
+	  (LIST 10))
+    (SETB (QUOTE EMPTY-STRUC)
+	  (QUOTE WORTH)
+	  (LIST 100))
+    (SETB (QUOTE NON-EMPTY-STRUC)
+	  (QUOTE WORTH)
+	  (LIST 100))
+    (SETB (QUOTE ORD-PAIR)
+	  (QUOTE WORTH)
+	  (LIST 100))
+    [MAPC CONCEPTS (FUNCTION (LAMBDA (B)
+	      (AND (CADDDR (GETB B (QUOTE WORTH)))
+		   (SET-NTH (GETB B (QUOTE WORTH))
+			    4 50]
+    (SETB (QUOTE COALESCE)
+	  (QUOTE WORTH)
+	  (LIST 200 200 100 50))
+    (SETB (QUOTE COMPOSE)
+	  (QUOTE WORTH)
+	  (LIST 200 200 100 50))
+    (SETB (QUOTE IDENTITY)
+	  (QUOTE WORTH)
+	  (LIST 100 100 900 10])
+
+(OBJ-VU
+  [LAMBDA (ULT GIV)
+    (SELECTQ ULT
+	     [NUMBER (COND
+		       ((APPLYB (QUOTE STRUCTURE)
+				(QUOTE DEFN)
+				GIV)
+			 (SUB1 (LENGTH GIV]
+	     [STRUCTURE (COND
+			  ((APPLYB (QUOTE NUMBER)
+				   (QUOTE DEFN)
+				   GIV)
+			    (UNUM GIV]
+	     NIL])
+
+(OBJX-CHK1
+  [LAMBDA NIL
+    [SETQ GTEMP380 (IPLUS (CLOCK 2)
+			  (RMUL CS-INT 20 (LENGTH GEXISTING]                    (* I.E., parcel out the time between 
+										each member of GEXISTING)
+    (MAPC GEXISTING (FUNCTION (LAMBDA (X1)
+	      (COND
+		((AND (NOT (APPLY* (QUOTE DEFN)
+				   CS-B X1 NIL NIL NIL GTEMP380))
+		      (COND
+			(CS-FAIL (INCR GQEKNT)
+				 NIL)
+			(T (INCR GNEKNT)
+			   T)))
+		  (GTRANSFER X1 (QUOTE NOT-BDY)))
+		((AND (GETB CS-B (QUOTE INTU))
+		      (NOT (APPLYB CS-B (QUOTE INTU)
+				   X1)))
+		  (GTRANSFER X1 (QUOTE BDY])
+
+(ONE-ISA
+  [LAMBDA (XSET X)
+    (AND X (CAR (SOME XSET (FUNCTION (LAMBDA (X1)
+			  (ISA X1 X])
+
+(ONE-ISAG
+  [LAMBDA (XSET X)
+    (AND X (CAR (SOME XSET (FUNCTION (LAMBDA (X1)
+			  (ISAG X1 X])
+
+(ORD-STRUC-PAIR
+  [LAMBDA (E)
+    (AND (APPLY* (QUOTE DEFN)
+		 (QUOTE STRUCTURE)
+		 (CAR E))
+	 (APPLY* (QUOTE DEFN)
+		 (QUOTE STRUCTURE)
+		 (CADR E))
+	 (APPLY* (QUOTE DEFN)
+		 (QUOTE ORD-OBJ)
+		 (CAR E))
+	 (APPLY* (QUOTE DEFN)
+		 (QUOTE ORD-OBJ)
+		 (CADR E])
+
+(ORDINAL
+  [LAMBDA (N)
+    (SELECTQ (IREMAINDER N 10)
+	     (1 (QUOTE st))
+	     (2 (QUOTE nd))
+	     (3 (QUOTE rd))
+	     (QUOTE th])
+
+(OSDEL-ALG
+  [LAMBDA (BA1 BA2 BA3 BA4)
+    (COND
+      ((NULL (CDR BA2))
+	BA2)
+      (T (SETQ BA4 (CADR BA2))
+	 (RPLACD BA2 (CDDR BA2))
+	 (SETQ BA2 (APPLYB (QUOTE OSET-STRUC-DELETE)
+			   (QUOTE ALGS)
+			   BA1 BA2))
+	 (COND
+	   ((APPLYB (QUOTE OBJ-EQUAL)
+		    (QUOTE ALGS)
+		    BA1 BA4)
+	     BA2)
+	   (T (APPLYB (QUOTE STRUCTURE-INSERT)
+		      (QUOTE ALGS)
+		      BA4 BA2])
+
+(OSET
+  [NLAMBDA X
+    (CONS (QUOTE OSET)
+	  X])
+
+(OSINS-ALG
+  [LAMBDA (BA1 BA2)
+    (AND [OR BA2
+	     (CAR (SETQ BA2
+		    (LIST (CAAR (LAST (OR (GETB (QUOTE OSET-STRUC)
+						(QUOTE EXS))
+					  (PROGN (BOOST (QUOTE FILLIN)
+							(QUOTE OSET-STRUC)
+							(QUOTE EXS)
+							NIL
+							(SPLIST If Oset-struc-insert had some existing examples
+							   of Osets COMMA
+							      then he could produce some new ones))
+						 GEXISTING]
+	 (OR BA1 (NOT (MEMBER (SETQ BA1 (RAND-THING))
+			      BA2))
+	     (SETQ BA1 (COPY BA2)))
+	 [OR (MEMBER BA1 (CDR BA2))
+	     (ATTACH (CAR BA2)
+		     (FRPLACA BA2 (COND
+				((EQ BA1 BA2)
+				  (COPY BA1))
+				(T BA1]
+	 BA2])
+
+(OUTA
+  [LAMBDA (L)
+
+          (* This fn takes a list L nad transforms it so that it can be appended onto a list of the form 
+	  (AND x y z) and not waste time doing an extra AND)
+
+
+    (COND
+      ((EQ L T)
+	NIL)
+      ((OR (NLISTP L)
+	   (NEQ (CAR L)
+		(QUOTE AND)))
+	(LIST L))
+      (T (CDR L])
+
+(PAD
+  [LAMBDA (W X W2)
+    (PRIN1 W)
+    (PAD1 W X)
+    (PRIN1 W2)
+    (TERPRI])
+
+(PAD1
+  [LAMBDA (W X)
+    (DOTS (IDIFFERENCE X (NCHARS W])
+
+(PADI
+  [LAMBDA (W X W2)
+    (PRIN1 TAB)
+    (PRIN1 W)
+    (PAD1 W (IDIFFERENCE X 6))
+    (PRIN1 TAB)
+    (PRIN1 W2)
+    (TERPRI])
+
+(PAIR
+  [NLAMBDA X
+    (CONS (QUOTE PAIR)
+	  X])
+
+(PGET
+  [LAMBDA (P B)
+    (MAPCONC [RIPPLE B (CAR (GETP P (QUOTE CENT]
+	     (QUOTE GETB-P-C])
+
+(PICK-CAND
+  [LAMBDA NIL
+    (PROG NIL
+      P1  (COND
+	    ((ILESSP (CSINT CANDS)
+		     DO-THRESH)
+	      (CPRIN1S (IDIFFERENCE 10 SEENCANDS)
+		       CRLF No Cand on (QUOTE CANDS) is good enuf DCR)
+	      (SWHY (IDIFFERENCE 10 SEENCANDS)
+		    (No Cand has estimated interest value above Do-thresh, which is (@ DO-THRESH)
+			, so AM both looks for new Cands and also reduces Do-thresh))
+	      (DE-THRESH)
+	      (FIND-NEW-CANDS)
+	      (GO P1)))
+          (CPRIN1S 5 CRLF)
+          (M2)
+          (SETQ CVAL NIL)
+          [COND
+	    ((DREMOVE CAND CANDS))
+	    ((SETQ CANDS (LIST CAND-TAIL]
+          (COND
+	    ((RECENTLY-TRIED CAND)
+	      (CPRIN1S (IDIFFERENCE 8 SEENCANDS)
+		       CRLF AM recently tried this same Cand COMMA so let APOS skip it now DCR)
+	      (SWHY (IDIFFERENCE 8 SEENCANDS)
+		    (AM just did (CACT CAND)
+			recently, and it isn't so interesting now that we should repeat it either now or
+		       in the near future))
+	      (SETQ DO-THRESH (SUB1 DO-THRESH))
+	      (GO P1))
+	    ((AND (SETQ CS-OP (COP CAND))
+		  (SETQ CS-B (CB CAND))
+		  (SETQ CS-P (CP CAND))
+		  (ENSURE-TOP))
+	      (SETQ CS-INT (CINT CAND))
+	      (SETQ CS-WHY (CWHY CAND))
+	      (SETQ CS-ACT (CACT CAND))
+	      (SETQ GEXISTING (GETB CS-B CS-P))
+	      (SETQ CORG (COUNT GEXISTING))
+	      (SETQ ORIG-EMP (NULL GEXISTING))
+	      (CPRIN1 (IDIFFERENCE 10 SEENCANDS)
+		      CRLF CRLF TAB Beginning SPACE GCNT (ORDINAL GCNT)
+		      SPACE cycle DCR)
+	      (RETURN CAND)))
+          (GO P1])
+
+(POINTP
+  [LAMBDA (BA1)
+    (MATCH BA1 WITH ('PT &@NUMBERP &@NUMBERP])
+
+(POR
+  [LAMBDA (P B BA1 BA2 BA3 BA4 RS)
+    [SETQ RS (DREVERSE (RIPPLE-SIMULT B (GETP P (QUOTE CENT]
+    (SOME-EBP RS P BA1 BA2 BA3 BA4])
+
+(PRINES
+  [LAMBDA (C1)
+    (PRIN1 (ENGN C1))
+    (PRIN1 SPACE])
+
+(PRINICE
+  [LAMBDA (L)
+    (MAPC L (FUNCTION (LAMBDA (Z)
+	      (CPRIN1 1 CRLF TAB Z])
+
+(PRUNABLE
+  [LAMBDA (C)
+    (NOT (ILESSP INTHRESH (CINT C])
+
+(PRUNE
+  [LAMBDA (N)                                                                   (* We may only want to save the first N 
+										cands; then add at the end something 
+										like: (RPLACD (FNTH CANDS 50) NIL))
+    (RPLACD (SOME CANDS (QUOTE PRUNABLE])
+
+(PSUF
+  [LAMBDA (P B BA1 BA2 BA3 BA4 RS C1 PP)
+    (SETQ C1 (GETP P (QUOTE CENT)))
+    (AND (SETQ RS (RIPPLE-SIMULT B C1))
+	 (SETQ PP P)
+	 (OR (AND BA1 (FMEMB P STRATEGY-PARTS)
+		  (FMEMB BA1 FACETS)
+		  (SETQ PP BA1)
+		  [SETQ RS (MAPCONC RS (FUNCTION (LAMBDA (R)
+					(IS-CON-L (GLUE R BA1]
+		  [NCONC RS (MAPCONC RS (FUNCTION (LAMBDA (R)
+					 (RIPPLE-SIMULT R C1]
+		  (SETQ RS (INTERSECTION RS RS)))
+	     T)
+	 (OR (SETQ GEXISTING (INIT-PART B PP))
+	     T)
+	 (NCONCB B PP (NCONC (SETQ P (GETHASH P SUF1))
+			     (MAPCONC RS (QUOTE APPLYB-P))
+			     (SETQ P (GETHASH P SWSUF))
+			     (MAPCONC (DREVERSE RS)
+				      (QUOTE APPLYB-P])
+
+(PT
+  [NLAMBDA X
+    (CONS (QUOTE PT)
+	  X])
+
+(PUTB
+  [LAMBDA (B P Q)
+    (COND
+      (Q (PUT B P Q))
+      (T (REMPROP B P])
+
+(PXEQ
+  [LAMBDA (P B BA1 BA2 BA3 BA4 RS C1 PP)
+    (SETQ C1 (GETP P (QUOTE CENT)))
+    (AND (SETQ RS (RIPPLE-SIMULT B C1))
+	 (SETQ PP P)
+	 (OR (AND BA1 (FMEMB P STRATEGY-PARTS)
+		  (FMEMB BA1 FACETS)
+		  (SETQ PP BA1)
+		  [SETQ RS (MAPCONC RS (FUNCTION (LAMBDA (R)
+					(IS-CON-L (GLUE R BA1]
+		  [NCONC RS (MAPCONC RS (FUNCTION (LAMBDA (R)
+					 (RIPPLE-SIMULT R C1]
+		  (SETQ RS (INTERSECTION RS RS)))
+	     T)
+	 (OR (SETQ GEXISTING (INIT-PART B PP))
+	     T)
+	 (NCONCB B PP (MAPCONC RS (QUOTE APPLYB-P])
+
+(Q
+  [NLAMBDA (X)
+    (LIST (QUOTE QUOTE)
+	  X])
+
+(RAISE-WORTH
+  [LAMBDA (B)
+    (RPLACA (GETB B (QUOTE WORTH))
+	    (COND
+	      [(GETB B (QUOTE GWORTH))
+		(ADD1 (CAR (GETB B (QUOTE WORTH]
+	      (T [PUT B (QUOTE GWORTH)
+		      (APPEND (GETB B (QUOTE WORTH]
+		 (AVG2 900 (CAR (GETB B (QUOTE WORTH])
+
+(RAND-ACEX-MEMB
+  [LAMBDA (B)
+    (RANDQMEMB (APPLY* (QUOTE ACEX)
+		       B])
+
+(RAND-CON
+  [LAMBDA NIL
+    (SETQ RANC (GETHASH RANC CIRC])
+
+(RAND-INCRB
+  [LAMBDA (B P X RS)                                                            (* A NULL RESULT MEANS THAT X WAS NOT 
+										ADDED TO B.P)
+    (COND
+      ((MEMBER X (GETB B P))
+	(CPRIN1S 87 X was already a (ENGN P) of B DCR))
+      ((NULL X)
+	(CPRIN1S 86 How could I add Nil to (ENGN P) of B QUES CRLF))
+      ((ILESSP (RAND 0 (LENGTH (GETB B P)))
+	       RS)
+	(CPRIN1S 79 Actually added X to (ENGN P) of B DCR)
+	(SETB B P (NCONC1 (GETB B P)
+			  X)))
+      (T (CPRIN1S 30 Could have added X to (ENGN P) of B DCR])
+
+(RAND-MEMB
+  [LAMBDA (S)
+    (AND (LISTP S)
+	 (CAR (FNTH S (RAND 1 (LENGTH S])
+
+(RAND-OBJ
+  [LAMBDA NIL
+    (CAR (OR (SETQ OBJX (CDR OBJX))
+	     (SETQ OBJX (EXS OBJECT])
+
+(RAND-PERMUTE
+  [LAMBDA (L L1 M)
+    (ANY1OF [AND (SETQ L (COPY L))
+		 (CONS (SETQ L1 (RAND-MEMB L))
+		       (RAND-PERMUTE (DREMOVE L1 L]
+	    (PROGN (SETQ M (LIST T))
+		   [MAPC L (FUNCTION (LAMBDA (L1)
+			     (ATTACH L1 (FNTH M (RAND 1 (LENGTH M]
+		   (CDR (DREVERSE M])
+
+(RAND-PRED
+  [LAMBDA NIL
+    (ZEROP (RAND 0 1])
+
+(RAND-SUBSET
+  [LAMBDA (S)
+    (SUBSET S (QUOTE RAND-PRED])
+
+(RAND-THING
+  [LAMBDA NIL
+    (APPLY (GETHASH RANF CIRC])
+
+(RAND-USER
+  [LAMBDA NIL
+    (SETQ RANU (GETHASH RANU CIRC])
+
+(RANDFMEMB
+  [LAMBDA (S)
+    (AND (LISTP S)
+	 (KWOTE (CAR (FNTH S (RAND 1 (RAND 1 (LENGTH S])
+
+(RANDQMEMB
+  [LAMBDA (S)
+    (AND (LISTP S)
+	 (KWOTE (CAR (FNTH S (RAND 1 (LENGTH S])
+
+(RCON
+  [LAMBDA NIL                                                                   (* This should work but doesn't: 
+										(ASKUSER NIL NIL NIL CONCEPTS))
+    (PROG (N)
+      L1  (SETQ N (RATOM))
+          (COND
+	    ((IS-CON N)
+	      (RETURN N))
+	    (T (CPRIN1S -1 CRLF No COMMA no EXCLAIM TAB Type in the name of a concept DOT DOT DOT SPACE)
+	       (GO L1])
+
+(RDIST
+  [LAMBDA (P1 P2)
+    (COND
+      [(AND (POINTP P1)
+	    (POINTP P2))
+	(SQRT (PLUS (SQ (DIFFERENCE (CADR P1)
+				    (CADR P2)))
+		    (SQ (DIFFERENCE (CADDR P1)
+				    (CADDR P2]
+      (0])
+
+(REBB
+  [LAMBDA (X BA1 BA2 BA3 BA4 BA5 BA6)                                           (* This function is used to REBind the 
+										BAi's; e.g., if their order changes, 
+										after untangling, etc.)
+    (EVAL X])
+
+(RECENTLY-TRIED
+  [LAMBDA (C)
+    (SASSOC (CACT C)
+	    PAST])
+
+(RECTANGLE
+  [LAMBDA (X1 X2 Y1 Y2)
+    (COND
+      ((IGREATERP X1 X2)
+	(SWITCH X1 X2)))
+    (COND
+      ((IGREATERP Y1 Y2)
+	(SWITCH Y1 Y2)))
+    (FOR I1 FROM X1 TO X2 JOIN (FOR I2 FROM Y1 TO Y2 COLLECT (PACK (LIST (QUOTE R)
+									 I1
+									 (QUOTE -)
+									 I2])
+
+(REM-ALLEV
+  [LAMBDA (X L)
+    (COND
+      ((NLISTP L)
+	L)
+      ((MAPCAR (DREMOVE X L)
+	       (FUNCTION (LAMBDA (Z)
+		   (REM-ALLEV X Z])
+
+(REM-ONCE
+  [LAMBDA (X L)
+    (ANY1OF (NCONC (LDIFF L (FMEMB X L))
+		   (CDR (FMEMB X L)))
+	    (COND
+	      ((NULL L)
+		NIL)
+	      ((EQ (CAR L)
+		   X)
+		(CDR L))
+	      (T (CONS (CAR L)
+		       (REM-ONCE X (CDR L])
+
+(RENAM-SYN
+  [LAMBDA (A B A1 B1)
+    (SETQ A1 (ENGN A))
+    (SETQ B1 (IS-CON B))
+    [MAPC CONCEPTS (FUNCTION (LAMBDA (C)
+	      (COND
+		((EQ B1 (IS-CON C))
+		  (PUTHASH C A HCON)
+		  (PUT C (QUOTE ENGN)
+		       A1)
+		  (DSUBST A C (GETPROPLIST C))
+		  (DSUBST A C CANDS)))
+	      (DSUBST A B (GETPROPLIST C]
+    (DSUBST A B CANDS)
+    (SETPROPLIST A (GETPROPLIST B))
+    (SETTOPVAL A (GETTOPVAL B))
+    (PUTD A (GETD B))
+    (INCRB A (QUOTE IDEN)
+	   (LIST A B])
+
+(RENAME2BS
+  [LAMBDA (A B)                                                                 (* A is new, B is old)
+    (CREATEB A)
+    (RENAM-SYN A B)
+    (SETQ SYN-LIST (CONS (CONS A B)
+			 SYN-LIST])
+
+(RIGHT-STRUC
+  [LAMBDA (S)
+    (OR (ISA (CAR S)
+	     (QUOTE ANY-STRUC))
+	(ISAG (QUOTE ANY-STRUC)
+	      (CAR S])
+
+(RIPPLE
+  [LAMBDA (B DIR)                                                               (* Consider saving the last B, P, Value 
+										to reuse if the same)
+    (PROG ((NEW (LIST B))
+	   (OLD (LIST B)))
+      L1  (NCONC NEW (SETQ OLD (DSET-DIFF [MAPCONC OLD (FUNCTION (LAMBDA (A1)
+							   (APPEND (GETB A1 DIR]
+					  NEW)))
+          (COND
+	    (OLD (GO L1))
+	    ((RETURN NEW])
+
+(RIPPLE-L
+  [LAMBDA (OLD DIR)
+    (PROG (NEW)
+          (SETQ NEW (APPEND OLD))
+      L1  (NCONC NEW (SETQ OLD (DSET-DIFF [MAPCONC OLD (FUNCTION (LAMBDA (A1)
+							   (APPEND (GETB A1 DIR]
+					  NEW)))
+          (COND
+	    (OLD (GO L1))
+	    ((RETURN NEW])
+
+(RIPPLE-S2
+  [LAMBDA (B DIR1 DIR2)
+    (PROG ((NEW (LIST B))
+	   (OLD (LIST B)))
+      L1  [NCONC NEW (SETQ OLD (ATOM-INT (DSET-DIFF [NCONC [MAPCONC OLD (FUNCTION (LAMBDA (A1)
+									    (APPEND (GETB A1 DIR1]
+							   (MAPCONC OLD (FUNCTION (LAMBDA (A1)
+									    (APPEND (GETB A1 DIR2]
+						    NEW]
+          (COND
+	    (OLD (GO L1))
+	    ((RETURN NEW])
+
+(RIPPLE-UNTIL
+  [LAMBDA (ATYPE P PRED)
+    (PROG (OLD (NEW (LIST ATYPE))
+	       RVAL)
+          (GO L2)
+      L1  (SETQ NEW (DSET-DIFF (ATOM-INT (MAPCONC NEW (QUOTE GETB-P-C))) OLD))
+      L2  (COND
+	    ([SETQ RVAL (SOME NEW (FUNCTION (LAMBDA (B)                         (* Note that the argument PRED must be a
+										predicate using the free variable B)
+				  (EVAL PRED]
+	      (RETURN (CAR RVAL)))
+	    (NEW (SETQ OLD (NCONC OLD NEW))
+		 (GO L1))
+	    (T (RETURN NIL])
+
+(RIPPLE-UNTIL-P
+  [LAMBDA (B DIR P RVAL)
+    (OR (GETB B P)
+	(PROG ((NEW (LIST B))
+	       (OLD (LIST B)))
+	  L1  (OR (SETQ OLD (ATOM-INT (DSET-DIFF [MAPCONC OLD (FUNCTION (LAMBDA (A1)
+								  (APPEND (GETB A1 DIR]
+						 NEW)))
+		  (RETURN NIL))
+	      [COND
+		((SETQ RVAL (SOME OLD (QUOTE GETB-P)))
+		  (RETURN (GETB (CAR RVAL)
+				P]
+	      (NCONC NEW OLD)
+	      (GO L1])
+
+(RMUL
+  [LAMBDA (AMUL IMUL JMUL)
+    (IQUOTIENT (ITIMES AMUL IMUL)
+	       JMUL])
+
+(RNUM
+  [LAMBDA (N)
+    (COND
+      ((NUMBERP (SETQ N (RATOM)))
+	N)
+      (T (PRIN1 "No, no!! Type a number...")
+	 (RNUM])
+
+(RPLACINT
+  [LAMBDA (X Y)
+    (RPLACA (CDR X)
+	    Y])
+
+(RUN-ANAS
+  [LAMBDA (L)
+    (MAPCONC L (QUOTE RUN1ANA])
+
+(RUN-OPS-TO-GET
+  [LAMBDA (B TKNT OPS1 CC)                                                      (* First, let OPS1 be thes et of all 
+										operators mapping into B)
+										(* If IN-RAN-OF worked clearly, we could
+										use that, perhaps)
+    (OR OPS1 [MAPC (EXS OPERATION)
+		   (FUNCTION (LAMBDA (OP)
+		       (COND
+			 ((AND [EQ (ENGN B)
+				   (ENGN (LASTELE (ANY1OFE (GETB OP (QUOTE D-R]
+			       (EVERY [ALL-BUT-LAST (ANY1OFE (GETB OP (QUOTE D-R]
+				      (QUOTE ACEX)))
+			   (SETQ OPS1 (CONS OP OPS1]
+	(NOT OPS1)
+	(CPRIN1S 7 CRLF CRLF AM will now try to produce examples of B
+	   by running the following operations COLON CRLF TAB OPS1 DCR CRLF)
+	(SWHY 7 (Because (ENGN B)
+			 is the range of each of those operations))             (* NOTE THE USE OF EXS INSEAD OF ACEX)
+	)                                                                       (* Next, apply each one, until time runs
+										out)
+    (OR TKNT (SETQ TKNT (IPLUS (CLOCK 2)
+			       (RMUL CS-INT (CAR (GETB B (QUOTE WORTH)))
+				     33)
+			       3000)))
+    (OR CC (SETQ CC 0))
+    (NCONC [MAPCAR OPS1 (FUNCTION (LAMBDA (OP)
+		       (EVAL (NCONC (LIST (QUOTE APPLYB)
+					  (KWOTE OP)
+					  (Q ALGS))
+				    (MAPCAR [ALL-BUT-LAST (ANY1OFE (GETB OP (QUOTE D-R]
+					    (QUOTE RAND-ACEX-MEMB]
+	   (COND
+	     ((IGREATERP (CLOCK 2)
+			 TKNT)
+	       NIL)
+	     ((IGREATERP CC 200)
+	       NIL)
+	     (OPS1 (RUN-OPS-TO-GET B TKNT OPS1 (ADD1 CC])
+
+(RUN1ANA
+  [LAMBDA (A)                                                                   (* NOT IN YET)
+    NIL])
+
+(S-DECODE
+  [LAMBDA (S)
+    (OR (IS-CON (GLUE S (QUOTE STRUC)))
+	(QUOTE STRUCTURE])
+
+(SAD2
+  [LAMBDA (L F SUM)
+    (SETQ SUM 0)                                                                (* Note that we are using IPLUS here)
+    [MAPC L (FUNCTION (LAMBDA (L1 V1)
+	      (SETQ V1 (EVAL (APPLY* F L1)))
+	      (COND
+		((NUMBERP V1)
+		  (SETQ SUM (IPLUS SUM V1]
+     SUM])
+
+(SAD3
+  [LAMBDA (X Y)
+    (SETQ X (EVAL X))
+    (SETQ Y (EVAL Y))
+    (COND
+      ((NUMBERP X)
+	(COND
+	  ((NUMBERP Y)
+	    (LARGER X Y))
+	  (T X)))
+      ((NUMBERP Y)
+	Y)
+      (T 0])
+
+(SADD
+  [NLAMBDA X                                                                    (* This is a special Addition function, 
+										which eliminates NIL's before adding the
+										entries)
+    (APPLY (QUOTE IPLUS)
+	   (DREMOVE NIL (MAPCAR X (QUOTE EVAL])
+
+(SAFE-DEFN
+  [LAMBDA (B X BA1 BA2 BA3 TK2)
+    (COND
+      ((NOT (ISA B (QUOTE ACTIVE)))
+	(APPLY* (QUOTE DEFN)
+		B X BA1 BA2 BA3 TK2))
+      ((AND (EVERY2 (LIST X BA1 BA2 BA3)
+		    [ALL-BUT-LAST (CAR (GETB B (QUOTE D-R]
+		    (QUOTE ISA))
+	    (APPLY* (QUOTE DEFN)
+		    B X BA1 BA2 BA3 TK2)))
+      ((EVERY2 X [ALL-BUT-LAST (CAR (GETB B (QUOTE D-R]
+	       (QUOTE ISA))
+	(APPLY* (QUOTE DEFN)
+		B
+		(CAR X)
+		(CADR X)
+		(CADDR X)
+		(CADDDR X)
+		TK2))
+      (T NIL])
+
+(SCDR
+  [LAMBDA (L)
+    (COND
+      ((LISTP L)
+	(CONS (CAR L)
+	      (SORT (APPEND (CDR L])
+
+(SELF
+  [NLAMBDA (X)
+    (SET X X])
+
+(SELF-COMPILE
+  [NLAMBDA (BP C AL)
+    (SETQ LAPFLG NIL)
+    (SETQ SVFLG NIL)
+    (SETQ STRF T)
+    (COMPILE1 BP (LIST (QUOTE LAMBDA)
+		       (SETQ AL (ARGLIST BP))
+		       C))
+    (EVAL (CONS BP AL])
+
+(SELF-INT
+  [LAMBDA (S)
+    (INTERSECTION S S])
+
+(SET-DIFF
+  [LAMBDA (L M)
+    (ANY1OF (PROGN (SETQ L (APPEND L))
+		   [MAPC M (FUNCTION (LAMBDA (M1)
+			     (SETQ L (DREMOVE M1 L]
+		   L)
+	    (SUBSET L (FUNCTION (LAMBDA (L1)
+			(NOT (FMEMB L1 M])
+
+(SET-DIFFER2
+  [LAMBDA (L M)
+    (SUBSET L (FUNCTION (LAMBDA (L1)
+		(NOT (MEMBER L1 M])
+
+(SET-DIFFERENCE
+  [LAMBDA (L M)
+    [MAPC M (FUNCTION (LAMBDA (M1)
+	      (SETQ L (REMOVE M1 L]
+    L])
+
+(SET-NTH
+  [LAMBDA (S N X I)
+    (COND
+      ((FNTH S N)
+	(CAR (FRPLACA (FNTH S N)
+		      X)))
+      ((LISTP S)
+	(FOR I FROM (ADD1 (LENGTH S)) TO N DO (NCONC1 S 0))
+	(CAR (FRPLACA (FNTH S N)
+		      X])
+
+(SETB
+  [LAMBDA (B P Q BP)
+    [AND (FMEMB P XEQ-PARTS)
+	 Q
+	 [PUTD (SETQ BP (GLUEE B P))
+	       (LIST (QUOTE LAMBDA)
+		     (GETARGS P)
+		     (LIST (QUOTE SELF-COMPILE)
+			   BP
+			   (CONS (GETFNAME P)
+				 Q]
+	 (OR (GETB B P)
+	     (ATTACH (LIST P (CONS BP (GETARGS P)))
+		     (BPFS B]
+    (PUT B P Q])
+
+(SETBQ
+  [NLAMBDA (B P Q)
+    (SETB B P (EVAL Q])
+
+(SETINSALG
+  [LAMBDA (BA1 BA2)
+    (AND [OR BA2
+	     (CAR (SETQ BA2
+		    (LIST (CAAR (LAST (OR (GETB (QUOTE SET-STRUC)
+						(QUOTE EXS))
+					  (PROGN (BOOST (QUOTE FILLIN)
+							(QUOTE SET-STRUC)
+							(QUOTE EXS)
+							NIL
+							(SPLIST If Set-struc-insert had some examples of Set-struc
+							   to work with, he could make brand new examples out
+							     of them))
+						 GEXISTING]
+	 (OR BA1 (NOT (MEMBER (SETQ BA1 (RAND-THING))
+			      BA2))
+	     (SETQ BA1 (COPY BA2)))
+	 [OR (MEMBER BA1 (CDR BA2))
+	     (RPLACD BA2 (MERGE (LIST (COND
+					((EQ BA1 BA2)
+					  (COPY BA1))
+					(T BA1)))
+				(CDR BA2)
+				(QUOTE SORD]
+	 BA2])
+
+(SGREATERP
+  [LAMBDA (X Y)
+    (COND
+      ((NUMBERP X)
+	(COND
+	  ((NUMBERP Y)
+	    (GREATERP X Y))
+	  (T T)))
+      (T NIL])
+
+(SHOWLEN
+  [LAMBDA (B)
+    (MAPC (GETP CS-B EXS)
+	  (FUNCTION (LAMBDA (X)
+	      (PRINT (MAPCAR X (FUNCTION (LAMBDA (ZZ)
+				 (SUB1 (LENGTH ZZ])
+
+(SIDE1
+  [LAMBDA (L)
+    (APPLYB (QUOTE DRAW-LINE)
+	    (QUOTE ALGS)
+	    (CADR L)
+	    (CADDR L])
+
+(SIDE2
+  [LAMBDA (L)
+    (APPLYB (QUOTE DRAW-LINE)
+	    (QUOTE ALGS)
+	    (CADDR L)
+	    (CADDDR L])
+
+(SIDE3
+  [LAMBDA (L)
+    (APPLYB (QUOTE DRAW-LINE)
+	    (QUOTE ALGS)
+	    (CADDDR L)
+	    (CADR L])
+
+(SIMPLIFY1
+  [LAMBDA (L STMP STM2)
+    (COND
+      ((NLISTP L)
+	L)
+      [(ISQ L)
+	(COND
+	  ((FMEMB (CADR L)
+		  (LIST T NIL 0 1 2 3 4 5 6 7 8 9))
+	    (CADR L))
+	  ((FMEMB (SETQ STMP (SIMPLIFY1 (CADR L)))
+		  (LIST T NIL 0 1 2 3 4 5 6 7 8 9))
+	    STMP)
+	  (T (KWOTE STMP]
+      [(EQ (CAR L)
+	   (QUOTE AND))
+	(SETQ STMP (MAPCAR (SELF-INT (CDR L))
+			   (QUOTE SIMPLIFY1)))
+	(SETQ STMP (DREMOVE T (SELF-INT STMP)))
+	(COND
+	  ((FMEMB NIL STMP)
+	    NIL)
+	  ([SOME STMP (FUNCTION (LAMBDA (S)
+		     (MEMBER (LIST (QUOTE NOT)
+				   S)
+			     STMP]
+	    NIL)
+	  ((SELECTQ (LENGTH STMP)
+		    (0 T)
+		    (1 (CAR STMP))
+		    (ATTACH (QUOTE AND)
+			    STMP]
+      [(EQ (CAR L)
+	   (QUOTE OR))
+	(SETQ STMP (MAPCAR (SELF-INT (CDR L))
+			   (QUOTE SIMPLIFY1)))
+	(SETQ STMP (DREMOVE NIL (SELF-INT STMP)))
+	(COND
+	  ((FMEMB T STMP)
+	    T)
+	  ([SOME STMP (FUNCTION (LAMBDA (S)
+		     (MEMBER (LIST (QUOTE NOT)
+				   S)
+			     STMP]
+	    T)
+	  ((SELECTQ (LENGTH STMP)
+		    (0 NIL)
+		    (1 (CAR STMP))
+		    (ATTACH (QUOTE OR)
+			    STMP]
+      [(OR (EQ (CAR L)
+	       (QUOTE EQUAL))
+	   (EQ (CAR L)
+	       (QUOTE EQ))
+	   (ISAS (CAR L)
+		 (QUOTE OBJ-EQUAL)))
+	(COND
+	  ((EQUAL (CADR L)
+		  (CADDR L))
+	    T)
+	  ([EQUAL (SETQ STMP (SIMPLIFY1 (CADR L)))
+		  (SETQ STM2 (SIMPLIFY1 (CADDR L]
+	    T)
+	  ((OR (NLISTP STMP)
+	       (NLISTP STM2))
+	    (LIST (CAR L)
+		  STMP STM2))
+	  ((EQUAL (CDR STMP)
+		  (CDR STM2))                                                   (* When does f (x) =g 
+										(x) ?)
+	    (LIST (CAR L)
+		  STMP STM2))
+	  ((EQUAL (CAR STMP)
+		  (CAR STM2))                                                   (* When does f (x) =f 
+										(y) ?)
+	    (LIST (CAR L)
+		  STMP STM2))
+	  (T (LIST (CAR L)
+		   STMP STM2]
+      ((EQ (CAR L)
+	   (QUOTE PROGN))
+	(SETQ STMP (MAPCAR (DREVERSE (SELF-INT (CDR L)))
+			   (QUOTE SIMPLIFY1)))
+	[SETQ STMP (DREVERSE (CONS (CAR STMP)
+				   (SELF-INT (SUBSET (CDR STMP)
+						     (QUOTE LISTP]
+	(SELECTQ (LENGTH STMP)
+		 (0 NIL)
+		 (1 (CAR STMP))
+		 (ATTACH (QUOTE PROGN)
+			 STMP)))
+      [(EQ (CAR L)
+	   (QUOTE NOT))
+	(SETQ STMP (SIMPLIFY1 (CADR L)))
+	(COND
+	  ((NUMBERP STMP)
+	    NIL)
+	  ((EQ STMP T)
+	    NIL)
+	  ((EQ STMP NIL)
+	    T)
+	  ((ATOM STMP)
+	    (LIST (QUOTE NOT)
+		  STMP))
+	  ((FMEMB (CAR STMP)
+		  CONSTRUCTIVE-OPS)
+	    NIL)
+	  ((EQ (CAR STMP)
+	       (QUOTE NOT))
+	    (CDR STMP))
+	  [[AND (EQ (CAR STMP)
+		    (QUOTE OR))
+		(EVERY (CDR STMP)
+		       (FUNCTION (LAMBDA (Z)
+			   (EQ (CAR Z)
+			       (QUOTE NOT]
+	    (ATTACH (QUOTE AND)
+		    (MAPCAR (CDR STMP)
+			    (QUOTE CADR]
+	  ([AND (EQ (CAR STMP)
+		    (QUOTE AND))
+		(EVERY (CDR STMP)
+		       (FUNCTION (LAMBDA (Z)
+			   (EQ (CAR Z)
+			       (QUOTE NOT]
+	    (ATTACH (QUOTE OR)
+		    (MAPCAR (CDR STMP)
+			    (QUOTE CADR]
+      ((AND (FMEMB (CAR L)
+		   (QUOTE (MEMBER FMEMB MEMB)))
+	    (EQUAL [CAR (SETQ STMP (SIMPLIFY1 (CADDR L]
+		   (QUOTE LIST)))
+	(SELECTQ (LENGTH (SETQ STMP (SELF-INT STMP)))
+		 ((0 1)
+		   NIL)
+		 [2                                                             (* So STMP is of the form 
+										(LIST x))
+		    (SIMPLIFY1 (LIST (QUOTE EQUAL)
+				     (CADR L)
+				     (CADR STMP]
+		 (LIST (CAR L)
+		       (SIMPLIFY1 (CADR L))
+		       STMP)))
+      ((EQ (CAR L)
+	   (QUOTE SELECTQ))
+	(SETQ STMP (SIMPLIFY1 (LASTELE L)))
+	[SETQ L (CONS (QUOTE SELECTQ)
+		      (CONS (SIMPLIFY1 (CADR L))
+			    (NCONC1 [SUBSET [SELF-INT (MAPCAR (CDDR (ALL-BUT-LAST L))
+							      (FUNCTION (LAMBDA (Z)
+								  (SELF-INT (CONS (CAR Z)
+										  (MAPCAR (CDR Z)
+											  (QUOTE SIMPLIFY1]
+					    (FUNCTION (LAMBDA (Z)
+						(OR (CDDR Z)
+						    (NOT (EQUAL (CADR Z)
+								STMP]
+				    STMP]                                       (* So we should not recursively call 
+										Simplify1 on any existing parts of L)
+	[MAP (CDDR (ALL-BUT-LAST L))
+	     (FUNCTION (LAMBDA (Z)
+		 (MAPC (CDR Z)
+		       (FUNCTION (LAMBDA (ZZ)
+			   (AND (EQUAL (CDAR Z)
+				       (CDR ZZ))
+				(RPLACA (CAR Z)
+					(LAPP (CAAR Z)
+					      (CAR ZZ]
+	[MAP (APPEND (CDDR (ALL-BUT-LAST L)))
+	     (FUNCTION (LAMBDA (Z)
+		 (MAPC (CDR Z)
+		       (FUNCTION (LAMBDA (ZZ)
+			   (AND (EQUAL (CDAR Z)
+				       (CDR ZZ))
+				(DREMOVE ZZ L]
+	[COND
+	  ((NULL (CDDDR L))
+	    (SETQ L (CADDR L]
+	L)
+      [(MATCH L WITH ('CONS ('CAR STMP←&)
+			    ('CDR STM2←&)))
+	(SETQ STMP (SIMPLIFY1 STMP))
+	(SETQ STM2 (SIMPLIFY1 STM2))
+	(COND
+	  ((EQUAL STMP STM2)
+	    STMP)
+	  (T (LIST (QUOTE CONS)
+		   (SIMPLIFY1 (LIST (QUOTE CAR)
+				    STMP))
+		   (SIMPLIFY1 (LIST (QUOTE CDR)
+				    STM2]
+      (T (MAPCAR L (QUOTE SIMPLIFY1])
+
+(SIMULT-SATISFY
+  [LAMBDA (GLIST BA BN SVAL TST)
+    [COND
+      [(MATCH GLIST WITH (('ISA BA←&
+				@[LAMBDA (Z)
+				  (FMEMB Z BA-LIST]
+				('QUOTE BN←&@IS-CON))
+			  (&@[LAMBDA (Z)
+			      (NOT (FMEMB Z (LIST (QUOTE ISA)
+						  (QUOTE ARE-EQUIV]
+			    $)))
+	(SETQ TST (SUBST (QUOTE X)
+			 BA
+			 (CADR GLIST)))
+	(SETQ SVAL (OR (ANY1OF-SATISFYING (APPLY* (QUOTE EXS-BDY)
+						  BN)
+					  TST)
+		       (ANY1OF-SATISFYING (APPLY* (QUOTE EXS)
+						  BN)
+					  TST]
+      (T (MAPC GLIST (FUNCTION (LAMBDA (G XPR BN2)
+		   (COND
+		     [[MATCH G WITH ('ISA BA←&@[LAMBDA (Z)
+					    (FMEMB Z BA-LIST]
+					  BN←&@(LAMBDA (Z)
+					    (IS-CON (SETQ BN2 (CAR (ERRORSET Z]
+		       (SETQ TMP8 (APPLY* (QUOTE ACEX)
+					  BN2))
+		       (OR (ISA (EVAL BA)
+				BN2)
+			   (SET BA (RAND-MEMB TMP8]
+		     ((MATCH G WITH ('ARE-EQUIV BA←&@[LAMBDA (Z)
+						  (MATCH (UNPACK Z) WITH ('B 'A &@NUMBERP]
+						XPR←&))                         (* We should check that XPR doesn't 
+										involve any BAi's which haven't already 
+										been ISA-checked and/or bound)
+		       (SETQ SVAL (SET BA (CAR (ERRORSET XPR]
+
+          (* Actually, to be truly "simult", we must re-check our earlier goals after each new one is 
+	  satisfied, and perhaps we should initially select the "hardest" one to satisfy first, etc,)
+
+
+    (COND
+      (SVAL (LIST (COND
+		    ((ISA CS-B (QUOTE ACTIVE))
+		      (NCONC1 (MAPCAR (GARGS CS-B)
+				      (QUOTE EVAL))
+			      SVAL))
+		    (T SVAL])
+
+(SLOPE
+  [LAMBDA (L X1 X2 Y1 Y2 P1 P2)
+    (SETQ P1 (CADR L))
+    (SETQ P2 (CADDR L))
+    (SETQ X1 (CADR P1))
+    (SETQ Y1 (CADDR P1))
+    (SETQ X2 (CADR P2))
+    (SETQ Y2 (CADDR P2))
+    (COND
+      ((EQUAL X1 X2)
+	1000)
+      (T (FQUOTIENT (DIFFERENCE Y1 Y2)
+		    (DIFFERENCE X1 X2])
+
+(SMALLER
+  [LAMBDA (A B)
+    (COND
+      ((LESSP A B)
+	A)
+      (B])
+
+(SOFS
+  [LAMBDA (S1 S2)                                                               (* Find a Being of the form S1-of-S2s)
+    (IS-CON (PACK (LIST (INV-STYP S1)
+			(QUOTE -OF-)
+			(INV-STYP S2)
+			(QUOTE S])
+
+(SOFS-DECODE
+  [LAMBDA (A)
+    (AND (MATCH (UNPACK A) WITH (GTEMP372←$
+				  '- 'O 'F '- GTEMP373←$
+				  'S))
+	 (SETQ GTEMP372 (PACK GTEMP372))
+	 (SETQ GTEMP373 (PACK GTEMP373))
+	 (LIST (S-DECODE GTEMP372)
+	       (S-DECODE GTEMP373])
+
+(SOME-EBP
+  [LAMBDA (L P BA1 BA2 BA3 BA4)
+    (ANY1OF [SOME L (FUNCTION (LAMBDA (L1)
+		      (AND (IS-CON L1)
+			   (SETQ GSOME-VAL (APPLYB L1 P BA1 BA2 BA3 BA4))
+			   (SETQ GSOME-ELE L1]
+	    (PROG NIL
+	      L2  (COND
+		    ([OR (NLISTP L)
+			 (NOT (IS-CON (CAR L]
+		      (RETURN NIL))
+		    ((SETQ GSOME-VAL (APPLYB (CAR L)
+					     P BA1 BA2 BA3 BA4))
+		      (SETQ GSOME-ELE (CAR L))
+		      (RETURN GSOME-VAL)))
+	          (SETQ L (CDR L))
+	          (GO L2])
+
+(SOMEE
+  [LAMBDA (XSET FN)
+    (PROG (V)
+      L1  (COND
+	    ((SETQ V (APPLY* FN (CAR XSET)))
+	      (RETURN V))
+	    ((SETQ XSET (CDR XSET))
+	      (GO L1))
+	    ((RETURN NIL])
+
+(SORD
+  [LAMBDA (X Y)
+    (AND (ALPHORDER X Y)
+	 (OR (NLISTP X)
+	     (NLISTP Y)
+	     (EQUAL X Y)
+	     (COND
+	       ((EQUAL (CAR X)
+		       (CAR Y))
+		 (SORD (CDR X)
+		       (CDR Y)))
+	       ((SORD (CAR X)
+		      (CAR Y])
+
+(SORTED
+  [LAMBDA (L)
+    (EVERY2 L (CDR L)
+	    (QUOTE ALPHORDER])
+
+(SORV
+  [LAMBDA (N)
+    (EVAL (APPLY* GIFN (IFEA (CAR (FNTH G-IF N])
+
+(SPECL1RDEF
+  [LAMBDA (DE REC S ILV EILV TILV TDEF TNAM)
+    [SETQ GTEMP51 (NEWNAME (SETQ TNAM (GLUE (QUOTE SPEC)
+					    CS-B]
+    (SETQ GTEMP308 (CINL (GFNAMES S)))
+    (CPRIN1S 5 TAB AM specializes CS-B into the new concept GTEMP51 COMMA by no longer saying that it suffices
+       to successfully recurse on the GTEMP308 of the args DCR)
+    (CPRIN1S 8 i.e. COMMA GTEMP51 will not have a recursive test CRLF like this one COMMA which is present
+       in CS-B COLON CRLF)
+    (COND
+      ((IGREATERP VERBOSITY 8)
+	(PRINICE S)
+	(TERPRI)))
+    [SETQ TDEF (DSUBST (LIST (QUOTE PROG1)
+			     NIL
+			     (LIST (QUOTE COMMENT) in CS-B this is S))
+		       (QUOTE ZCOM)
+		       (DSUBST GTEMP51 CS-B (SUBST (QUOTE ZCOM)
+						   S DE]
+    (COND
+      ([AND (NEQ GTEMP51 TNAM)
+	    (SETQ GTEMP60 (CAR (SOME (GETB CS-B (QUOTE SPEC))
+				     (FUNCTION (LAMBDA (G)
+					 (MEMBER TDEF (GETB G (QUOTE DEFN]
+	(SWHY 7 (The proposed new specialization turned out to be identical to (@ GTEMP60)))
+	(CPRIN1S 7 TAB Failed DCR))
+      (T (CREATEB GTEMP51)
+	 (INCRB GTEMP51 (QUOTE DEFN)
+		TDEF)
+	 [INCRB GTEMP51 (QUOTE TIES)
+		(LIST CS-B (LIST DEFN (SPLIST GTEMP51 does no recursing on GTEMP308]
+										(* Note the format assumed for TIES part
+										entry is (other-B-name 
+										(part1name (relnship1) ...
+										(relnship-n)) (part2name...)))
+	 [COND
+	   [(ISA CS-B (QUOTE ACTIVE))
+	     [INCRB GTEMP51 (QUOTE D-R)
+		    (APPEND (CAR (GETB CS-B (QUOTE D-R]
+	     (COND
+	       ((ISA CS-B (QUOTE PREDICATE))                                    (* IN special, we want to see if Genl 
+										(CS-b) are also Genl 
+										(Gtemp51); eg., so that ISA will work 
+										right)
+		 [INCRB GTEMP51 (QUOTE ALGS)
+			(LIST (QUOTE TYPE)
+			      (QUOTE TRANSFORM)
+			      (QUOTE REDUCING-TO)
+			      (QUOTE SELF)
+			      (LIST (QUOTE APPLYB)
+				    (KWOTE GTEMP51)
+				    (Q DEFN)
+				    (QUOTE BA1)
+				    (QUOTE BA2)
+				    (QUOTE BA3)
+				    (QUOTE BA4]
+		 (INCRB (QUOTE PREDICATE)
+			(QUOTE EXS)
+			GTEMP51)
+		 (INCRB GTEMP51 (QUOTE UP)
+			(QUOTE PREDICATE)))
+	       (T (INCRB (QUOTE ACTIVE)
+			 (QUOTE EXS)
+			 GTEMP51)
+		  (INCRB GTEMP51 (QUOTE UP)
+			 (QUOTE ACTIVE]
+	   (T (INCRB GTEMP51 (QUOTE UP)
+		     (QUOTE ANYB))
+	      (ADD-CANDS (LIST (LIST (LIST (QUOTE FILLIN)
+					   GTEMP51
+					   (QUOTE UP))
+				     (ADD1 (OR EILV (AVG2 ILV CS-INT)))
+				     (LIST (SPLIST While working
+					      on the specialization GTEMP51
+						of CS-B COMMA AM could not trivially determine what the (QUOTE UP)
+						   part should be]
+	 (INCRB GTEMP51 (QUOTE GENL)
+		CS-B)
+	 (INCRB CS-B (QUOTE SPEC)
+		GTEMP51)
+	 (SETB GTEMP51 (QUOTE WORTH)
+	       (RPLACINT (APPEND (GETB CS-B (QUOTE WORTH)))
+			 (AVG2 ILV 600)                                         (* We probably want to indicate that 
+										Gtemp51 has very tenuous grounds for 
+										existence, and it should be justified 
+										quickly or killed)
+			 ))
+	 [ADD-CANDS (LIST (LIST (LIST (QUOTE FILLIN)
+				      GTEMP51
+				      (QUOTE EXS))
+				(OR EILV (AVG2 ILV CS-INT))
+				(LIST (SPLIST The specialization GTEMP51
+					 of CS-B is relatively new and has no exs of its own yet]
+										(* Sometime we should check that the new
+										Bs are not just equal to some 
+										already-existing one, either trivially 
+										(syntactically) or by func equiv)
+	 GTEMP51])
+
+(SPECLIZE-RECDEF
+  [LAMBDA (D DBOD BASE REC ILV SPL)
+    (SETQ DBOD (CAR (FLAST D)))
+    (COND
+      [[OR (MATCH DBOD WITH ('OR BASE←$
+				 REC←&))
+	   (MATCH DBOD WITH ('COND BASE←$
+				   (REC←&)))
+	   (MATCH DBOD WITH ('COND BASE←$
+				   ('T $ REC←&]
+	(CPRIN1 6 CRLF " Considering speclizing a recursive defn of " CS-B CRLF)
+	(SETQ ILV (DOTPROD (GETB CS-B (QUOTE WORTH))
+			   (LIST .7 .2)))
+	(COND
+	  ((ILESSP ILV DO-THRESH)
+	    (CPRIN1 7 TAB "Stopped")
+	    (CPRIN1 8 TAB " because not interesting enuf")
+	    (SWHY 7 (The estimated interest level for (@ CS-B)
+						      right now is only (@ ILV)
+						      ,which is way below my threshhold
+		       for doing anything:(@ DO-THRESH)))
+	    (CPRIN1 7 DCR))
+	  ((SELECTQ (CAR REC)
+		    (OR (CPRIN1 8 TAB "Will try to remove a disjunct")
+			(CPRIN1 17 " from: ")
+			(CPRIN1 17 (PRINICE REC))
+			(CPRIN1 8 DCR)
+			[SETQ SPL (SUBSET (CDR REC)
+					  (FUNCTION (LAMBDA (Z)
+					      (MATCH Z WITH ('APPLYB ('QUOTE =CS-B)
+								     ('QUOTE 'DEFN)
+								     $]
+			(SELECTQ (LENGTH SPL)
+				 (0 (CPRIN1 8 TAB "Failed. No member of This recursive defn is a simple call on " CS-B 
+					    " itself" DCR TAB 
+					    "Later, I may check whether this defn is really recursive or not" DCR))
+				 (1 (CPRIN1 8 "Failed. Only one simple recursive call on itself. No easy speclz" DCR))
+				 (PROGN (CPRIN1 9 TAB (LENGTH SPL)
+						" possible disjuncts to choose from" DCR)
+					[SETQ GTEMP51 (MAPCAR SPL (FUNCTION (LAMBDA (S)
+								  (SPECL1RDEF D REC S ILV (IDIFFERENCE CS-INT
+												       (LENGTH SPL]
+					(CPRIN1S 8 CRLF If any of GTEMP51 ever seems
+					   to be too specialized COMMA AM will consider disjoining it
+					     with other members of that set DCR)
+					[MAPC GTEMP51
+					      (FUNCTION (LAMBDA (Z)
+						  (SUGGEST Z (QUOTE GENL)
+							   (LIST (QUOTE APPLYB)
+								 (Q DISJOIN)
+								 (Q ALGS)
+								 (KWOTE (REMOVE Z GTEMP51))
+								 (SPLIST An intermediate level
+								    of specialization COMMA between CS-B
+									 and Z COMMA would be
+								    to Disjoin Z with some of these COLON
+											      (REMOVE Z GTEMP51]
+					GTEMP51)))
+		    (AND (CPRIN1 8 TAB "Will try to add a new conjunct")
+			 (CPRIN1 17 " from: " REC)
+			 (CPRIN1 8 DCR)                                         (* This isnt in yet)
+			 (CPRIN1 8 "ISNT IN YET. FAIL." CRLF))
+		    (CPRIN1 9 TAB "Can't go on: can only handle AND and OR types of recursive defns" CRLF 
+			    "This recursive defn is: " REC CRLF]
+      ((CPRIN1 10 " I wanted to speclize the recursive defn of " CS-B COMMA CRLF D COMMA CRLF TAB 
+	       "but this doesn't match any pattern I know" DCR])
+
+(SPECLIZE-TRANSDEF
+  [LAMBDA (D SSET SFN SNEW CNTS EMAX NINT DNEW)
+    (SETQ D (COPY D))
+    (SETQ GLOC-NOT NIL)                                                         (* Arrange the following options in some
+										order dynamically perhaps;
+										e.g., random order)
+    (COND
+      ([AND (SETQ GTEMP331 (LLOCATE (QUOTE SOME)
+				    D T))
+	    (SETQ SFN (CADDR GTEMP331))
+	    [SETQ SSET (CAR (SYM-XEQ (CADR GTEMP331]
+	    (SETQ DNEW (SUBLIS (LIST (CONS (QUOTE XFN)
+					   SFN)
+				     (CONS (QUOTE XSET)
+					   (QUOTE SSET)))
+			       GD-TEST))
+	    (SETQ SSET (MAPCAR SSET (FUNCTION (LAMBDA (X)
+				   (CONS 0 X]
+	[MAPC (APPLY* (QUOTE ACEX)
+		      CS-B)
+	      (COND
+		[(ISA CS-B (QUOTE ACTIVE))
+		  (FUNCTION (LAMBDA (E BA1 BA2 BA3 BA4 BA5)
+		      (MAP2CAR (GARGS CS-B)
+			       E
+			       (QUOTE SETQ))
+		      (EVAL DNEW]
+		(T (FUNCTION (LAMBDA (BA1)
+		       (EVAL DNEW]
+	[SETQ EMAX (CADR (MAXI SSET (QUOTE CAR]                                 (* The extra argument T in LLOCATE means
+										we must be careful about the parity of 
+										the NOT's we are inside when we locate 
+										SOME)
+
+          (* Then we can specialize by picking a particular element of the set S and demanding it satisfy f, 
+	  where (SOME S f) is in the original defn D)
+
+
+	[SETQ SNEW (SIMPLIFY1 (LIST (QUOTE APPLY*)
+				    SFN
+				    (KWOTE (CDR EMAX]
+	(DSUBST SNEW GTEMP331 D)
+	(CPRIN1S 7 CRLF AM specializes the Transform defn of CS-B)
+	(CPRIN1S 8 by replacing CRLF GTEMP331 CRLF by CRLF SNEW)
+	(CPRIN1S 7 DCR)
+	[SETQ NINT (AVG2 (CAR (GETB CS-B (QUOTE WORTH)))
+			 (RMUL 1000 (CAR EMAX)
+			       (SAD2 SSET (QUOTE CAR]
+	(LINN (BLOWUP-NEW-SPEC D NINT)))
+      (T 
+
+          (* Right now no other methods. SOme possibilities include: Replace the Some by an Every intead of a 
+	  particular element; If the Llocate finds an EVERY inside a NOT, maybe replace it by a SOME or a 
+	  particular element)
+
+
+	 NIL])
+
+(SPLIST
+  [NLAMBDA CPARG
+    (MAPCAR CPARG (FUNCTION (LAMBDA (Z)
+		(COND
+		  ((NOT (ATOM Z))
+		    (EVAL Z))
+		  ((NEQ (GETTOPVAL Z)
+			(QUOTE NOBIND))
+		    (EVAL Z))
+		  ((NEQ (EVALV Z)
+			(QUOTE NOBIND))
+		    (EVALV Z))
+		  (T (SETTOPVAL Z Z)
+		     Z])
+
+(SQ
+  [LAMBDA (X)
+    (COND
+      ((NUMBERP X)
+	(TIMES X X))
+      (0])
+
+(SSORT
+  [LAMBDA (Z)
+    (SORT (CDR Z)
+	  (QUOTE SORD])
+
+(STACK-BS
+  [LAMBDA (BL)
+    [MAPDL (FUNCTION (LAMBDA (N)
+	       (COND
+		 ((IS-CON N)
+		   (SETQ BL (CONS N BL]
+    BL])
+
+(START
+  [LAMBDA NIL
+    (INIT-VARS)
+    (GET-NAMES)
+    (CPRIN1S 0 CRLF Almost ready to enter AM's main loop COMMA FIRSTNAME DCR)
+    (BRIEF-U)
+    (GET-VERBO)
+    (GET-UCON)
+    (GET-SEEN)
+    (GET-WAIT)
+    [SETQ MAXNAME (IPLUS 99 (ITIMES -3 UCONTROL)
+			 (ITIMES -2 (SMALLER VERBOSITY 6]
+    (TLOOP)
+    (CPRIN1S 0 CRLF Again COMMA)
+    (START])
+
+(STMEMBINV
+  [LAMBDA (BA1 BA2)
+    (COND
+      ((AND BA1 (LISTP BA2))
+	(NOT (APPLYB (QUOTE STRUCTURE-MEMB)
+		     (QUOTE ALGS)
+		     BA1 BA2)))
+      ((AND (NOT BA1)
+	    (LISTP BA2))
+	(PROG (Z)
+	  L1  (SETQ Z (RAND-THING))
+	      (COND
+		((FMEMB Z BA2)
+		  (GO L1)))
+	      (RETURN Z)))
+      ((AND BA1 (ATOM BA2))
+	(APPLYB (QUOTE STRUCTURE-INSERT)
+		(QUOTE INV)
+		BA1
+		(RAND-MEMB (OR (GETB BA2 (QUOTE EXS))
+			       (APPLY* (QUOTE ACEX)
+				       BA2)
+			       (ACEX STRUCTURE])
+
+(STRUC
+  [NLAMBDA X
+    (CONS (QUOTE STRUC)
+	  X])
+
+(STRUC-PAIR
+  [LAMBDA (E)
+    (AND (ISA (CAR E)
+	      (QUOTE STRUCTURE))
+	 (ISA (CADR E)
+	      (QUOTE STRUCTURE])
+
+(STRUC-VU
+  [LAMBDA (BA1 BA2)
+    (COND
+      ([SOME (LDIFF (SETQ GTEMP103 (RIPPLE BA1 (QUOTE GENL)))
+		    (FMEMB (QUOTE STRUCTURE)
+			   GTEMP103))
+	     (FUNCTION (LAMBDA (Z)
+		 (IS-CON (SETQ GTEMP44 (GLUE Z (QUOTE INSERT]                   (* BA1 is the name of the type we wish 
+										to convert the given to)
+										(* BA2 is the given structure to be 
+										converted)
+										(* BA3 is the name of the given 
+										structure's type)
+	(SETQ GTEMP43 (APPLYB (QUOTE STRUCTURE-DELETE)
+			      (QUOTE ALGS)
+			      T
+			      (APPLYB GTEMP44 (QUOTE ALGS)
+				      T NIL)))                                  (* GTEMP3 IS THUS INITIALIZED)
+	[MAPC (REVERSE (CDR BA2))
+	      (FUNCTION (LAMBDA (Z)
+		  (SETQ GTEMP43 (APPLYB GTEMP44 (QUOTE ALGS)
+					Z GTEMP43]                              (* If we didn't know about MAPC, we 
+										would have to use BA3-member to pull 
+										elements off BA2 one at a time)
+	(COND
+	  (GTEMP43 (LIST GTEMP43])
+
+(STRUCDINV
+  [LAMBDA (BA1 BA2 BA3)
+    (ARG-SUBST (QUOTE BA1)
+	       (RAND-MEMB GEXISTING)
+	       (QUOTE BA2)
+	       (RAND-THING))
+    (APPLYB (QUOTE STRUCTURE-INSERT)
+	    (QUOTE ALGS)
+	    (OR (AND (LISTP BA1)
+		     (EQ (CAR BA1)
+			 (QUOTE APPLYB))
+		     (EVAL (SUBST (QUOTE INV)
+				  (QUOTE ALGS)
+				  BA1)))
+		BA1)
+	    (OR (AND (LISTP BA2)
+		     (EQ (CAR BA2)
+			 (QUOTE APPLYB))
+		     (EVAL (SUBST (QUOTE INV)
+				  (QUOTE ALGS)
+				  BA2)))
+		BA2)
+	    BA3])
+
+(STRUCHECK
+  [LAMBDA (S)
+    (AND (LISTP S)
+	 (CONS (CAR S)
+	       (SELECTQ (CAR S)
+			[CLASS (SORT (SELF-INT (CDR S]
+			(OSET (SELF-INT (CDR S)))
+			(BAG (SORT (CDR S)))
+			(CDR S])
+
+(STRUCTYP?
+  [LAMBDA (BA1 BA2 BA3)
+    [SETQ GTEMP3 (CAR (SOME (PROGN (SETQ GTEMP2 (LIST (QUOTE EMPTY-STRUC)
+						      (QUOTE SET-STRUC)
+						      (QUOTE BAG-STRUC)
+						      (QUOTE OSET-STRUC)
+						      (QUOTE LIST-STRUC)))
+				   (OR (AND BA3 (FMEMB BA3 GTEMP2)
+					    (ATTACH BA3 (DREMOVE BA3 GTEMP2)))
+				       GTEMP2))
+			    (FUNCTION (LAMBDA (S)                               (* Maybe the following is too much to 
+										really go thru)
+				(OR (FMEMB S (APPLY* (QUOTE UP)
+						     BA2))
+				    (FMEMB BA2 (APPLY* (QUOTE ACEX)
+						       S))
+				    (APPLYB S (QUOTE DEFN)
+					    BA2]
+    [OR (AND BA3 (NEQ BA3 GTEMP3)
+	     BA2
+	     (SETQ GTEMP1 (APPLY* (QUOTE VIEW)
+				  BA3 BA2 GTEMP3 NIL T))
+	     (SETQ GTEMP3 BA3)
+	     (SETQ BA2 GTEMP1))
+	(AND (NOT GTEMP3)
+	     (SETQ GTEMP3 (OR BA3 (RAND-MEMB GTEMP2]
+    BA2])
+
+(STRUCTYPE
+  [LAMBDA (L ADVI)
+    (ANY1OF (SELECTQ (CAR L)
+		     (VECTOR (QUOTE LIST-STRUC))
+		     (CLASS (QUOTE SET-STRUC))
+		     (BAG (QUOTE BAG-STRUC))
+		     (OSET (QUOTE OSET-STRUC))
+		     NIL)
+	    (PROGN (STRUCTYP? NIL L ADVI)
+		   GTEMP3])
+
+(SUB-ONCE
+  [LAMBDA (X Y L Z)
+    (ANY1OF (COND
+	      [(SETQ Z (FMEMB Y L))
+		(NCONC (LDIFF L Z)
+		       (CONS X (CDR Z]
+	      (T L))
+	    (COND
+	      ((NULL L)
+		NIL)
+	      ((EQ (CAR L)
+		   Y)
+		(CONS X (CDR L)))
+	      (T (CONS (CAR L)
+		       (SUB-ONCE X Y (CDR L])
+
+(SUBSET-INVOLVING-ONLY
+  [LAMBDA (XSET V)
+    [SETQ V (SET-DIFF BA-LIST2 (COND
+			((ATOM V)
+			  (LIST V))
+			(T V]
+    (CONS (QUOTE AND)
+	  (SUBSET XSET (FUNCTION (LAMBDA (X)
+		      (NOT (INTERSECTION V (FLATTEN X])
+
+(SUGGEST
+  [LAMBDA (B P C)                                                               (* Some advice is rolling in about how 
+										to deal with part P of Being B;
+										namely, we are getting a 
+										pseudo-candidate, C)
+    (INCRB B (QUOTE AID)
+	   (LIST P C])
+
+(SWHY
+  [NLAMBDA (I X)
+    (COND
+      [(IGREATERP VERBOSITY (EVAL I))
+	(SETQ GWHY (MAPCAR X (QUOTE INVQ]
+      (T (SETQ MWHY (MAPCAR X (QUOTE INVQ)))
+	 NIL])
+
+(SWITCH
+  [NLAMBDA (C1 C2 CTEMP)
+    (SETQ CTEMP (EVAL C1))
+    (SET C1 (EVAL C2))
+    (SET C2 CTEMP])
+
+(SYM-XEQ
+  [LAMBDA (X)
+    (COND
+      [(ATOM X)
+	(COND
+	  ((NEQ (EVALV X)
+		(QUOTE NOBIND))
+	    (LIST (EVALV X]
+      ((LISTP X)
+	(SELECTQ (ARGTYPE (CAR X))
+		 ((0 2)                                                         (* It evals its args)
+		   (AND (EVERY (CDR X)
+			       (QUOTE SYM-XEQ))
+			(ERRORSET X)))
+		 ((1 3)                                                         (* It does not eval its args)
+		   (ERRORSET X))
+		 NIL])
+
+(TIMES1000
+  [LAMBDA (X Y)
+    (RMUL (EVAL X)
+	  (EVAL Y)
+	  1000])
+
+(TLOOP
+  [LAMBDA NIL
+    (CPRIN1 1 CRLF "Entering AM's main loop now" DCR)
+    (PROG NIL
+      L1  (PICK-CAND)
+          (XEQ-CAND)
+          (OR (UPDATE)
+	      (RETURN GCNT))
+          (GO L1))
+    (CPRIN1 0 CRLF "Halting AM's main loop after " GCNT " iterations" DCR TAB "To continue, interrupt and type (TLOOP)" 
+	    DCR TAB "To re-start, just sit and wait 10 seconds" DCR TAB "To exit, interrupt and Retfrom(Start)" DCR DCR)
+    (DISMISS 10000)
+    GCNT])
+
+(TRI
+  [NLAMBDA X
+    (CONS (QUOTE TRI)
+	  X])
+
+(TRIANGLE-ORIENTATION
+  [LAMBDA (A)
+    (SORT (LIST [SQ (SLOPE (LIST (QUOTE LIN)
+				 (CADR A)
+				 (CADDR A]
+		[SQ (SLOPE (LIST (QUOTE LIN)
+				 (CADDDR A)
+				 (CADDR A]
+		(SQ (SLOPE (LIST (QUOTE LIN)
+				 (CADDDR A)
+				 (CADR A])
+
+(TYPE
+  [NLAMBDA X
+    (EVAL (CAR (FLAST X])
+
+(UNFORGETTABLE
+  [LAMBDA (B P I F ARG1)
+
+          (* Each C-SUGGESTS part is ordered: first, when to definitely reject recognition;
+	  next, when to definitely accept it. If it accepts, the being decides on part P, interest level I, 
+	  function to do to it F, args A, reason W, and then returns 
+	  ((F B P . A) I (W)))
+
+
+    (APPLYB B (QUOTE SUGG)
+	    INTHRESH])
+
+(UNORD-CK1
+  [LAMBDA NIL
+    (AND [IS-CON (SETQ GTEMP4 (GLUE CS-B (QUOTE INSERT]
+	 (SETQ GEXISTING (SETB CS-B (QUOTE EXS)
+			       (MAPCAR (GETB CS-B (QUOTE EXS))
+				       (FUNCTION (LAMBDA (Z)
+					   [COND
+					     ([NOT (EQUAL (APPEND Z)
+							  (SETQ GTEMP135 (CONS (CAR Z)
+									       (SORT (CDR Z)
+										     (QUOTE SORD]
+					       (SETQ GCEKNT (ADD1 GCEKNT]
+					   GTEMP135])
+
+(UNTANGLE-ARGS
+  [LAMBDA (CUR ULT CBAL PBAL)                                                   (* If this takes uptoo much time, 
+										consider a new facet, ARGS, which holds 
+										the dominant reordering if one exists)
+    (COND
+      ((EQ ULT CUR)                                                             (* Actually, we want to stop if ISAG, 
+										ISA, etc.)
+	CBAL)
+      ((FMEMB (QUOTE COALESCE)
+	      (GETB CUR (QUOTE IN-RAN-OF)))
+	(COND
+	  ([SOME (GETB CUR (QUOTE ALGS))
+		 (FUNCTION (LAMBDA (A)
+		     (MATCH A WITH ('TYPE 'TRANSFORM 'REDUCING-TO GTEMP54←&
+					  ('APPLYB & ('QUOTE 'ALGS)
+						   PBAL←$]                      (* Actually, shouldn't just be SOME, but
+										rather a careful "best" choice to take 
+										us toward ULT)
+	    (UNTANGLE-ARGS GTEMP54 ULT (SUBPAIR (GARGS CUR)
+						CBAL PBAL)))
+	  (T CBAL)))
+      (T                                                                        (* Other cases will go in here 
+										eventually, besides Coalesings: even 
+										simple Transforms might alter argument 
+										ordering)
+	 CBAL])
+
+(UNUM
+  [LAMBDA (N J)
+    (CONS (QUOTE BAG)
+	  (FOR J FROM 1 TO N COLLECT T])
+
+(UP-THRESH
+  [LAMBDA NIL
+    (SWHY 7 (Average of the old value of Do-thresh (LIST DO-THRESH) and the interest of the current Cand (CINT CAND)))
+    (CPRIN1S 6 CRLF Do-thresh raised)
+    (CPRIN1S 8 from DO-THRESH)
+    [SETQ DO-THRESH (DOTPROD (LIST .8 .2)
+			     (LIST DO-THRESH (SMALLER 1000 (CINT CAND]
+    (CPRIN1S 7 to DO-THRESH)
+    DO-THRESH])
+
+(UPDATE
+  [LAMBDA NIL
+    (SETQ CTSPAN (IDIFFERENCE (CLOCK 2)
+			      CBEGIN))
+    [COND
+      ((AND CVAL (NEQ CORG (COUNT CVAL)))
+	(UP-THRESH)
+	(EPRIN1S (IDIFFERENCE 3 GCNT)
+		 because this last Cand succeeded COMMA so we raise our hopes DASH DASH
+		   and our standards DASH DASH temporarily)
+	(CPRIN1S 7 DCR))
+      (T (SETQ DO-THRESH (SUB1 DO-THRESH]
+    (SETQ INTHRESH (IN-FACTOR DO-THRESH))
+    (CPRIN1S 7 CRLF This Cand used (QUOTIENT CTSPAN 1000.0)
+	     cpu seconds DCR)
+    (CPRIN1 10 CRLF "The final value returned by this candidate was: " CVAL CRLF)
+    (CPRIN1 6 CRLF)
+    (PRUNE INTHRESH)
+    (SETQ PAST (CONS (MAKE-CAND (CACT CAND)
+				(CINT CAND)
+				(CWHY CAND)
+				CVAL)
+		     (DREMOVE (CAR (FLAST PAST))
+			      PAST)))
+    (DO-KILS)
+    (INCR ACEXPIRE)
+    (INCR GCNT])
+
+(USED-YET
+  [LAMBDA (N B)
+    (SOME (CDAR (CDDDAR (FNTH G-IF N)))
+	  (FUNCTION (LAMBDA (B1)
+	      (ISAG B B1])
+
+(VECTOR
+  [NLAMBDA X
+    (CONS (QUOTE VECTOR)
+	  X])
+
+(VERTEX
+  [LAMBDA (A)
+    (CADDR A])
+
+(XEQ-CAND
+  [LAMBDA NIL
+    (CPRIN1 4 CRLF)
+    (SETQ CBEGIN (CLOCK 2))
+    (SETQ CVAL (EVAL CS-ACT])
+)
+(DEFINEQ
+
+(INIT1
+  [LAMBDA NIL
+    (CLDISABLE (QUOTE -))
+    (SETQ MKSWAPSIZE 64)
+    (SETQQ NOSWAPFNS (SETB GETB UPDATE))                                        (* Decide later what these fns are)
+    (WIDEPAPER NIL)
+    (RAISE)
+    [INTERRUPTCHAR 24 (QUOTE (PROGN (TERPRI)
+				    (PRIN1 " *** BACKTRACING:")
+				    (TERPRI)
+				    (AM-BT)
+				    (TERPRI)
+				    (PRIN1 "*** END OF BACKTRACE")
+				    (TERPRI]
+    (INTERRUPTCHAR 25 (QUOTE (CPRIN1S -1 CRLF (LENGTH CANDS)
+				      Cands COMMA (LENGTH CONCEPTS)
+				      Concepts COMMA Gcnt is GCNT DCR)))
+    (INTERRUPTCHAR 9 (QUOTE (HANDLE-I-INTERRUPT)))
+    [INTERRUPTCHAR 26 (QUOTE (PROGN (TERPRI)
+				    (PRIN1 " *** INTEREST ")
+				    (PRIN1 DO-THRESH)
+				    (PRIN1 ", ")
+				    (PRIN1 INTHRESH)
+				    (PRIN1 ", NCANDS=")
+				    (PRIN1 (LENGTH CANDS))
+				    (PRIN1 ", CAND=")
+				    (PRINT CAND]
+    (TERPRI)
+    (PRIN1 "YOU PROBABLY WANT TO LOAD IN THE FILE CON6 NOW")
+    (RANDSET RANDSTATE)
+    (TERPRI])
+
+(INIT-COMP
+  [LAMBDA NIL
+    [COND
+      ((NOT (GETD (QUOTE GETTOPVAL)))
+	(MOVD (QUOTE CAR)
+	      (QUOTE GETTOPVAL))
+	(MOVD (QUOTE CDR)
+	      (QUOTE GETPROPLIST))
+	[PUTD (QUOTE SETTOPVAL)
+	      (QUOTE (LAMBDA (X Y)
+		       (CAR (FRPLACA X Y]
+	[PUTD (QUOTE SETPROPLIST)
+	      (QUOTE (LAMBDA (X Y)
+		       (CDR (FRPLACD X Y]
+	[PUTD (QUOTE /SETTOPVAL)
+	      (QUOTE (LAMBDA (X Y)
+		       (CAR (/RPLACA X Y]
+	[PUTD (QUOTE /SETPROPLIST)
+	      (QUOTE (LAMBDA (X Y)
+		       (CDR (/RPLACD X Y]
+	(NCONC LISPXFNS (QUOTE ((SETTOPVAL . /SETTOPVAL)
+				(SETPROPLIST . /SETPROPLIST]
+    [COND
+      ((NOT (GETD (QUOTE GETFILEPTR)))
+	(MOVD (QUOTE SFPTR)
+	      (QUOTE GETFILEPTR))
+	(PUTD (QUOTE SETFILEPTR)
+	      (QUOTE (LAMBDA (FILE PTR)
+		       (PROG1 PTR (SFPTR FILE PTR]
+    (DEFLIST [QUOTE ((GETTOPVAL ((X)
+				 (CAR X)))
+		     (GETPROPLIST ((X)
+				   (CDR X]
+	     (QUOTE MACRO])
+
+(INIT-C
+  [LAMBDA (R1)
+    [OR (FGETD (QUOTE GETP))
+	(PUTD (QUOTE GETP)
+	      (GETD (QUOTE GETPROPLIST]
+    (MOVD (QUOTE SETB)
+	  (QUOTE SLOW-SETB))
+    (MOVD (QUOTE OR)
+	  (QUOTE ANY-OF))
+    (MOVD (QUOTE AND)
+	  (QUOTE EACH1OF))
+    (MOVD (QUOTE GETP)
+	  (QUOTE FGETB))
+    (MOVD (QUOTE APPLY*)
+	  (QUOTE APPLYB))
+    (MOVD (QUOTE GETP)
+	  (QUOTE GETB))
+    (MOVD (QUOTE GETP)
+	  (QUOTE INIT-PART))
+    (MOVD (QUOTE APPEND)
+	  (QUOTE ALL-OF))
+    (MOVD (QUOTE CAR)
+	  (QUOTE IPRED))
+    (MOVD (QUOTE CAR)
+	  (QUOTE ANY1OFE))
+    (MOVD (QUOTE CADR)
+	  (QUOTE IDEF))
+    (MOVD (QUOTE CADR)
+	  (QUOTE PINT))
+    (MOVD (QUOTE CAAR)
+	  (QUOTE P-OP))
+    (MOVD (QUOTE CADAR)
+	  (QUOTE P-B))
+    (MOVD (QUOTE CADDAR)
+	  (QUOTE P-P))
+    (MOVD (QUOTE CDDDAR)
+	  (QUOTE PARG))
+    (MOVD (QUOTE CADDR)
+	  (QUOTE PWHY))
+    (MOVD (QUOTE CADDDR)
+	  (QUOTE P-V))
+    (MOVD (QUOTE CADDR)
+	  (QUOTE IVAL))
+    (MOVD (QUOTE CDR)
+	  (QUOTE IFEATURES))
+    (MOVD (QUOTE CDAR)
+	  (QUOTE IMAT))
+    (MOVD (QUOTE CADR)
+	  (QUOTE IFEA))
+    (MOVD (QUOTE CADAR)
+	  (QUOTE CSINT))
+    (MOVD (QUOTE CDR)
+	  (QUOTE CSOTHERS))
+    (MOVD (QUOTE CAR)
+	  (QUOTE CSBEST))
+    (MOVD (QUOTE CADR)
+	  (QUOTE CINT))
+    (MOVD (QUOTE CAAR)
+	  (QUOTE COP))
+    (MOVD (QUOTE CDDDAR)
+	  (QUOTE CARG))
+    (MOVD (QUOTE CADDR)
+	  (QUOTE CWHY))
+    (MOVD (QUOTE LIST)
+	  (QUOTE MAKE-CAND))
+    (MOVD (QUOTE CADAR)
+	  (QUOTE CB))
+    (MOVD (QUOTE CADDAR)
+	  (QUOTE CP))
+    (MOVD (QUOTE CAR)
+	  (QUOTE CACT))
+    (SETQ HCON NIL)
+    [SETQ SYN-LIST (SUBSET SYN-LIST (FUNCTION (LAMBDA (AB)
+			       (IS-CON (CDR AB]                                 (* We will use the system hash list 
+										instead of: (SETQ HCON 
+										(HARRAY 503)))
+    (SETQ RANU (QUOTE DOUG))
+    (SETQ RANC (QUOTE ANYB))
+    (SETQQ RANF RAND-USER)
+    (SETQ CIRC (HARRAY 500))
+    (PUTHASH (QUOTE RAND-OBJ)
+	     (QUOTE RAND-USER)
+	     CIRC)
+    (PUTHASH (QUOTE RAND-USER)
+	     (QUOTE RAND-CON)
+	     CIRC)
+    (PUTHASH (QUOTE RAND-CON)
+	     (QUOTE RAND-OBJ)
+	     CIRC)
+    [MAPC FACETS (FUNCTION (LAMBDA (P)
+	      (SETPROPLIST P (GETPROPLIST (GLUE (QUOTE ANYB)
+						P)))
+
+          (* Notice that if we really want to store meaningful properties on the Facets' value cells, we must 
+	  remove this clobberer. This has the effect of correcting any mistaken P instead of 
+	  (QUOTE P) errors.)
+
+
+	      (SET P P]
+    (SETQ OBJX (EXS OBJECT))
+    [MAPC CONCEPTS (FUNCTION (LAMBDA (B)
+	      (COND
+		((NOT (ISYN B))
+		  (PUTHASH B B HCON)
+		  (SET B TRIV-BVAL)                                             (* Notice that if more than "from-file" 
+										is to be stored, then the 
+										list-structures that form the values of 
+										the Beings must not be identical)
+										(* Unnecessary because Defb now does 
+										this: (PUTD B (COPY TRIVB)))
+
+          (* a factor of 4 in speedup of (Ripple B (QUOTE Genl)) could be achieved by replacing each member of
+	  each Genl by (List itself), then Rplacd each such small list G to 
+	  (Getb (Car G) (QUOTE Genl)). Then a Ripple is just 
+	  (Self-int (Flatten (Getp B (QUOTE Genl)))))
+
+
+		  (DEFB B]
+    [MAPC SYN-LIST (FUNCTION (LAMBDA (AB)
+	      (RENAM-SYN (CAR AB)
+			 (CDR AB]
+    [MAP (SETQ R1 (DRAND-PERMUTE (COPY CONCEPTS)))
+	 (FUNCTION (LAMBDA (C)
+	     (PUTHASH (CAR C)
+		      (CADR C)
+		      CIRC]                                                     (* Here we have randomly permuted all 
+										existing concepts, then linked them in 
+										that order in the hash table CIRC)
+    (PUTHASH (CAR (LAST R1))
+	     (CAR R1)
+	     CIRC)                                                              (* We have just pointed the last such 
+										permuted concept to the first, to 
+										complete the circle)
+    [MAP (SETQ R1 (RAND-PERMUTE USERNAMES))
+	 (FUNCTION (LAMBDA (C)
+	     (PUTHASH (CAR C)
+		      (CADR C)
+		      CIRC]                                                     (* Form a similar circularly linked list
+										for generating random usernames)
+    (PUTHASH (CAR (LAST R1))
+	     (CAR R1)
+	     CIRC)
+    (CPRIN1 0 CRLF "There are " (LENGTH CONCEPTS)
+	    " concepts in this incarnation of AM." CRLF)
+    (SETQ SUF1 CIRC)
+    (SETQ SUF2 NIL)
+    (SETQ SWSUF NIL)
+
+          (* We can overlay these three harrays onto CIRC and the system hash array: 
+	  (SETQ SUF1 (HARRAY 5)) (SETQ SUF2 (HARRAY 5)) (SETQ SWSUF 
+	  (HARRAY 10)))
+
+
+    [MAPC SUF-PARTS (FUNCTION (LAMBDA (FACET)
+	      (PUTHASH FACET (PACK (LIST FACET 1))
+		       SUF1)
+	      (PUTHASH FACET (PACK (LIST FACET 2))
+		       SUF2)
+	      (PUTHASH (GETHASH FACET SUF2)
+		       (GETHASH FACET SUF1)
+		       SWSUF)
+	      (PUTHASH (GETHASH FACET SUF1)
+		       (GETHASH FACET SUF2)
+		       SWSUF]
+    (MAPC SWORDS (QUOTE SELF))
+    (CPRIN1 0 CRLF "Initialization completed. To start AM, type (START)" CRLF)
+    (QUOTE OK])
+)
+  (RPAQQ FACETS
+	 (WORTH ALGS ANAS CHECK CHECK1 CHECK2 D-R DEFN DEFN-NEC DEFN-SUF EXS EXS-BDY EXS-NOT EXS-NOT-BDY FILLIN FILLIN1 
+		FILLIN2 GENL IN-DOM-OF IN-RAN-OF INT INTU INV SPEC SUGG TIES UP UP-NOT VIEW))
+(DEFINEQ
+
+(WORTH
+  [NLAMBDA (B)
+    (PGET (QUOTE WORTH)
+	  B])
+
+(ALGS
+  [NLAMBDA (B)
+    (RIPPLE-UNTIL-P B (QUOTE GENL)
+		    (QUOTE ALGS])
+
+(ANAS
+  [NLAMBDA (B BA1 BA2 BA3)
+    (PXEQ (QUOTE ANAS)
+	  B BA1 BA2 BA3])
+
+(CHECK
+  [NLAMBDA (B BA1 BA2 RS PP P RRS)
+    (SETQ RS (RIPPLE B (QUOTE GENL)))
+    [COND
+      ((NOT (FMEMB (QUOTE ANYB)
+		   RS))
+	(NCONC1 RS (QUOTE ANYB))
+	(NCONC RS (RIPPLE B (QUOTE UP]
+    (SETQQ PP CHECK)
+    [COND
+      ((FMEMB BA1 FACETS)
+	(SETQ PP BA1)
+	[SETQ RS (MAPCONC RS (FUNCTION (LAMBDA (R)
+			      (IS-CON-L (GLUE R BA1]
+	(SETQ RS (RIPPLE-L RS (QUOTE GENL]                                      (* RS now holds the list of places to 
+										look for checking information, ordered 
+										from the current B onward toward ANYB)
+    (COND
+      ((SETQ GEXISTING (GETB B PP))
+	(SETQ ORIG-EMP NIL)
+	(SETQ GEKNT (LENGTH GEXISTING))
+	(SETQ GAEKNT 0)
+	(SETQ GNEKNT 0)
+	(SETQ GQEKNT 0)
+	(SETQ GTEKNT 0)
+	(SETQ GCEKNT 0)                                                         (* These 2 represent: the initial number
+										of entries, the number found to be 
+										totally wrong, and the number which were
+										modified into correctness)
+	(SETQ RRS (REVERSE RS))
+
+          (* Note that we are daring to call on Check1 and CHeck2 directly, so we never pass along BA1 or BA2;
+	  this might be dangerous. For that lack, we save on locating them as free vars for no reason;
+	  BA1 will be assumed to be a part name anyway, so it is preprocessed already here)
+
+
+	(MAPC RRS (QUOTE CHECK1))                                               (* If user asks from whom the help came,
+										we can find out from RS)
+	(MAPC RS (QUOTE CHECK2))
+	(CPRIN1S 2 Checked (ENGN PP) of B)
+	[COND
+	  ((ZEROP (IPLUS GNEKNT GCEKNT GQEKNT GTEKNT GAEKNT))
+	    (CPRIN1S 4 and all entries were confirmed))
+	  (T (CPRIN1S 5 DCR TAB GEKNT entries were there initially DCR)
+	     (COND
+	       ((NOT (ZEROP GAEKNT))
+		 (CPRIN1S 5 TAB GAEKNT new examples were generated from these trivially DCR)))
+	     (COND
+	       ((NOT (ZEROP GCEKNT))
+		 (CPRIN1S 5 TAB GCEKNT small modifications had to be made DCR)))
+	     (COND
+	       ((NOT (ZEROP GQEKNT))
+		 (CPRIN1S 5 TAB GQEKNT were never confirmed or rejected DCR)))
+	     (COND
+	       ((NOT (ZEROP GNEKNT))
+		 (CPRIN1S 5 TAB GNEKNT had to be completely discarded DCR)))
+	     (CPRIN1S 5 TAB (LENGTH GEXISTING)
+		      entries are present now DCR)
+	     (COND
+	       ((NOT (ZEROP GTEKNT))
+		 (CPRIN1S 5 TAB GTEKNT had to be transferred elsewhere DCR]
+	(CPRIN1S 2 CRLF)
+	(GETB B PP])
+
+(CHECK1
+  [LAMBDA (B)
+    (APPLYB B (QUOTE CHECK1])
+
+(CHECK2
+  [LAMBDA (B)
+    (APPLYB B (QUOTE CHECK2])
+
+(D-R
+  [NLAMBDA (B)
+    (RIPPLE-UNTIL-P B (QUOTE GENL)
+		    (QUOTE D-R])
+
+(DEFN
+  [NLAMBDA (B BA1 BA2 BA3 BA4 TK2)
+    (COND
+      ((FMEMB B DEFN-STAK)
+	NIL)
+      ((ATTACH B DEFN-STAK)
+	[OR (NUMBERP TK2)
+	    (SETQ TK2 (IPLUS (CLOCK 2)
+			     (ITIMES CS-INT 6]
+	(SETQ CS-FAIL NIL)                                                      (* There are several ways in which we 
+										can tell whether BA1 satisfies the 
+										Definition of B)
+	(PROG1 (COND
+		 ((GETB B (QUOTE DEFN))                                         (* If there is a nec&suff defn around, 
+										we just evaluate it)
+		   (APPLYB B (QUOTE DEFN)
+			   BA1 BA2 BA3 BA4))
+		 ((APPLYB B (QUOTE DEFN-SUF)
+			  BA1 BA2 BA3 BA4)                                      (* If there are suff defns around and 
+										one evals to non-null)
+		   T)
+		 ((AND (GETB B (QUOTE DEFN-NEC))
+		       (NOT (APPLYB B (QUOTE DEFN-NEC)
+				    BA1 BA2 BA3 BA4)))                          (* This AND kludge is because DEFB 
+										doesnt know to insert a clause like 
+										(DEFN-NEC T IN END))
+										(* If there are neccessary defns around 
+										and one evals to null, then BA1 can't be
+										a B)
+		   NIL)
+		 ((ILESSP TK2 (CLOCK 2))
+		   (SETQ CS-FAIL T)
+		   NIL)
+		 ([SOME (GETB B (QUOTE SPEC))
+			(FUNCTION (LAMBDA (Z)
+			    (APPLY* (QUOTE DEFN)
+				    Z BA1 BA2 BA3 BA4 TK2]                      (* If BA1 satisfies the Definition of 
+										some Specialization of B)
+										(* DANGER: If Z's definition is of the 
+										form (AND... (ISA BA1 b) ...) for the 
+										current Being b)
+		   T)
+		 ([SOME (GETB B (QUOTE GENL))
+			(FUNCTION (LAMBDA (Z)
+			    (AND (GETB Z (QUOTE DEFN-NEC))
+				 (NOT (APPLYB Z (QUOTE DEFN-NEC)
+					      BA1 BA2 BA3 BA4]                  (* If BA1 fails to satisfy the 
+										definition of any Generalization of B, 
+										then it must also not satisfy B)
+		   NIL)
+		 ((ILESSP TK2 (CLOCK 2))
+		   (SETQ CS-FAIL T)
+		   NIL)
+		 ((MEMBER BA1 (APPLY* (QUOTE EXS)
+				      B))
+		   T)
+		 ((FMEMB B (APPLY* (QUOTE UP)
+				   BA1))
+		   T)
+		 ([SOME (GETB B (QUOTE GENL))
+			(FUNCTION (LAMBDA (Z)
+			    (AND (GETB Z (QUOTE DEFN))
+				 (NOT (APPLYB Z (QUOTE DEFN)
+					      BA1 BA2 BA3 BA4 (IPLUS 50 (CLOCK 2]
+		   NIL)
+		 (T 
+
+          (* A final test, which we won't even do here, is the following: if B.Defn-nec exists, apply it;
+	  if it succeeds, then GUESS that the answer is T)
+
+
+		    (SETQ CS-FAIL T)
+		    NIL))
+	       (DREMOVE B DEFN-STAK])
+
+(DEFN-NEC
+  [NLAMBDA (B BA1 BA2 BA3 BA4)
+    (EVERY (RIPPLE B (QUOTE GENL))
+	   (FUNCTION (LAMBDA (Z)
+	       (OR (NOT (GETB Z (QUOTE DEFN-NEC)))
+		   (APPLYB Z (QUOTE DEFN-NEC)
+			   BA1 BA2 BA3 BA4])
+
+(DEFN-SUF
+  [NLAMBDA (B BA1 BA2 BA3 BA4)
+    (SOME (RIPPLE B (QUOTE SPEC))
+	  (FUNCTION (LAMBDA (Z)
+	      (APPLYB Z (QUOTE DEFN-SUF)
+		      BA1 BA2 BA3 BA4])
+
+(EXS
+  [NLAMBDA (B)
+
+          (* Since Fripple-S is fast at low (already-specific) nodes but not at high ones, we use it only to 
+	  find specializations of examples of specializations of B)
+
+
+    (ATOM-INT (MAPCONC (MAPCONC (RIPPLE B (QUOTE SPEC))
+				(QUOTE GETX))
+		       (QUOTE FRIPPLE-S])
+
+(EXS-BDY
+  [NLAMBDA (B)
+    (ATOM-INT (MAPCONC (MAPCONC (RIPPLE B (QUOTE SPEC))
+				(QUOTE GETXB))
+		       (QUOTE FRIPPLE-S])
+
+(EXS-NOT
+  [NLAMBDA (B)
+    (ATOM-INT (MAPCONC (MAPCONC (RIPPLE B (QUOTE GENL))
+				(QUOTE GETXNB))
+		       (QUOTE FRIPPLE-G])
+
+(EXS-NOT-BDY
+  [NLAMBDA (B)
+    (ATOM-INT (MAPCONC (MAPCONC (RIPPLE B (QUOTE GENL))
+				(QUOTE GETXNB))
+		       (QUOTE FRIPPLE-G])
+
+(FILLIN
+  [NLAMBDA (B BA1 BA2 RS PP RRS EPP)
+    (SETQ RS (RIPPLE-S2 B (QUOTE GENL)
+			(QUOTE UP)))
+    (SETQ PP (QUOTE FILLIN))
+    [COND
+      ((FMEMB BA1 FACETS)
+	(SETQ PP BA1)
+	(SETQ RS (RIPPLE-L [MAPCONC RS (FUNCTION (LAMBDA (R)
+					(IS-CON-L (GLUE R BA1]
+			   (QUOTE GENL]
+    [SETQ ORIG-EMP (NULL (SETQ GEXISTING (GETB B PP]
+    (SETQ GEKNT (LENGTH GEXISTING))
+    [COND
+      (ORIG-EMP (SETQ GEXISTING (INIT-PART B PP]
+    (SETQ RRS (REVERSE RS))
+    [SETQ FV1 (DREMOVE NIL (MAPCONC RRS (QUOTE FILLIN1]
+    (SETQ FL1 (LENGTH FV1))
+    (SETQ GEXISTING (NCONCB B PP (SELF-INT FV1)))                               (* Note the danger in not providing 
+										Fillin1/2 with any args except Being 
+										name)
+    [SETQ FV2 (DREMOVE NIL (MAPCONC RS (QUOTE FILLIN2]
+    (SETQ FL2 (LENGTH FV2))
+    (SETQ GEXISTING (NCONCB B PP (SELF-INT FV2)))
+    (SETQ FL3 (IPLUS FL1 FL2))
+    (SETQ FV3 (APPEND FV1 FV2))
+    (SETQ FL4 (IDIFFERENCE (LENGTH (GETB B PP))
+			   GEKNT))
+    (SETQ EPP (ENGN PP))
+    (COND
+      ((ZEROP FL4)
+	(CPRIN1 3 CRLF "Failed.  Tried to fill in new " EPP SPACE of SPACE B DCR))
+      (T (CPRIN1S 2 CRLF Filled in EPP of B DCR)
+	 (CPRIN1S 5 TAB GEKNT EPP existed originally on B DCR)
+	 (CPRIN1S 4 TAB FL3 potential new entries were just proposed DCR)
+	 (CPRIN1S 19 TAB FL1 found on Pass 1 COMMA
+				      then FL2 more derived DCR)
+	 (COND
+	   ((IGREATERP VERBOSITY 9)
+	     (CPRIN1S 9 CRLF Eliminating duplicates COMMA the newly constructed EPP are:)
+	     (PRINICE (SETQ FV3 (SELF-INT FV3)))
+	     (TERPRI))
+	   ((IGREATERP VERBOSITY 4)
+	     (CPRIN1S 4 CRLF One of these EPP is: SPACE (RAND-MEMB FV3)
+				    CRLF)))
+	 (CPRIN1S 6 After eliminating duplicate and already-known entries COMMA AM finds that DCR)
+	 (CPRIN1S 2 (COND
+		    ((EQ FL3 FL4)
+		      all)
+		    (T only))
+		  FL4 new COMMA distinct EPP of B had to be added DCR CRLF)
+	 (CPRIN1 9 CRLF)))
+    (GETB B PP])
+
+(FILLIN1
+  [LAMBDA (B)
+    (APPLYB B (QUOTE FILLIN1])
+
+(FILLIN2
+  [LAMBDA (B)
+    (APPLYB B (QUOTE FILLIN2])
+
+(GENL
+  [NLAMBDA (B)
+    (FRIPPLE-G B])
+
+(IN-DOM-OF
+  [NLAMBDA (B G P)
+    (SETQ P (QUOTE IN-DOM-OF))
+    (ATOM-INT (NCONC (SETQ G (MAPCONC (RIPPLE B (QUOTE GENL))
+				      (QUOTE GETB-P-C)))
+		     (MAPCONC G (QUOTE FRIPPLE-G])
+
+(IN-RAN-OF
+  [NLAMBDA (B G P)
+    (SETQ P (QUOTE IN-RAN-OF))
+
+          (* Should we somehow go in the SPEC direction too or instead? For example, add on all of these: 
+	  (MAPCONC (FRIPPLE-S B) (QUOTE GETB-P-C)), plus all of THEIR specializations, etc.)
+
+
+    (ATOM-INT (NCONC (SETQ G (MAPCONC (RIPPLE B (QUOTE GENL))
+				      (QUOTE GETB-P-C)))
+		     (MAPCONC G (QUOTE FRIPPLE-G])
+
+(INT
+  [NLAMBDA (B BA1 BA2 BA3)
+    (PXEQ (QUOTE INT)
+	  B BA1 BA2 BA3])
+
+(INTU
+  [NLAMBDA (B BA1 BA2 BA3)
+    (PXEQ (QUOTE INTU)
+	  B BA1 BA2 BA3])
+
+(INV
+  [NLAMBDA (B BA1 BA2 BA3 BA4)
+    (PXEQ (QUOTE INV)
+	  B BA1 BA2 BA3 BA4])
+
+(SPEC
+  [NLAMBDA (B)
+    (FRIPPLE-S B])
+
+(SUGG
+  [NLAMBDA (B BA1 BA2 BA3)
+    (PXEQ (QUOTE SUGG)
+	  B BA1 BA2 BA3])
+
+(TIES
+  [NLAMBDA (B)
+    (PGET (QUOTE TIES)
+	  B])
+
+(UP
+  [NLAMBDA (B)
+    (SELF-INT (MAPCONC (MAPCONC (RIPPLE B (QUOTE GENL))
+				(QUOTE GETUP))
+		       (QUOTE FRIPPLE-G])
+
+(UP-NOT
+  [NLAMBDA (B)
+    (SELF-INT (MAPCONC (MAPCONC (RIPPLE B (QUOTE GENL))
+				(QUOTE GETUPN))
+		       (QUOTE FRIPPLE-G])
+
+(VIEW
+  [NLAMBDA (B BA1 BA2 BA3 BA4 RS VV)                                            (* B is the name of the type we wish to 
+										convert the given to)
+										(* BA1 is the given structure to be 
+										converted)
+										(* BA2 is the name of the given 
+										structure's type)
+										(* BA4 is a flag which indicates whether
+										this is a top-level call or not)
+										(* This lets us supply RS if we know it,
+										so as not to keep recomputing it)
+    [OR RS (SETQ RS (RIPPLE-L (LIST B)
+			      (QUOTE GENL]
+
+          (* 3 ways to do this: all non-top-level calls to View use an extra flag;
+	  all toplevel calss insert this extra T argument; inside View here, we check to see if 
+	  (CDR CAND) matches (VIEW B BA1...))
+
+                                                                                (* Tentative choice: All non-top-level 
+										calls must set BA4 non-null)
+    (CPRIN1S [SUB1 (SETQ VV (COND
+		       (BA4 91)
+		       (T 7]
+	     CRLF Viewed BA1 COMMA which is a BA2 COMMA as a B DCR)
+    (COND
+      ((SOME-EBP RS (QUOTE VIEW)
+		 B BA1 BA2 BA3 BA4)
+	(CPRIN1S VV TAB The actual viewing was done by GSOME-ELE COMMA who said it was)
+	(SELECTQ (LENGTH GSOME-VAL)
+		 (0 (CPRIN1S VV unviewable DCR))
+		 (1 (CPRIN1S VV (CAR GSOME-VAL)
+			     DCR))
+		 (CPRIN1S VV any of these COLON CRLF TAB GSOME-VAL DCR))
+	GSOME-VAL)
+      (T (CPRIN1S (ADD1 VV)
+		  TAB Failed DCR)
+	 NIL])
+)
+  (RPAQQ RANDSTATE (11780305869 . 5944084990))
+  (INIT-COMP)
+  (INIT1)
+  (ADVISE (QUOTE MAKEFILE)
+	  (QUOTE BEFORE)
+	  (QUOTE (WIDEPAPER T)))
+  (ADVISE (QUOTE MAKEFILE)
+	  (QUOTE AFTER)
+	  (QUOTE (WIDEPAPER NIL)))
+[DECLARE: DONTEVAL@LOAD DOEVAL@COMPILE DONTCOPY COMPILERVARS 
+  (ADDTOVAR NLAMA VECTOR TYPE TRI STRUC SPLIST SADD PT PAIR OSET LIN)
+  (ADDTOVAR NLAML VIEW UP-NOT UP TIES SUGG SPEC INV INTU INT IN-RAN-OF IN-DOM-OF GENL FILLIN EXS-NOT-BDY EXS-NOT 
+	    EXS-BDY EXS DEFN-SUF DEFN-NEC DEFN D-R CHECK ANAS ALGS WORTH SWITCH SWHY SETBQ SELF-COMPILE SELF Q INCR 
+	    GETBQ)
+]
+(DECLARE: DONTCOPY
+  (FILEMAP (NIL (3247 106040 (GET-NAMES 3259 . 3807) (GET-SEEN 3811 . 6540) (GET-UCON 6544 . 7782) (GET-VERBO 7786 .
+9017) (GET-WAIT 9021 . 10138) (GETARGS 10142 . 10192) (GETB-OR 10196 . 10261) (GETB-P 10265 . 10304) (GETB-P-C 10308
+. 10355) (GETBQ 10359 . 10400) (GETFNAME 10404 . 10455) (GETU 10459 . 10518) (GETUP 10522 . 10576) (GETUPN 10580 .
+10639) (GETX 10643 . 10697) (GETXB 10701 . 10760) (GETXNB 10764 . 10828) (GEXADD 10832 . 10905) (GFNAME 10909 . 11092)
+(GFNAMES 11096 . 11177) (GLUE 11181 . 11435) (GLUE-CANO 11439 . 11526) (GLUE-IF-ABLE 11530 . 12362) (GLUEC 12366 .
+12448) (GLUEE 12452 . 12661) (GRAND-STRUC 12665 . 12978) (GS-CHECK 12982 . 13409) (GTRANSFER 13413 . 14019) (
+HANDLE-CANON 14023 . 19298) (HANDLE-I 19302 . 19901) (HANDLE-I-INTERRUPT 19905 . 22080) (HANDLE-I1 22084 . 23881)
+(HANDLE-N 23885 . 24167) (I-USED 24171 . 24226) (I-USED2 24230 . 24324) (I-USED3 24328 . 24413) (IAD2 24417 . 24868)
+(IAD3 24872 . 25110) (IDI2 25114 . 25568) (IDI3 25572 . 25918) (IDIV 25922 . 26466) (IMATRIX 26470 . 26497) (IN-A-LOOP
+26501 . 26900) (IN-FACTOR 26904 . 26997) (INCR 27001 . 27050) (INCR-TIE 27054 . 27361) (INCR-USED 27365 . 27842) (INCRB
+27846 . 28145) (INDUCE-CANON-STYPE 28149 . 29949) (INIT-VARS 29953 . 30854) (INS1CAND 30858 . 31074) (INSTAN-1D 31078
+. 33125) (INSTAN-1I 33129 . 33181) (INSTAN-1S 33185 . 33221) (INSTAN-ACT-TRANS 33225 . 35045) (INSTAN-BASE 35049 .
+35364) (INSTAN-D 35368 . 35561) (INSTAN-I 35565 . 35626) (INSTAN-PAT 35630 . 36255) (INSTAN-REC 36259 . 37117) (INSTAN-S
+37121 . 37182) (INSTAN-TRANSF 37186 . 38717) (INT-CONS 38721 . 39212) (INT-ENUF 39216 . 40177) (INT-PREDS 40181 .
+40414) (INTERCEPT 40418 . 40751) (INV-EX 40755 . 40877) (INV-STYP 40881 . 41309) (INVOP-SUG 41313 . 42124) (INVQ 42128
+. 42201) (IS-CON 42205 . 42250) (IS-CON-L 42254 . 42318) (IS-CONN 42322 . 42433) (IS-CONSTANTT 42437 . 42491) (IS-ONE-OF
+42495 . 42658) (ISA 42662 . 43774) (ISA1 43778 . 44379) (ISAG 44383 . 44500) (ISAS 44504 . 44621) (ISQ 44625 . 44678)
+(ISYN 44682 . 44733) (IVOP-CHK1 44737 . 45341) (IVOP-FIL1 45345 . 46296) (KILB 46300 . 47171) (KINDS-OF 47175 . 47429)
+(LAPP 47433 . 47579) (LARGER 47583 . 47656) (LASTELE 47660 . 47742) (LIN 47746 . 47795) (LINN 47799 . 47938) (LIST-DALG
+47942 . 48331) (LLOCATE 48335 . 48875) (LLOCX 48879 . 48925) (LONGEST 48929 . 49143) (LSTINSALG 49147 . 49690) (M2
+49694 . 52591) (MAKE-IDENTICAL 52595 . 52853) (MAP-JOINABLE 52857 . 53534) (MAP-REPLACE2ABLE 53538 . 54160) (
+MAP-REPLACEABLE 54164 . 54730) (MAPAPPEND 54734 . 54813) (MAX2 54817 . 55069) (MAX1 55073 . 55368) (MEAS 55372 . 55610)
+(MEAS3 55614 . 56050) (MERGE2BS 56054 . 57312) (MIN2 57316 . 57559) (MORE-INT 57563 . 57671) (MOST-OF 57675 . 57989)
+(MULT-STRUC-PAIR 57993 . 58152) (NCONCB 58156 . 58303) (NEW-CON 58307 . 58491) (NEWNAME 58495 . 58786) (NORM 58790
+. 58926) (NOT-USED-YET 58930 . 58987) (NUM-BETWEEN 58991 . 59100) (NUM-WTS 59104 . 60114) (OBJ-VU 60118 . 60394) (
+OBJX-CHK1 60398 . 60970) (ONE-ISA 60974 . 61071) (ONE-ISAG 61075 . 61174) (ORD-STRUC-PAIR 61178 . 61449) (ORDINAL
+61453 . 61593) (OSDEL-ALG 61597 . 61993) (OSET 61997 . 62048) (OSINS-ALG 62052 . 62690) (OUTA 62694 . 63006) (PAD
+63010 . 63096) (PAD1 63100 . 63160) (PADI 63164 . 63301) (PAIR 63305 . 63356) (PGET 63360 . 63457) (PICK-CAND 63461
+. 64999) (POINTP 65003 . 65075) (POR 65079 . 65219) (PRINES 65223 . 65289) (PRINICE 65293 . 65382) (PRUNABLE 65386
+. 65447) (PRUNE 65451 . 65718) (PSUF 65722 . 66383) (PT 66387 . 66434) (PUTB 66438 . 66521) (PXEQ 66525 . 67047) (Q
+67051 . 67102) (RAISE-WORTH 67106 . 67364) (RAND-ACEX-MEMB 67368 . 67449) (RAND-CON 67453 . 67514) (RAND-INCRB 67518
+. 68062) (RAND-MEMB 68066 . 68147) (RAND-OBJ 68151 . 68244) (RAND-PERMUTE 68248 . 68530) (RAND-PRED 68534 . 68583)
+(RAND-SUBSET 68587 . 68648) (RAND-THING 68652 . 68711) (RAND-USER 68715 . 68777) (RANDFMEMB 68781 . 68877) (RANDQMEMB
+68881 . 68969) (RCON 68973 . 69351) (RDIST 69355 . 69562) (REBB 69566 . 69791) (RECENTLY-TRIED 69795 . 69860) (RECTANGLE
+69864 . 70146) (REM-ALLEV 70150 . 70296) (REM-ONCE 70300 . 70529) (RENAM-SYN 70533 . 71015) (RENAME2BS 71019 . 71224)
+(RIGHT-STRUC 71228 . 71346) (RIPPLE 71350 . 71745) (RIPPLE-L 71749 . 72016) (RIPPLE-S2 72020 . 72394) (RIPPLE-UNTIL
+72398 . 72888) (RIPPLE-UNTIL-P 72892 . 73283) (RMUL 73287 . 73371) (RNUM 73375 . 73503) (RPLACINT 73507 . 73564) (
+RUN-ANAS 73568 . 73625) (RUN-OPS-TO-GET 73629 . 75101) (RUN1ANA 75105 . 75220) (S-DECODE 75224 . 75310) (SAD2 75314
+. 75610) (SAD3 75614 . 75809) (SADD 75813 . 76080) (SAFE-DEFN 76084 . 76570) (SCDR 76574 . 76670) (SELF 76674 . 76711)
+(SELF-COMPILE 76715 . 76925) (SELF-INT 76929 . 76978) (SET-DIFF 76982 . 77188) (SET-DIFFER2 77192 . 77282) (
+SET-DIFFERENCE 77286 . 77393) (SET-NTH 77397 . 77609) (SETB 77613 . 77935) (SETBQ 77939 . 77990) (SETINSALG 77994
+. 78664) (SGREATERP 78668 . 78801) (SHOWLEN 78805 . 78954) (SIDE1 78958 . 79061) (SIDE2 79065 . 79170) (SIDE3 79174
+. 79278) (SIMPLIFY1 79282 . 84037) (SIMULT-SATISFY 84041 . 85560) (SLOPE 85564 . 85862) (SMALLER 85866 . 85939) (SOFS
+85943 . 86157) (SOFS-DECODE 86161 . 86404) (SOME-EBP 86408 . 86892) (SOMEE 86896 . 87082) (SORD 87086 . 87326) (SORTED
+87330 . 87400) (SORV 87404 . 87474) (SPECL1RDEF 87478 . 90931) (SPECLIZE-RECDEF 90935 . 93643) (SPECLIZE-TRANSDEF
+93647 . 95629) (SPLIST 95633 . 95903) (SQ 95907 . 95983) (SSORT 95987 . 96045) (STACK-BS 96049 . 96176) (START 96180
+. 96543) (STMEMBINV 96547 . 97054) (STRUC 97058 . 97111) (STRUC-PAIR 97115 . 97235) (STRUC-VU 97239 . 98233) (STRUCDINV
+98237 . 98734) (STRUCHECK 98738 . 98929) (STRUCTYP? 98933 . 99810) (STRUCTYPE 99814 . 100074) (SUB-ONCE 100078 . 100367)
+(SUBSET-INVOLVING-ONLY 100371 . 100596) (SUGGEST 100600 . 100884) (SWHY 100888 . 101052) (SWITCH 101056 . 101162)
+(SYM-XEQ 101166 . 101622) (TIMES1000 101626 . 101697) (TLOOP 101701 . 102174) (TRI 102178 . 102227) (
+TRIANGLE-ORIENTATION 102231 . 102474) (TYPE 102478 . 102524) (UNFORGETTABLE 102528 . 102904) (UNORD-CK1 102908 . 103318)
+(UNTANGLE-ARGS 103322 . 104441) (UNUM 104445 . 104525) (UP-THRESH 104529 . 104886) (UPDATE 104890 . 105708) (USED-YET
+105712 . 105827) (VECTOR 105831 . 105886) (VERTEX 105890 . 105928) (XEQ-CAND 105932 . 106037)) (106042 112983 (INIT1
+106054 . 107055) (INIT-COMP 107059 . 107975) (INIT-C 107979 . 112980)) (113198 124497 (WORTH 113210 . 113265) (ALGS
+113269 . 113347) (ANAS 113351 . 113428) (CHECK 113432 . 115822) (CHECK1 115826 . 115879) (CHECK2 115883 . 115936)
+(D-R 115940 . 116016) (DEFN 116020 . 118510) (DEFN-NEC 118514 . 118721) (DEFN-SUF 118725 . 118889) (EXS 118893 . 119197)
+(EXS-BDY 119201 . 119331) (EXS-NOT 119335 . 119466) (EXS-NOT-BDY 119470 . 119605) (FILLIN 119609 . 121570) (FILLIN1
+121574 . 121629) (FILLIN2 121633 . 121688) (GENL 121692 . 121733) (IN-DOM-OF 121737 . 121930) (IN-RAN-OF 121934 .
+122328) (INT 122332 . 122407) (INTU 122411 . 122488) (INV 122492 . 122575) (SPEC 122579 . 122620) (SUGG 122624 . 122701)
+(TIES 122705 . 122758) (UP 122762 . 122887) (UP-NOT 122891 . 123021) (VIEW 123025 . 124494)))))
+STOP
+
+
