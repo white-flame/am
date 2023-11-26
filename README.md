@@ -2,6 +2,8 @@
 
 These files are extracted from the SAILDART archive maintained by Bruce Baumgart, in Douglas Lenat's AM section here: https://www.saildart.org/[AM,DBL]/ 
 
+The accompanying PhD thesis can be found here: https://github.com/aindilis/eurisko-resources/blob/master/doc/ADA155378.pdf
+
 ## Execution environment
 Quoted from the thesis, page 124:
 ```
@@ -17,4 +19,6 @@ code.
 
 The `CON6` file is much newer than the others. While I grabbed the newest version, older versions still exist on the archive above and might be required instead.
 
-Any other files found in the SAILDART archive such as documentation or demonstration logs should be added as well.
+Any other applicable files found in the SAILDART archive such as documentation or demonstration logs should be added here as well.
+
+This should be in the public domain, or international equivalent, as it was funded by the USA government through ARPA. The thesis additionally encourages others to copy, modify, and use the software.
