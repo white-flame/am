@@ -23,4 +23,4 @@ Any other applicable files found in the SAILDART archive such as documentation o
 
 This should be in the public domain, or international equivalent, as it was funded by the USA government through ARPA. The thesis additionally encourages others to copy, modify, and use the software.
 
-Discord: https://discord.gg/vhsmVCwgvK (run by aindilis)
+Discord: https://discord.gg/vhsmVCwgvK
