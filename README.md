@@ -2,7 +2,7 @@
 
 These files are extracted from the SAILDART archive maintained by Bruce Baumgart, in Douglas Lenat's AM section here: https://www.saildart.org/[AM,DBL]/ 
 
-The accompanying PhD thesis can be found here: https://github.com/aindilis/eurisko-resources/blob/master/doc/ADA155378.pdf
+The accompanying PhD thesis can be found here: https://apps.dtic.mil/sti/pdfs/ADA155378.pdf
 
 ## Execution environment
 Quoted from the thesis, page 124:
