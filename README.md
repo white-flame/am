@@ -9,7 +9,7 @@ Quoted from the thesis, page 124:
 ```
 Machine: SUMEX, PDP-10, KI-10 uniprocessor, 256k core memory.
 
-Language: Interllsp, January '75 release, which occupies 140k of the total 256k, but which
+Language: Interlisp, January '75 release, which occupies 140k of the total 256k, but which
 provides a surplus "shadow space" of 256k additional words available for holding compiled
 code.
 ```
