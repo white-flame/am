@@ -19,7 +19,7 @@ code.
 
 The `CON6` file is much newer than the others. While I grabbed the newest version, older versions still exist on the archive above and might be required instead.
 
-Any other applicable files found in the SAILDART archive such as documentation or demonstration logs should be added here as well.
+Any other applicable files found in the SAILDART archive such as documentation or demonstration logs should be committed here as well. A general description of the DBL areas can be found in the EURISKO project [wiki](https://github.com/white-flame/eurisko/wiki/SAILDART-DBL-Area-Descriptions).
 
 This should be in the public domain, or international equivalent, as it was funded by the USA government through ARPA. The thesis additionally encourages others to copy, modify, and use the software.
 
